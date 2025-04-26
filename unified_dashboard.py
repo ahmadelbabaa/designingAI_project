@@ -451,168 +451,426 @@ def create_unified_dashboard(
     <html>
     <head>
         <title>HPC Station Conversion Analysis Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <style>
-            body {{
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            :root {{
+                --primary-color: #00A67D;
+                --primary-light: #5ED9B9;
+                --primary-dark: #007559;
+                --secondary-color: #3498db;
+                --accent-color: #67de91;
+                --dark-bg: #0F1720;
+                --dark-card: #1a2635;
+                --light-bg: #f0f7f4;
+                --text-light: #ffffff;
+                --text-light-secondary: rgba(255, 255, 255, 0.7);
+                --text-dark: #2c3e50;
+                --border-color: rgba(0, 166, 125, 0.2);
+                --card-bg: rgba(0, 166, 125, 0.05);
+                --success-color: #00A67D;
+                --warning-color: #f39c12;
+                --danger-color: #e74c3c;
+            }}
+            
+            * {{
+                box-sizing: border-box;
                 margin: 0;
                 padding: 0;
-                background-color: #f5f7fa;
-                color: #333;
             }}
+            
+            body {{
+                font-family: 'Inter', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: var(--dark-bg);
+                color: var(--text-light);
+                overflow-x: hidden;
+                line-height: 1.6;
+            }}
+            
             .container {{
-                max-width: 1400px;
+                max-width: 1800px;
                 margin: 0 auto;
                 padding: 20px;
             }}
+            
             .dashboard-header {{
-                background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+                background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
                 color: white;
-                padding: 30px;
-                border-radius: 10px;
+                padding: 40px;
+                border-radius: 16px;
                 margin-bottom: 30px;
                 text-align: center;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                box-shadow: 0 10px 30px rgba(0, 166, 125, 0.2);
+                position: relative;
+                overflow: hidden;
             }}
+            
+            .dashboard-header::before {{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0 0 L50 0 L0 50 Z" fill="rgba(255,255,255,0.05)"/><path d="M100 0 L100 50 L50 0 Z" fill="rgba(255,255,255,0.05)"/><path d="M0 100 L0 50 L50 100 Z" fill="rgba(255,255,255,0.05)"/><path d="M100 100 L50 100 L100 50 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+                z-index: 0;
+            }}
+            
+            .dashboard-header::after {{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at top right, rgba(103, 222, 145, 0.2), transparent 60%);
+                z-index: 0;
+            }}
+            
+            .header-content {{
+                position: relative;
+                z-index: 1;
+            }}
+            
             h1 {{
                 margin: 0;
-                font-size: 2.5em;
+                font-size: 2.8em;
+                font-weight: 700;
+                letter-spacing: -0.5px;
+                background: linear-gradient(to right, var(--text-light), var(--primary-light));
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
             }}
+            
             .dashboard-header p {{
-                margin-top: 10px;
+                margin-top: 15px;
                 font-size: 1.2em;
+                font-weight: 300;
                 opacity: 0.9;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
             }}
+            
             .stats-container {{
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                 gap: 20px;
                 margin-bottom: 30px;
             }}
+            
             .stat-card {{
-                background-color: white;
-                border-radius: 10px;
+                background: linear-gradient(135deg, var(--dark-card), rgba(26, 38, 53, 0.7));
+                border-radius: 16px;
                 padding: 25px;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
                 flex: 1;
                 min-width: 200px;
                 text-align: center;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(0, 166, 125, 0.1);
             }}
+            
+            .stat-card::before {{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 4px;
+                background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            }}
+            
             .stat-card:hover {{
                 transform: translateY(-5px);
-                box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             }}
+            
             .stat-card h3 {{
-                color: #555;
+                color: var(--text-light-secondary);
                 font-size: 1em;
+                font-weight: 500;
                 margin-top: 0;
                 margin-bottom: 15px;
             }}
+            
             .stat-value {{
                 font-size: 2.5em;
-                font-weight: bold;
-                color: #1e5799;
+                font-weight: 700;
+                color: var(--primary-light);
                 margin: 10px 0;
+                text-shadow: 0 2px 10px rgba(0, 166, 125, 0.2);
             }}
+            
+            .stat-card div:last-child {{
+                font-size: 0.9em;
+                color: var(--text-light-secondary);
+                margin-top: 5px;
+            }}
+            
             .section {{
-                background-color: white;
-                border-radius: 10px;
-                padding: 25px;
+                background: linear-gradient(135deg, var(--dark-card), rgba(26, 38, 53, 0.7));
+                border-radius: 16px;
+                padding: 30px;
                 margin-bottom: 30px;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            }}
-            .section h2 {{
-                color: #1e5799;
-                border-bottom: 2px solid #eee;
-                padding-bottom: 10px;
-                margin-top: 0;
-            }}
-            .map-container {{
-                height: 600px;
-                margin-bottom: 30px;
-                border-radius: 10px;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+                border: 1px solid rgba(0, 166, 125, 0.1);
+                position: relative;
                 overflow: hidden;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
             }}
+            
+            .section::after {{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 300px;
+                height: 300px;
+                background: radial-gradient(circle, rgba(0, 166, 125, 0.1), transparent 70%);
+                z-index: 0;
+                border-radius: 50%;
+            }}
+            
+            .section h2 {{
+                color: var(--primary-light);
+                font-weight: 600;
+                padding-bottom: 15px;
+                margin-top: 0;
+                margin-bottom: 25px;
+                position: relative;
+                display: inline-block;
+            }}
+            
+            .section h2::after {{
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 3px;
+                width: 100%;
+                background: linear-gradient(to right, var(--primary-color), transparent);
+                border-radius: 2px;
+            }}
+            
+            .map-container {{
+                height: 70vh;
+                margin-bottom: 0;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+                position: relative;
+                border: 1px solid rgba(0, 166, 125, 0.2);
+            }}
+            
             .map-iframe {{
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 100%;
                 height: 100%;
                 border: none;
             }}
+            
             .tabs {{
                 display: flex;
                 margin-bottom: 20px;
-                background-color: #f0f2f5;
-                border-radius: 8px;
+                background-color: rgba(15, 23, 32, 0.7);
+                border-radius: 12px;
                 overflow: hidden;
+                padding: 5px;
+                position: relative;
+                z-index: 5;
             }}
+            
             .tab {{
-                padding: 15px 25px;
+                padding: 12px 20px;
                 cursor: pointer;
-                transition: background-color 0.3s;
+                transition: all 0.3s ease;
                 font-weight: 500;
                 flex: 1;
                 text-align: center;
+                border-radius: 8px;
+                position: relative;
+                overflow: hidden;
             }}
-            .tab:hover {{
-                background-color: rgba(30, 87, 153, 0.1);
+            
+            .tab:hover:not(.active) {{
+                background-color: rgba(0, 166, 125, 0.1);
             }}
+            
             .tab.active {{
-                background-color: #1e5799;
+                background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
                 color: white;
+                box-shadow: 0 4px 15px rgba(0, 166, 125, 0.3);
             }}
+            
+            .tab.active::before {{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+                animation: shine 2s infinite;
+            }}
+            
+            @keyframes shine {{
+                0% {{ transform: translateX(-100%); }}
+                100% {{ transform: translateX(100%); }}
+            }}
+            
             .tab-content {{
                 display: none;
+                height: 100%;
             }}
+            
             .tab-content.active {{
                 display: block;
+                height: 100%;
             }}
+            
             .chart-row {{
-                display: flex;
-                flex-wrap: wrap;
-                gap: 30px;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                gap: 25px;
                 margin-bottom: 30px;
             }}
+            
             .chart-container {{
                 flex: 1;
                 min-width: 300px;
-                background-color: white;
-                border-radius: 10px;
-                padding: 20px;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                background: linear-gradient(135deg, var(--dark-card), rgba(26, 38, 53, 0.7));
+                border-radius: 16px;
+                padding: 25px;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+                border: 1px solid rgba(0, 166, 125, 0.1);
+                position: relative;
+                overflow: hidden;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
             }}
+            
+            .chart-container:hover {{
+                transform: translateY(-5px);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            }}
+            
             .chart-title {{
-                font-size: 1.2em;
-                margin-bottom: 15px;
-                color: #1e5799;
+                font-size: 1.1em;
+                font-weight: 600;
+                margin-bottom: 20px;
+                color: var(--primary-light);
+                position: relative;
+                display: inline-block;
             }}
+            
+            .chart-title::after {{
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -5px;
+                height: 2px;
+                width: 40px;
+                background: var(--primary-color);
+                border-radius: 2px;
+            }}
+            
             .chart-img {{
                 width: 100%;
-                border-radius: 5px;
+                border-radius: 10px;
+                transition: transform 0.3s ease;
             }}
+            
+            .chart-container:hover .chart-img {{
+                transform: scale(1.02);
+            }}
+            
             footer {{
                 text-align: center;
                 margin-top: 50px;
-                padding: 20px;
-                color: #888;
+                padding: 30px 20px;
+                color: var(--text-light-secondary);
                 font-size: 0.9em;
+                position: relative;
             }}
-            @media (max-width: 1000px) {{
+            
+            footer::before {{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 200px;
+                height: 1px;
+                background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+            }}
+            
+            .light-accent {{
+                position: absolute;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+                filter: blur(50px);
+                opacity: 0.05;
+                z-index: 0;
+            }}
+            
+            #accent1 {{ top: 10%; left: 5%; }}
+            #accent2 {{ bottom: 15%; right: 5%; }}
+            
+            @media (max-width: 1200px) {{
                 .stats-container {{
-                    flex-direction: column;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
                 }}
                 .chart-row {{
-                    flex-direction: column;
+                    grid-template-columns: 1fr;
+                }}
+                h1 {{
+                    font-size: 2.2em;
+                }}
+            }}
+            
+            @media (max-width: 768px) {{
+                .dashboard-header {{
+                    padding: 30px 20px;
+                }}
+                .section {{
+                    padding: 20px;
+                }}
+                .map-container {{
+                    height: 60vh;
+                }}
+                .tab {{
+                    padding: 10px;
+                    font-size: 0.9em;
                 }}
             }}
         </style>
     </head>
     <body>
+        <div class="light-accent" id="accent1"></div>
+        <div class="light-accent" id="accent2"></div>
+        
         <div class="container">
             <div class="dashboard-header">
-                <h1>HPC Station Conversion Analysis Dashboard</h1>
-                <p>Comprehensive analysis of gas station viability for conversion to High-Power Charging stations</p>
+                <div class="header-content">
+                    <h1>HPC Station Conversion Analysis Dashboard</h1>
+                    <p>Comprehensive analysis of gas station viability for conversion to High-Power Charging stations</p>
+                </div>
             </div>
             
             <div class="stats-container">
@@ -691,7 +949,7 @@ def create_unified_dashboard(
         </div>
         
         <footer>
-            <p>HPC Station Conversion Analysis Dashboard | Created for data-driven decision making</p>
+            <p>HPC Station Conversion Analysis Dashboard | Empowering sustainable transportation through data-driven decisions</p>
         </footer>
         
         <script>
