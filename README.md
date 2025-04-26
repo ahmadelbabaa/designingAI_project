@@ -17,6 +17,8 @@ This project implements a comprehensive MLOps pipeline for analyzing gas station
 2. **HPC_integration_part2.py**: Data integration and ROI analysis
 3. **HPC_integration_part3.py**: Advanced analytics including geospatial analysis
 4. **hpc_dashboard.py**: Dashboard visualization and interactive elements
+5. **opencharge_integration.py**: Module for fetching and processing real charging station data
+6. **opencharge_dashboard.py**: Specialized dashboard for OpenChargeMap data visualization
 
 ## Setup Instructions
 
@@ -25,10 +27,33 @@ This project implements a comprehensive MLOps pipeline for analyzing gas station
    ```
    pip install -r requirements.txt
    ```
-3. Run the Jupyter notebook to execute the dashboard:
+3. Run the main dashboard:
    ```
-   jupyter notebook "HPC Dashboard Collab (1).ipynb"
+   python simple_dashboard.py
    ```
+4. Or run the OpenChargeMap dashboard:
+   ```
+   python opencharge_dashboard.py
+   ```
+
+## OpenChargeMap Integration
+
+The project includes a ready-to-use OpenChargeMap API integration with a public API key already configured for this class project:
+
+```python
+# API Key (for educational purposes only)
+OPENCHARGE_API_KEY = "b230774d-262e-4207-a003-c8576e82a454"
+```
+
+### Features:
+- Real-time charging station data from major cities
+- Interactive maps showing station locations with power level information
+- Density heatmaps revealing charging infrastructure distribution
+- Power level and connector type analytics
+- Automatic data caching to respect API rate limits
+
+### Usage:
+Run `python opencharge_dashboard.py` to fetch data from the OpenChargeMap API and generate an interactive dashboard.
 
 ## Features
 
