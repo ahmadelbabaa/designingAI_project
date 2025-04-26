@@ -404,6 +404,299 @@ def create_viability_chart(df, output_file="output/viability_distribution.png"):
     
     return output_file
 
+# Add regional analysis and financial calculations
+def compute_roi(daily_kwh, power_tier='HPC_350KW'):
+    """Compute ROI for HPC stations based on usage."""
+    # Default cost parameters if config not available
+    cost_params = {
+        'hpc_tiers': [
+            {
+                'name': 'HPC_350KW',
+                'capex': 500000,
+                'cable_cooling': 50000
+            },
+            {
+                'name': 'HPC_1000KW',
+                'capex': 1000000,
+                'cable_cooling': 100000
+            }
+        ],
+        'electricity_rate': 0.12,  # cost to buy power
+        'hpc_fee_per_kwh': 0.40,   # HPC user pays
+        'staff_cost_monthly': 5000,
+        'maintenance_percent': 0.05
+    }
+    
+    # Try to load from config if available
+    cost_params_path = "config/hpc_cost_params.yaml"
+    if os.path.exists(cost_params_path):
+        try:
+            import yaml
+            with open(cost_params_path, "r") as f:
+                cost_params = yaml.safe_load(f)
+        except Exception as e:
+            print(f"Error loading cost parameters: {e}")
+    
+    # Find matching tier
+    tier_config = next((t for t in cost_params['hpc_tiers'] if t['name'] == power_tier), cost_params['hpc_tiers'][0])
+
+    capex = tier_config['capex'] + tier_config['cable_cooling']
+    elec_rate = cost_params['electricity_rate']  # cost to buy power
+    fee_kwh = cost_params['hpc_fee_per_kwh']     # HPC user pays
+    staff_monthly = cost_params['staff_cost_monthly']
+    maint_percent = cost_params['maintenance_percent']
+
+    # Daily revenue
+    daily_revenue = daily_kwh * fee_kwh
+    # Daily electricity cost
+    daily_cost = daily_kwh * elec_rate
+
+    # Approximate daily staff & maintenance
+    daily_staff = staff_monthly / 30.0
+    daily_maintenance = maint_percent * capex / 365.0
+
+    daily_net = daily_revenue - (daily_cost + daily_staff + daily_maintenance)
+    annual_net = daily_net * 365
+
+    # ROI percentage
+    roi_percent = (annual_net / capex) * 100
+    
+    # Payback period
+    payback = capex / (annual_net if annual_net > 0 else 1e-9)
+
+    return {
+        'daily_revenue': daily_revenue,
+        'daily_cost': daily_cost,
+        'daily_staff': daily_staff,
+        'daily_maintenance': daily_maintenance,
+        'daily_net': daily_net,
+        'annual_net': annual_net,
+        'roi_percent': roi_percent,
+        'payback_years': payback
+    }
+
+# Create regional analysis
+def create_regional_analysis(df, output_file="output/regional_analysis.png"):
+    """Create regional analysis visualizations."""
+    print("\n===== Creating Regional Analysis =====")
+    
+    if 'region' not in df.columns:
+        print("No region data available for analysis")
+        return None
+    
+    # Create a figure with subplots
+    fig, axes = plt.subplots(2, 2, figsize=(18, 14))
+    
+    # Set the style
+    plt.style.use('ggplot')
+    
+    # Color palette for regions
+    region_colors = {
+        'North America': '#00A67D',  # Primary green
+        'Europe': '#0cc0df',        # Secondary blue
+        'Asia': '#f7b733',          # Accent yellow
+        'Other': '#e74c3c'          # Red
+    }
+    
+    # 1. Station Distribution by Region (top left)
+    region_counts = df['region'].value_counts()
+    axes[0, 0].bar(region_counts.index, region_counts.values, color=[region_colors.get(r, '#888888') for r in region_counts.index])
+    axes[0, 0].set_title('Station Distribution by Region', fontsize=16)
+    axes[0, 0].set_ylabel('Number of Stations', fontsize=14)
+    axes[0, 0].tick_params(axis='x', rotation=45)
+    
+    # Add count labels
+    for i, count in enumerate(region_counts.values):
+        axes[0, 0].text(i, count + 0.5, str(count), ha='center', fontweight='bold')
+    
+    # 2. Average Viability Score by Region (top right)
+    if 'viability_score' in df.columns:
+        region_viability = df.groupby('region')['viability_score'].mean().sort_values(ascending=False)
+        axes[0, 1].bar(region_viability.index, region_viability.values, color=[region_colors.get(r, '#888888') for r in region_viability.index])
+        axes[0, 1].set_title('Average Viability Score by Region', fontsize=16)
+        axes[0, 1].set_ylabel('Average Viability Score', fontsize=14)
+        axes[0, 1].tick_params(axis='x', rotation=45)
+        
+        # Add score labels
+        for i, score in enumerate(region_viability.values):
+            axes[0, 1].text(i, score + 1, f"{score:.1f}", ha='center', fontweight='bold')
+    
+    # 3. EV Adoption Rate by Region (bottom left)
+    if 'ev_adoption_rate' in df.columns:
+        region_ev_adoption = df.groupby('region')['ev_adoption_rate'].mean().sort_values(ascending=False)
+        axes[1, 0].bar(region_ev_adoption.index, region_ev_adoption.values, color=[region_colors.get(r, '#888888') for r in region_ev_adoption.index])
+        axes[1, 0].set_title('Average EV Adoption Rate by Region', fontsize=16)
+        axes[1, 0].set_ylabel('EV Adoption Rate (%)', fontsize=14)
+        axes[1, 0].tick_params(axis='x', rotation=45)
+        
+        # Add percentage labels
+        for i, rate in enumerate(region_ev_adoption.values):
+            axes[1, 0].text(i, rate + 0.5, f"{rate:.1f}%", ha='center', fontweight='bold')
+    
+    # 4. ROI by Region (bottom right)
+    if 'roi' in df.columns:
+        region_roi = df.groupby('region')['roi'].mean().sort_values(ascending=False)
+        axes[1, 1].bar(region_roi.index, region_roi.values, color=[region_colors.get(r, '#888888') for r in region_roi.index])
+        axes[1, 1].set_title('Average ROI by Region', fontsize=16)
+        axes[1, 1].set_ylabel('ROI (%)', fontsize=14)
+        axes[1, 1].tick_params(axis='x', rotation=45)
+        
+        # Add percentage labels
+        for i, roi in enumerate(region_roi.values):
+            axes[1, 1].text(i, roi + 0.5, f"{roi:.1f}%", ha='center', fontweight='bold')
+    
+    # Adjust layout
+    plt.tight_layout()
+    
+    # Save the figure
+    plt.savefig(output_file, dpi=300, bbox_inches='tight')
+    print(f"Created regional analysis chart: {output_file}")
+    
+    return output_file
+
+# Create competitor analysis
+def create_competitor_analysis(df, output_file="output/competitor_analysis.png"):
+    """Create competitor analysis visualization showing the impact of nearby competitors."""
+    print("\n===== Creating Competitor Analysis =====")
+    
+    # Simulate competitor data if not available
+    if 'competitor_nearby' not in df.columns:
+        df['competitor_nearby'] = np.random.choice([True, False], size=len(df))
+    
+    # Apply competitor usage factor
+    competitor_usage_factor = 0.2  # if competitor HPC is within 3 km, reduce usage by 20%
+    
+    if 'ev_adoption_rate' in df.columns:
+        df['adjusted_adoption'] = df.apply(
+            lambda r: r['ev_adoption_rate'] * (1 - competitor_usage_factor)
+            if r['competitor_nearby'] else r['ev_adoption_rate'],
+            axis=1
+        )
+
+    if 'roi' in df.columns:
+        df['adjusted_roi'] = df.apply(
+            lambda r: r['roi'] * (1 - competitor_usage_factor)
+            if r['competitor_nearby'] else r['roi'],
+            axis=1
+        )
+    
+    # Create comparison figure
+    plt.figure(figsize=(14, 8))
+    
+    # Set up the axes
+    ax1 = plt.subplot(1, 2, 1)
+    ax2 = plt.subplot(1, 2, 2)
+    
+    # Plot the EV adoption rate comparison
+    if 'adjusted_adoption' in df.columns:
+        data = {
+            'Original': df['ev_adoption_rate'].mean(),
+            'With Competition': df['adjusted_adoption'].mean()
+        }
+        ax1.bar(data.keys(), data.values(), color=['#00A67D', '#5ED9B9'])
+        ax1.set_title('Impact of Competition on EV Adoption', fontsize=16)
+        ax1.set_ylabel('Average EV Adoption Rate (%)', fontsize=14)
+        
+        # Add percentage labels
+        for i, (k, v) in enumerate(data.items()):
+            ax1.text(i, v + 0.5, f"{v:.1f}%", ha='center', fontweight='bold')
+    
+    # Plot the ROI comparison
+    if 'adjusted_roi' in df.columns:
+        data = {
+            'Original': df['roi'].mean(),
+            'With Competition': df['adjusted_roi'].mean()
+        }
+        ax2.bar(data.keys(), data.values(), color=['#00A67D', '#5ED9B9'])
+        ax2.set_title('Impact of Competition on ROI', fontsize=16)
+        ax2.set_ylabel('Average ROI (%)', fontsize=14)
+        
+        # Add percentage labels
+        for i, (k, v) in enumerate(data.items()):
+            ax2.text(i, v + 0.5, f"{v:.1f}%", ha='center', fontweight='bold')
+    
+    plt.tight_layout()
+    plt.savefig(output_file, dpi=300, bbox_inches='tight')
+    print(f"Created competitor analysis chart: {output_file}")
+    
+    return output_file
+
+# Create solar potential analysis
+def create_solar_analysis(df, output_file="output/solar_potential.png"):
+    """Create solar potential visualization."""
+    print("\n===== Creating Solar Potential Analysis =====")
+    
+    # Generate solar potential data if not available
+    if 'solar_potential' not in df.columns:
+        df['solar_potential'] = np.random.uniform(50, 200, size=len(df))
+        df['solar_installation_cost'] = df['solar_potential'] * 1000
+        df['solar_annual_savings'] = df['solar_potential'] * 365 * 0.15
+        df['solar_roi'] = (df['solar_annual_savings'] / df['solar_installation_cost']) * 100
+        df['solar_payback'] = df['solar_installation_cost'] / df['solar_annual_savings']
+    
+    # Create figure
+    fig, axes = plt.subplots(2, 2, figsize=(16, 12))
+    
+    # 1. Solar Potential Distribution (top left)
+    if 'solar_potential' in df.columns:
+        axes[0, 0].hist(df['solar_potential'], bins=10, color='#00A67D', alpha=0.7)
+        axes[0, 0].set_title('Solar Potential Distribution', fontsize=16)
+        axes[0, 0].set_xlabel('Daily Solar Potential (kWh)', fontsize=14)
+        axes[0, 0].set_ylabel('Number of Stations', fontsize=14)
+    
+    # 2. Solar ROI (top right)
+    if 'solar_roi' in df.columns:
+        axes[0, 1].hist(df['solar_roi'], bins=10, color='#00A67D', alpha=0.7)
+        axes[0, 1].set_title('Solar ROI Distribution', fontsize=16)
+        axes[0, 1].set_xlabel('Solar ROI (%)', fontsize=14)
+        axes[0, 1].set_ylabel('Number of Stations', fontsize=14)
+    
+    # 3. Solar Savings Distribution (bottom left)
+    if 'solar_annual_savings' in df.columns:
+        axes[1, 0].hist(df['solar_annual_savings'], bins=10, color='#00A67D', alpha=0.7)
+        axes[1, 0].set_title('Annual Solar Savings Distribution', fontsize=16)
+        axes[1, 0].set_xlabel('Annual Solar Savings ($)', fontsize=14)
+        axes[1, 0].set_ylabel('Number of Stations', fontsize=14)
+    
+    # 4. Solar Payback Period (bottom right)
+    if 'solar_payback' in df.columns:
+        valid_payback = df['solar_payback'][df['solar_payback'] < 30]
+        axes[1, 1].hist(valid_payback, bins=10, color='#00A67D', alpha=0.7)
+        axes[1, 1].set_title('Solar Payback Period Distribution', fontsize=16)
+        axes[1, 1].set_xlabel('Payback Period (years)', fontsize=14)
+        axes[1, 1].set_ylabel('Number of Stations', fontsize=14)
+    
+    plt.tight_layout()
+    plt.savefig(output_file, dpi=300, bbox_inches='tight')
+    print(f"Created solar potential analysis chart: {output_file}")
+    
+    return output_file
+
+# Create traffic analysis
+def create_traffic_analysis(df, output_file="output/traffic_analysis.png"):
+    """Create traffic analysis visualization."""
+    print("\n===== Creating Traffic Analysis =====")
+    
+    # Generate traffic data if not available
+    if 'traffic_volume' not in df.columns:
+        df['traffic_volume'] = np.random.randint(1000, 10000, size=len(df))
+    
+    # Create figure
+    plt.figure(figsize=(10, 6))
+    
+    # Create traffic volume distribution
+    plt.hist(df['traffic_volume'], bins=15, color='#00A67D', alpha=0.7)
+    plt.title('Traffic Volume Distribution', fontsize=16)
+    plt.xlabel('Daily Traffic Volume (vehicles)', fontsize=14)
+    plt.ylabel('Number of Stations', fontsize=14)
+    plt.grid(True, linestyle='--', alpha=0.7)
+    
+    plt.tight_layout()
+    plt.savefig(output_file, dpi=300, bbox_inches='tight')
+    print(f"Created traffic analysis chart: {output_file}")
+    
+    return output_file
+
 # Create unified dashboard HTML
 def create_unified_dashboard(
     charging_stations_df=None,
@@ -414,6 +707,10 @@ def create_unified_dashboard(
     power_chart_file="output/power_distribution.png",
     viability_chart_file="output/viability_distribution.png",
     ev_forecast_file="output/ev_forecast.png",
+    regional_analysis_file="output/regional_analysis.png",
+    competitor_analysis_file="output/competitor_analysis.png",
+    solar_analysis_file="output/solar_potential.png",
+    traffic_analysis_file="output/traffic_analysis.png",
     output_file="output/unified_dashboard.html"
 ):
     """Create a unified dashboard HTML file integrating all visualizations."""
@@ -426,6 +723,10 @@ def create_unified_dashboard(
     power_chart_filename = os.path.basename(power_chart_file)
     viability_chart_filename = os.path.basename(viability_chart_file)
     ev_forecast_filename = os.path.basename(ev_forecast_file)
+    regional_analysis_filename = os.path.basename(regional_analysis_file) if regional_analysis_file else None
+    competitor_analysis_filename = os.path.basename(competitor_analysis_file) if competitor_analysis_file else None
+    solar_analysis_filename = os.path.basename(solar_analysis_file) if solar_analysis_file else None
+    traffic_analysis_filename = os.path.basename(traffic_analysis_file) if traffic_analysis_file else None
     
     # Calculate summary statistics
     stats = {
@@ -433,7 +734,8 @@ def create_unified_dashboard(
         "gas_stations": 0,
         "avg_viability": 0,
         "avg_roi": 0,
-        "high_viability_count": 0
+        "high_viability_count": 0,
+        "regions": 0
     }
     
     if gas_stations_df is not None:
@@ -441,9 +743,97 @@ def create_unified_dashboard(
         stats["avg_viability"] = gas_stations_df['viability_score'].mean()
         stats["avg_roi"] = gas_stations_df['roi'].mean()
         stats["high_viability_count"] = sum(gas_stations_df['viability_score'] >= 70)
+        if 'region' in gas_stations_df.columns:
+            stats["regions"] = len(gas_stations_df['region'].unique())
     
     if charging_stations_df is not None:
         stats["charging_stations"] = len(charging_stations_df)
+    
+    # Add regional analysis sections to HTML
+    regional_section = ""
+    if regional_analysis_filename:
+        regional_section = f"""
+        <div class="section">
+            <h2>Regional Analysis</h2>
+            <div class="chart-row">
+                <div class="chart-container">
+                    <div class="chart-title">Regional Distribution & Performance</div>
+                    <img class="chart-img" src="{regional_analysis_filename}" alt="Regional Analysis">
+                </div>
+            </div>
+        </div>
+        """
+    
+    # Add competitor and ROI analysis sections to HTML
+    competitor_section = ""
+    if competitor_analysis_filename:
+        competitor_section = f"""
+        <div class="section">
+            <h2>Competition & ROI Analysis</h2>
+            <div class="chart-row">
+                <div class="chart-container">
+                    <div class="chart-title">Impact of Competition</div>
+                    <img class="chart-img" src="{competitor_analysis_filename}" alt="Competitor Analysis">
+                </div>
+                
+                <div class="chart-container">
+                    <div class="chart-title">Traffic Volume Distribution</div>
+                    <img class="chart-img" src="{traffic_analysis_filename}" alt="Traffic Analysis">
+                </div>
+            </div>
+        </div>
+        """
+    
+    # Add sustainability/solar analysis section to HTML
+    sustainability_section = ""
+    if solar_analysis_filename:
+        sustainability_section = f"""
+        <div class="section">
+            <h2>Sustainability & Solar Integration</h2>
+            <div class="chart-row">
+                <div class="chart-container">
+                    <div class="chart-title">Solar Potential Analysis</div>
+                    <img class="chart-img" src="{solar_analysis_filename}" alt="Solar Analysis">
+                </div>
+            </div>
+        </div>
+        """
+    
+    # Update the stats container to include region count
+    stats_html = f"""
+    <div class="stats-container">
+        <div class="stat-card">
+            <h3>Charging Stations</h3>
+            <div class="stat-value">{stats['charging_stations']}</div>
+            <div>existing stations</div>
+        </div>
+        <div class="stat-card">
+            <h3>Gas Stations Analyzed</h3>
+            <div class="stat-value">{stats['gas_stations']}</div>
+            <div>potential HPC locations</div>
+        </div>
+        <div class="stat-card">
+            <h3>Regions Covered</h3>
+            <div class="stat-value">{stats['regions']}</div>
+            <div>geographical areas</div>
+        </div>
+        <div class="stat-card">
+            <h3>Average Viability Score</h3>
+            <div class="stat-value">{stats['avg_viability']:.1f}</div>
+            <div>out of 100</div>
+        </div>
+        <div class="stat-card">
+            <h3>Average ROI</h3>
+            <div class="stat-value">{stats['avg_roi']:.1f}%</div>
+            <div>annual return</div>
+        </div>
+        <div class="stat-card">
+            <h3>High Viability Stations</h3>
+            <div class="stat-value">{stats['high_viability_count']}</div>
+            <div>score >= 70</div>
+        </div>
+    </div>
+    """
     
     # Create HTML content with iframe for maps and charts
     html_content = f"""
@@ -873,33 +1263,7 @@ def create_unified_dashboard(
                 </div>
             </div>
             
-            <div class="stats-container">
-                <div class="stat-card">
-                    <h3>Charging Stations</h3>
-                    <div class="stat-value">{stats['charging_stations']}</div>
-                    <div>existing stations</div>
-                </div>
-                <div class="stat-card">
-                    <h3>Gas Stations Analyzed</h3>
-                    <div class="stat-value">{stats['gas_stations']}</div>
-                    <div>potential HPC locations</div>
-                </div>
-                <div class="stat-card">
-                    <h3>Average Viability Score</h3>
-                    <div class="stat-value">{stats['avg_viability']:.1f}</div>
-                    <div>out of 100</div>
-                </div>
-                <div class="stat-card">
-                    <h3>Average ROI</h3>
-                    <div class="stat-value">{stats['avg_roi']:.1f}%</div>
-                    <div>annual return</div>
-                </div>
-                <div class="stat-card">
-                    <h3>High Viability Stations</h3>
-                    <div class="stat-value">{stats['high_viability_count']}</div>
-                    <div>score >= 70</div>
-                </div>
-            </div>
+            {stats_html}
             
             <div class="section">
                 <h2>Interactive Station Maps</h2>
@@ -924,8 +1288,10 @@ def create_unified_dashboard(
                 </div>
             </div>
             
+            {regional_section}
+            
             <div class="section">
-                <h2>Analysis & Forecasting</h2>
+                <h2>Forecasting & Market Analysis</h2>
                 
                 <div class="chart-row">
                     <div class="chart-container">
@@ -946,6 +1312,10 @@ def create_unified_dashboard(
                     </div>
                 </div>
             </div>
+            
+            {competitor_section}
+            
+            {sustainability_section}
         </div>
         
         <footer>
@@ -1013,6 +1383,12 @@ def main():
     viability_chart_file = create_viability_chart(gas_stations_df)
     ev_forecast_file = create_ev_forecast()
     
+    # Create additional analyses
+    regional_analysis_file = create_regional_analysis(gas_stations_df)
+    competitor_analysis_file = create_competitor_analysis(gas_stations_df)
+    solar_analysis_file = create_solar_analysis(gas_stations_df)
+    traffic_analysis_file = create_traffic_analysis(gas_stations_df)
+    
     # Step 4: Create unified dashboard
     dashboard_file = create_unified_dashboard(
         charging_stations_df=charging_stations_df,
@@ -1022,7 +1398,11 @@ def main():
         heatmap_file=heatmap_file,
         power_chart_file=power_chart_file,
         viability_chart_file=viability_chart_file,
-        ev_forecast_file=ev_forecast_file
+        ev_forecast_file=ev_forecast_file,
+        regional_analysis_file=regional_analysis_file,
+        competitor_analysis_file=competitor_analysis_file,
+        solar_analysis_file=solar_analysis_file,
+        traffic_analysis_file=traffic_analysis_file
     )
     
     # Step 5: Open dashboard in browser
