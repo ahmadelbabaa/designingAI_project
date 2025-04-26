@@ -41,4 +41,4 @@ This project implements a comprehensive MLOps pipeline for analyzing gas station
 ## Requirements
 
 - Python 3.7+
-- Required Python packages are listed in requirements.txt 
+- Required Python packages are listed in requirements.txt
