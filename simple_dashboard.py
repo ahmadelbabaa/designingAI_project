@@ -29,68 +29,131 @@ def generate_gas_stations(n_stations=150):
     # Define major cities with coordinates across the world
     cities = [
         # North America
-        {"name": "New York", "lat": 40.7128, "lng": -74.0060, "region": "North America", "ev_adoption_factor": 1.1},
-        {"name": "Los Angeles", "lat": 34.0522, "lng": -118.2437, "region": "North America", "ev_adoption_factor": 1.3},
-        {"name": "Chicago", "lat": 41.8781, "lng": -87.6298, "region": "North America", "ev_adoption_factor": 0.9},
-        {"name": "Houston", "lat": 29.7604, "lng": -95.3698, "region": "North America", "ev_adoption_factor": 0.8},
-        {"name": "Phoenix", "lat": 33.4484, "lng": -112.0740, "region": "North America", "ev_adoption_factor": 0.9},
-        {"name": "Philadelphia", "lat": 39.9526, "lng": -75.1652, "region": "North America", "ev_adoption_factor": 1.0},
-        {"name": "San Antonio", "lat": 29.4241, "lng": -98.4936, "region": "North America", "ev_adoption_factor": 0.8},
-        {"name": "San Diego", "lat": 32.7157, "lng": -117.1611, "region": "North America", "ev_adoption_factor": 1.2},
-        {"name": "Dallas", "lat": 32.7767, "lng": -96.7970, "region": "North America", "ev_adoption_factor": 0.85},
-        {"name": "San Francisco", "lat": 37.7749, "lng": -122.4194, "region": "North America", "ev_adoption_factor": 1.5},
-        {"name": "Austin", "lat": 30.2672, "lng": -97.7431, "region": "North America", "ev_adoption_factor": 1.2},
-        {"name": "Seattle", "lat": 47.6062, "lng": -122.3321, "region": "North America", "ev_adoption_factor": 1.4},
-        {"name": "Denver", "lat": 39.7392, "lng": -104.9903, "region": "North America", "ev_adoption_factor": 1.1},
-        {"name": "Portland", "lat": 45.5051, "lng": -122.6750, "region": "North America", "ev_adoption_factor": 1.3},
-        {"name": "Miami", "lat": 25.7617, "lng": -80.1918, "region": "North America", "ev_adoption_factor": 0.9},
+        {"name": "New York", "lat": 40.7128, "lng": -74.0060, "region": "North America", "ev_adoption_factor": 1.1, 
+         "ev_growth_rate": 0.22, "ev_sales_share": 0.08},
+        {"name": "Los Angeles", "lat": 34.0522, "lng": -118.2437, "region": "North America", "ev_adoption_factor": 1.3,
+         "ev_growth_rate": 0.25, "ev_sales_share": 0.12},
+        {"name": "Chicago", "lat": 41.8781, "lng": -87.6298, "region": "North America", "ev_adoption_factor": 0.9,
+         "ev_growth_rate": 0.18, "ev_sales_share": 0.06},
+        {"name": "Houston", "lat": 29.7604, "lng": -95.3698, "region": "North America", "ev_adoption_factor": 0.8,
+         "ev_growth_rate": 0.16, "ev_sales_share": 0.05},
+        {"name": "Phoenix", "lat": 33.4484, "lng": -112.0740, "region": "North America", "ev_adoption_factor": 0.9,
+         "ev_growth_rate": 0.17, "ev_sales_share": 0.05},
+        {"name": "Philadelphia", "lat": 39.9526, "lng": -75.1652, "region": "North America", "ev_adoption_factor": 1.0,
+         "ev_growth_rate": 0.19, "ev_sales_share": 0.07},
+        {"name": "San Antonio", "lat": 29.4241, "lng": -98.4936, "region": "North America", "ev_adoption_factor": 0.8,
+         "ev_growth_rate": 0.15, "ev_sales_share": 0.04},
+        {"name": "San Diego", "lat": 32.7157, "lng": -117.1611, "region": "North America", "ev_adoption_factor": 1.2,
+         "ev_growth_rate": 0.24, "ev_sales_share": 0.11},
+        {"name": "Dallas", "lat": 32.7767, "lng": -96.7970, "region": "North America", "ev_adoption_factor": 0.85,
+         "ev_growth_rate": 0.17, "ev_sales_share": 0.05},
+        {"name": "San Francisco", "lat": 37.7749, "lng": -122.4194, "region": "North America", "ev_adoption_factor": 1.5,
+         "ev_growth_rate": 0.28, "ev_sales_share": 0.15},
+        {"name": "Austin", "lat": 30.2672, "lng": -97.7431, "region": "North America", "ev_adoption_factor": 1.2,
+         "ev_growth_rate": 0.23, "ev_sales_share": 0.09},
+        {"name": "Seattle", "lat": 47.6062, "lng": -122.3321, "region": "North America", "ev_adoption_factor": 1.4,
+         "ev_growth_rate": 0.26, "ev_sales_share": 0.14},
+        {"name": "Denver", "lat": 39.7392, "lng": -104.9903, "region": "North America", "ev_adoption_factor": 1.1,
+         "ev_growth_rate": 0.21, "ev_sales_share": 0.08},
+        {"name": "Portland", "lat": 45.5051, "lng": -122.6750, "region": "North America", "ev_adoption_factor": 1.3,
+         "ev_growth_rate": 0.25, "ev_sales_share": 0.12},
+        {"name": "Miami", "lat": 25.7617, "lng": -80.1918, "region": "North America", "ev_adoption_factor": 0.9,
+         "ev_growth_rate": 0.18, "ev_sales_share": 0.06},
         
         # Canada
-        {"name": "Vancouver", "lat": 49.2827, "lng": -123.1207, "region": "North America", "ev_adoption_factor": 1.4},
-        {"name": "Toronto", "lat": 43.6532, "lng": -79.3832, "region": "North America", "ev_adoption_factor": 1.2},
-        {"name": "Montreal", "lat": 45.5017, "lng": -73.5673, "region": "North America", "ev_adoption_factor": 1.1},
-        {"name": "Calgary", "lat": 51.0447, "lng": -114.0719, "region": "North America", "ev_adoption_factor": 0.9},
+        {"name": "Vancouver", "lat": 49.2827, "lng": -123.1207, "region": "North America", "ev_adoption_factor": 1.4,
+         "ev_growth_rate": 0.24, "ev_sales_share": 0.11},
+        {"name": "Toronto", "lat": 43.6532, "lng": -79.3832, "region": "North America", "ev_adoption_factor": 1.2,
+         "ev_growth_rate": 0.22, "ev_sales_share": 0.09},
+        {"name": "Montreal", "lat": 45.5017, "lng": -73.5673, "region": "North America", "ev_adoption_factor": 1.1,
+         "ev_growth_rate": 0.21, "ev_sales_share": 0.08},
+        {"name": "Calgary", "lat": 51.0447, "lng": -114.0719, "region": "North America", "ev_adoption_factor": 0.9,
+         "ev_growth_rate": 0.18, "ev_sales_share": 0.06},
         
         # Europe
-        {"name": "London", "lat": 51.5074, "lng": -0.1278, "region": "Europe", "ev_adoption_factor": 1.3},
-        {"name": "Paris", "lat": 48.8566, "lng": 2.3522, "region": "Europe", "ev_adoption_factor": 1.4},
-        {"name": "Berlin", "lat": 52.5200, "lng": 13.4050, "region": "Europe", "ev_adoption_factor": 1.5},
-        {"name": "Madrid", "lat": 40.4168, "lng": -3.7038, "region": "Europe", "ev_adoption_factor": 1.1},
-        {"name": "Rome", "lat": 41.9028, "lng": 12.4964, "region": "Europe", "ev_adoption_factor": 0.9},
-        {"name": "Amsterdam", "lat": 52.3676, "lng": 4.9041, "region": "Europe", "ev_adoption_factor": 1.7},
-        {"name": "Oslo", "lat": 59.9139, "lng": 10.7522, "region": "Europe", "ev_adoption_factor": 2.0},
-        {"name": "Stockholm", "lat": 59.3293, "lng": 18.0686, "region": "Europe", "ev_adoption_factor": 1.8},
-        {"name": "Copenhagen", "lat": 55.6761, "lng": 12.5683, "region": "Europe", "ev_adoption_factor": 1.7},
-        {"name": "Zurich", "lat": 47.3769, "lng": 8.5417, "region": "Europe", "ev_adoption_factor": 1.6},
+        {"name": "London", "lat": 51.5074, "lng": -0.1278, "region": "Europe", "ev_adoption_factor": 1.3,
+         "ev_growth_rate": 0.30, "ev_sales_share": 0.20},
+        {"name": "Paris", "lat": 48.8566, "lng": 2.3522, "region": "Europe", "ev_adoption_factor": 1.4,
+         "ev_growth_rate": 0.32, "ev_sales_share": 0.23},
+        {"name": "Berlin", "lat": 52.5200, "lng": 13.4050, "region": "Europe", "ev_adoption_factor": 1.5,
+         "ev_growth_rate": 0.33, "ev_sales_share": 0.25},
+        {"name": "Madrid", "lat": 40.4168, "lng": -3.7038, "region": "Europe", "ev_adoption_factor": 1.1,
+         "ev_growth_rate": 0.25, "ev_sales_share": 0.16},
+        {"name": "Rome", "lat": 41.9028, "lng": 12.4964, "region": "Europe", "ev_adoption_factor": 0.9,
+         "ev_growth_rate": 0.22, "ev_sales_share": 0.14},
+        {"name": "Amsterdam", "lat": 52.3676, "lng": 4.9041, "region": "Europe", "ev_adoption_factor": 1.7,
+         "ev_growth_rate": 0.40, "ev_sales_share": 0.36},
+        {"name": "Oslo", "lat": 59.9139, "lng": 10.7522, "region": "Europe", "ev_adoption_factor": 2.0,
+         "ev_growth_rate": 0.45, "ev_sales_share": 0.75},
+        {"name": "Stockholm", "lat": 59.3293, "lng": 18.0686, "region": "Europe", "ev_adoption_factor": 1.8,
+         "ev_growth_rate": 0.42, "ev_sales_share": 0.50},
+        {"name": "Copenhagen", "lat": 55.6761, "lng": 12.5683, "region": "Europe", "ev_adoption_factor": 1.7,
+         "ev_growth_rate": 0.38, "ev_sales_share": 0.40},
+        {"name": "Zurich", "lat": 47.3769, "lng": 8.5417, "region": "Europe", "ev_adoption_factor": 1.6,
+         "ev_growth_rate": 0.35, "ev_sales_share": 0.30},
         
         # Asia
-        {"name": "Tokyo", "lat": 35.6762, "lng": 139.6503, "region": "Asia", "ev_adoption_factor": 1.2},
-        {"name": "Shanghai", "lat": 31.2304, "lng": 121.4737, "region": "Asia", "ev_adoption_factor": 1.1},
-        {"name": "Beijing", "lat": 39.9042, "lng": 116.4074, "region": "Asia", "ev_adoption_factor": 1.3},
-        {"name": "Seoul", "lat": 37.5665, "lng": 126.9780, "region": "Asia", "ev_adoption_factor": 1.4},
-        {"name": "Singapore", "lat": 1.3521, "lng": 103.8198, "region": "Asia", "ev_adoption_factor": 1.3},
-        {"name": "Hong Kong", "lat": 22.3193, "lng": 114.1694, "region": "Asia", "ev_adoption_factor": 1.0},
+        {"name": "Tokyo", "lat": 35.6762, "lng": 139.6503, "region": "Asia", "ev_adoption_factor": 1.2,
+         "ev_growth_rate": 0.24, "ev_sales_share": 0.03},
+        {"name": "Shanghai", "lat": 31.2304, "lng": 121.4737, "region": "Asia", "ev_adoption_factor": 1.1,
+         "ev_growth_rate": 0.40, "ev_sales_share": 0.20},
+        {"name": "Beijing", "lat": 39.9042, "lng": 116.4074, "region": "Asia", "ev_adoption_factor": 1.3,
+         "ev_growth_rate": 0.42, "ev_sales_share": 0.22},
+        {"name": "Seoul", "lat": 37.5665, "lng": 126.9780, "region": "Asia", "ev_adoption_factor": 1.4,
+         "ev_growth_rate": 0.30, "ev_sales_share": 0.12},
+        {"name": "Singapore", "lat": 1.3521, "lng": 103.8198, "region": "Asia", "ev_adoption_factor": 1.3,
+         "ev_growth_rate": 0.22, "ev_sales_share": 0.05},
+        {"name": "Hong Kong", "lat": 22.3193, "lng": 114.1694, "region": "Asia", "ev_adoption_factor": 1.0,
+         "ev_growth_rate": 0.20, "ev_sales_share": 0.04},
         
         # Australia/Oceania
-        {"name": "Sydney", "lat": -33.8688, "lng": 151.2093, "region": "Oceania", "ev_adoption_factor": 1.1},
-        {"name": "Melbourne", "lat": -37.8136, "lng": 144.9631, "region": "Oceania", "ev_adoption_factor": 1.0},
-        {"name": "Auckland", "lat": -36.8509, "lng": 174.7645, "region": "Oceania", "ev_adoption_factor": 1.2},
+        {"name": "Sydney", "lat": -33.8688, "lng": 151.2093, "region": "Oceania", "ev_adoption_factor": 1.1,
+         "ev_growth_rate": 0.25, "ev_sales_share": 0.05},
+        {"name": "Melbourne", "lat": -37.8136, "lng": 144.9631, "region": "Oceania", "ev_adoption_factor": 1.0,
+         "ev_growth_rate": 0.24, "ev_sales_share": 0.04},
+        {"name": "Auckland", "lat": -36.8509, "lng": 174.7645, "region": "Oceania", "ev_adoption_factor": 1.2,
+         "ev_growth_rate": 0.26, "ev_sales_share": 0.06},
         
         # South America
-        {"name": "Sao Paulo", "lat": -23.5505, "lng": -46.6333, "region": "South America", "ev_adoption_factor": 0.7},
-        {"name": "Rio de Janeiro", "lat": -22.9068, "lng": -43.1729, "region": "South America", "ev_adoption_factor": 0.6},
-        {"name": "Buenos Aires", "lat": -34.6037, "lng": -58.3816, "region": "South America", "ev_adoption_factor": 0.5},
-        {"name": "Santiago", "lat": -33.4489, "lng": -70.6693, "region": "South America", "ev_adoption_factor": 0.8},
-        {"name": "Bogota", "lat": 4.7110, "lng": -74.0721, "region": "South America", "ev_adoption_factor": 0.6},
-        {"name": "Lima", "lat": -12.0464, "lng": -77.0428, "region": "South America", "ev_adoption_factor": 0.5},
+        {"name": "Sao Paulo", "lat": -23.5505, "lng": -46.6333, "region": "South America", "ev_adoption_factor": 0.7,
+         "ev_growth_rate": 0.16, "ev_sales_share": 0.02},
+        {"name": "Rio de Janeiro", "lat": -22.9068, "lng": -43.1729, "region": "South America", "ev_adoption_factor": 0.6,
+         "ev_growth_rate": 0.15, "ev_sales_share": 0.015},
+        {"name": "Buenos Aires", "lat": -34.6037, "lng": -58.3816, "region": "South America", "ev_adoption_factor": 0.5,
+         "ev_growth_rate": 0.14, "ev_sales_share": 0.01},
+        {"name": "Santiago", "lat": -33.4489, "lng": -70.6693, "region": "South America", "ev_adoption_factor": 0.8,
+         "ev_growth_rate": 0.18, "ev_sales_share": 0.025},
+        {"name": "Bogota", "lat": 4.7110, "lng": -74.0721, "region": "South America", "ev_adoption_factor": 0.6,
+         "ev_growth_rate": 0.15, "ev_sales_share": 0.015},
+        {"name": "Lima", "lat": -12.0464, "lng": -77.0428, "region": "South America", "ev_adoption_factor": 0.5,
+         "ev_growth_rate": 0.13, "ev_sales_share": 0.01},
         
         # Africa
-        {"name": "Cairo", "lat": 30.0444, "lng": 31.2357, "region": "Africa", "ev_adoption_factor": 0.4},
-        {"name": "Lagos", "lat": 6.5244, "lng": 3.3792, "region": "Africa", "ev_adoption_factor": 0.3},
-        {"name": "Nairobi", "lat": -1.2921, "lng": 36.8219, "region": "Africa", "ev_adoption_factor": 0.4},
-        {"name": "Cape Town", "lat": -33.9249, "lng": 18.4241, "region": "Africa", "ev_adoption_factor": 0.6},
-        {"name": "Johannesburg", "lat": -26.2041, "lng": 28.0473, "region": "Africa", "ev_adoption_factor": 0.5}
+        {"name": "Cairo", "lat": 30.0444, "lng": 31.2357, "region": "Africa", "ev_adoption_factor": 0.4,
+         "ev_growth_rate": 0.10, "ev_sales_share": 0.005},
+        {"name": "Lagos", "lat": 6.5244, "lng": 3.3792, "region": "Africa", "ev_adoption_factor": 0.3,
+         "ev_growth_rate": 0.08, "ev_sales_share": 0.003},
+        {"name": "Nairobi", "lat": -1.2921, "lng": 36.8219, "region": "Africa", "ev_adoption_factor": 0.4,
+         "ev_growth_rate": 0.12, "ev_sales_share": 0.007},
+        {"name": "Cape Town", "lat": -33.9249, "lng": 18.4241, "region": "Africa", "ev_adoption_factor": 0.6,
+         "ev_growth_rate": 0.15, "ev_sales_share": 0.01},
+        {"name": "Johannesburg", "lat": -26.2041, "lng": 28.0473, "region": "Africa", "ev_adoption_factor": 0.5,
+         "ev_growth_rate": 0.13, "ev_sales_share": 0.008}
     ]
+    
+    # Define EV market growth projections (2023-2030)
+    market_projections = {
+        "years": [1, 2, 3, 5, 7, 10],  # Years into the future
+        "global_sales_growth": [0.25, 0.30, 0.35, 0.45, 0.55, 0.65],  # Annual growth rates
+        "regional_multipliers": {
+            "North America": [1.0, 1.1, 1.2, 1.3, 1.4, 1.5],
+            "Europe": [1.2, 1.3, 1.4, 1.5, 1.6, 1.7],
+            "Asia": [1.1, 1.2, 1.3, 1.4, 1.5, 1.6],
+            "Oceania": [0.9, 1.0, 1.1, 1.2, 1.3, 1.4],
+            "South America": [0.6, 0.7, 0.8, 0.9, 1.0, 1.1],
+            "Africa": [0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+        }
+    }
     
     # Station names and types
     station_names = ["Shell", "Exxon", "BP", "Chevron", "Mobil", "Texaco", "Total", "Eni", "Petrobras", "Sinopec", "Petrochina"]
@@ -146,6 +209,22 @@ def generate_gas_stations(n_stations=150):
             
         return False
     
+    # Function to calculate future EV adoption over time
+    def project_ev_adoption(current_rate, growth_rate, years):
+        """Calculate projected EV adoption rate after specified years"""
+        future_rates = []
+        rate = current_rate
+        
+        for i in range(years):
+            # Compound growth with slight dampening as adoption increases
+            dampening = 1.0 - (rate / 100) * 0.5  # Slower growth as adoption increases
+            rate = rate * (1 + growth_rate * dampening)
+            if rate > 100:
+                rate = 100  # Cap at 100%
+            future_rates.append(rate)
+            
+        return future_rates
+    
     data = []
     station_id = 1
     
@@ -177,32 +256,67 @@ def generate_gas_stations(n_stations=150):
             
             # Apply regional factors to metrics
             regional_ev_factor = city.get("ev_adoption_factor", 1.0)
+            regional_ev_growth = city.get("ev_growth_rate", 0.2)  # Annual growth rate
+            current_ev_sales = city.get("ev_sales_share", 0.05)  # Current EV sales percentage
             
             # Generate random metrics for viability calculation
             traffic_volume = random.randint(1000, 11000)
-            ev_adoption_rate = random.uniform(0.05, 0.25) * regional_ev_factor
+            current_ev_adoption_rate = random.uniform(0.05, 0.25) * regional_ev_factor
             competitor_distance = random.uniform(1, 16)
             land_size = random.uniform(500, 2500)
             power_availability = random.uniform(0.2, 1.0)
             
-            # Calculate viability score (0-100)
-            viability_score = (
+            # Calculate future EV adoption rates (1, 3, 5, and 10 years)
+            future_ev_rates = project_ev_adoption(
+                current_ev_adoption_rate * 100,  # Convert to percentage
+                regional_ev_growth,
+                10
+            )
+            
+            # Calculate viability score based on current metrics
+            current_viability_score = (
                 (traffic_volume / 11000) * 30 +  # 30% weight to traffic
-                (ev_adoption_rate / (0.25 * 2.0)) * 25 +  # 25% weight to EV adoption, normalized for regional factors
+                (current_ev_adoption_rate / (0.25 * 2.0)) * 25 +  # 25% weight to EV adoption
                 (min(competitor_distance, 10) / 10) * 15 +  # 15% weight to competitor distance
                 (land_size / 2500) * 15 +  # 15% weight to land size
                 (power_availability) * 15  # 15% weight to power availability
             )
             
-            viability_score = min(round(viability_score), 100)
+            current_viability_score = min(round(current_viability_score), 100)
             
-            # Calculate financial metrics
+            # Calculate financial metrics (current)
             conversion_cost = round((1000000 - 200000 * (power_availability)) * (1 - land_size/5000) + 500000)
-            annual_revenue = round(traffic_volume * ev_adoption_rate * 5 * 365)
+            annual_revenue = round(traffic_volume * current_ev_adoption_rate * 5 * 365)
             annual_operating_cost = round(annual_revenue * (0.4 + random.uniform(0, 0.2)))
             annual_profit = annual_revenue - annual_operating_cost
             roi = round((annual_profit / conversion_cost) * 100 * 10) / 10
             payback_period = round(conversion_cost / annual_profit * 10) / 10 if annual_profit > 0 else float('inf')
+            
+            # Calculate 5-year projected metrics
+            if len(future_ev_rates) >= 5:
+                future_ev_rate_5yr = future_ev_rates[4] / 100  # Convert back to decimal for calculation
+                future_annual_revenue_5yr = round(traffic_volume * future_ev_rate_5yr * 5 * 365)
+                future_annual_operating_cost_5yr = round(future_annual_revenue_5yr * (0.4 + random.uniform(0, 0.15)))  # Slight efficiency gain
+                future_annual_profit_5yr = future_annual_revenue_5yr - future_annual_operating_cost_5yr
+                future_roi_5yr = round((future_annual_profit_5yr / conversion_cost) * 100 * 10) / 10
+                future_payback_5yr = round(conversion_cost / future_annual_profit_5yr * 10) / 10 if future_annual_profit_5yr > 0 else float('inf')
+            else:
+                future_ev_rate_5yr = current_ev_adoption_rate * 2  # Simple doubling as fallback
+                future_annual_revenue_5yr = annual_revenue * 2
+                future_annual_profit_5yr = annual_profit * 2
+                future_roi_5yr = roi * 2
+                future_payback_5yr = payback_period / 2 if payback_period != float('inf') else 10
+            
+            # Calculate future viability score (5-year)
+            future_viability_score_5yr = (
+                (traffic_volume / 11000) * 30 +  # Traffic stays relatively constant
+                (future_ev_rate_5yr / (0.25 * 2.0)) * 25 +  # EV adoption increases
+                (min(competitor_distance, 10) / 10) * 15 +  # Competitor distance remains the same
+                (land_size / 2500) * 15 +  # Land size remains the same
+                (power_availability) * 15  # Power availability remains the same
+            )
+            
+            future_viability_score_5yr = min(round(future_viability_score_5yr), 100)
             
             data.append({
                 "id": f"station-{station_id}",
@@ -213,17 +327,28 @@ def generate_gas_stations(n_stations=150):
                 "region": city["region"],
                 "type": random.choice(station_types),
                 "traffic_volume": traffic_volume,
-                "ev_adoption_rate": round(ev_adoption_rate * 100),
+                "ev_adoption_rate": round(current_ev_adoption_rate * 100),
+                "ev_sales_share": round(current_ev_sales * 100),
+                "ev_growth_rate": round(regional_ev_growth * 100),
                 "competitor_distance": round(competitor_distance * 10) / 10,
                 "land_size": round(land_size),
                 "power_availability": round(power_availability * 100),
-                "viability_score": viability_score,
+                "viability_score": current_viability_score,
                 "conversion_cost": conversion_cost,
                 "annual_revenue": annual_revenue,
                 "annual_operating_cost": annual_operating_cost,
                 "annual_profit": annual_profit,
                 "roi": roi,
-                "payback_period": payback_period
+                "payback_period": payback_period,
+                # Future projections (5-year)
+                "future_ev_rate_5yr": round(future_ev_rate_5yr * 100),
+                "future_viability_score_5yr": future_viability_score_5yr,
+                "future_annual_revenue_5yr": future_annual_revenue_5yr,
+                "future_annual_profit_5yr": future_annual_profit_5yr,
+                "future_roi_5yr": future_roi_5yr,
+                "future_payback_5yr": future_payback_5yr,
+                # Year-by-year projections for first 5 years
+                "ev_rate_projections": [round(rate) for rate in future_ev_rates[:5]]
             })
             station_id += 1
     
@@ -254,32 +379,67 @@ def generate_gas_stations(n_stations=150):
         
         # Apply regional factors to metrics
         regional_ev_factor = city.get("ev_adoption_factor", 1.0)
+        regional_ev_growth = city.get("ev_growth_rate", 0.2)  # Annual growth rate
+        current_ev_sales = city.get("ev_sales_share", 0.05)  # Current EV sales percentage
         
         # Generate random metrics for viability calculation
         traffic_volume = random.randint(1000, 11000)
-        ev_adoption_rate = random.uniform(0.05, 0.25) * regional_ev_factor
+        current_ev_adoption_rate = random.uniform(0.05, 0.25) * regional_ev_factor
         competitor_distance = random.uniform(1, 16)
         land_size = random.uniform(500, 2500)
         power_availability = random.uniform(0.2, 1.0)
         
-        # Calculate viability score (0-100)
-        viability_score = (
+        # Calculate future EV adoption rates (1, 3, 5, and 10 years)
+        future_ev_rates = project_ev_adoption(
+            current_ev_adoption_rate * 100,  # Convert to percentage
+            regional_ev_growth,
+            10
+        )
+        
+        # Calculate viability score based on current metrics
+        current_viability_score = (
             (traffic_volume / 11000) * 30 +  # 30% weight to traffic
-            (ev_adoption_rate / (0.25 * 2.0)) * 25 +  # 25% weight to EV adoption, normalized for regional factors
+            (current_ev_adoption_rate / (0.25 * 2.0)) * 25 +  # 25% weight to EV adoption
             (min(competitor_distance, 10) / 10) * 15 +  # 15% weight to competitor distance
             (land_size / 2500) * 15 +  # 15% weight to land size
             (power_availability) * 15  # 15% weight to power availability
         )
         
-        viability_score = min(round(viability_score), 100)
+        current_viability_score = min(round(current_viability_score), 100)
         
-        # Calculate financial metrics
+        # Calculate financial metrics (current)
         conversion_cost = round((1000000 - 200000 * (power_availability)) * (1 - land_size/5000) + 500000)
-        annual_revenue = round(traffic_volume * ev_adoption_rate * 5 * 365)
+        annual_revenue = round(traffic_volume * current_ev_adoption_rate * 5 * 365)
         annual_operating_cost = round(annual_revenue * (0.4 + random.uniform(0, 0.2)))
         annual_profit = annual_revenue - annual_operating_cost
         roi = round((annual_profit / conversion_cost) * 100 * 10) / 10
         payback_period = round(conversion_cost / annual_profit * 10) / 10 if annual_profit > 0 else float('inf')
+        
+        # Calculate 5-year projected metrics
+        if len(future_ev_rates) >= 5:
+            future_ev_rate_5yr = future_ev_rates[4] / 100  # Convert back to decimal for calculation
+            future_annual_revenue_5yr = round(traffic_volume * future_ev_rate_5yr * 5 * 365)
+            future_annual_operating_cost_5yr = round(future_annual_revenue_5yr * (0.4 + random.uniform(0, 0.15)))  # Slight efficiency gain
+            future_annual_profit_5yr = future_annual_revenue_5yr - future_annual_operating_cost_5yr
+            future_roi_5yr = round((future_annual_profit_5yr / conversion_cost) * 100 * 10) / 10
+            future_payback_5yr = round(conversion_cost / future_annual_profit_5yr * 10) / 10 if future_annual_profit_5yr > 0 else float('inf')
+        else:
+            future_ev_rate_5yr = current_ev_adoption_rate * 2  # Simple doubling as fallback
+            future_annual_revenue_5yr = annual_revenue * 2
+            future_annual_profit_5yr = annual_profit * 2
+            future_roi_5yr = roi * 2
+            future_payback_5yr = payback_period / 2 if payback_period != float('inf') else 10
+        
+        # Calculate future viability score (5-year)
+        future_viability_score_5yr = (
+            (traffic_volume / 11000) * 30 +  # Traffic stays relatively constant
+            (future_ev_rate_5yr / (0.25 * 2.0)) * 25 +  # EV adoption increases
+            (min(competitor_distance, 10) / 10) * 15 +  # Competitor distance remains the same
+            (land_size / 2500) * 15 +  # Land size remains the same
+            (power_availability) * 15  # Power availability remains the same
+        )
+        
+        future_viability_score_5yr = min(round(future_viability_score_5yr), 100)
         
         data.append({
             "id": f"station-{station_id}",
@@ -290,17 +450,28 @@ def generate_gas_stations(n_stations=150):
             "region": city["region"],
             "type": random.choice(station_types),
             "traffic_volume": traffic_volume,
-            "ev_adoption_rate": round(ev_adoption_rate * 100),
+            "ev_adoption_rate": round(current_ev_adoption_rate * 100),
+            "ev_sales_share": round(current_ev_sales * 100),
+            "ev_growth_rate": round(regional_ev_growth * 100),
             "competitor_distance": round(competitor_distance * 10) / 10,
             "land_size": round(land_size),
             "power_availability": round(power_availability * 100),
-            "viability_score": viability_score,
+            "viability_score": current_viability_score,
             "conversion_cost": conversion_cost,
             "annual_revenue": annual_revenue,
             "annual_operating_cost": annual_operating_cost,
             "annual_profit": annual_profit,
             "roi": roi,
-            "payback_period": payback_period
+            "payback_period": payback_period,
+            # Future projections (5-year)
+            "future_ev_rate_5yr": round(future_ev_rate_5yr * 100),
+            "future_viability_score_5yr": future_viability_score_5yr,
+            "future_annual_revenue_5yr": future_annual_revenue_5yr,
+            "future_annual_profit_5yr": future_annual_profit_5yr,
+            "future_roi_5yr": future_roi_5yr,
+            "future_payback_5yr": future_payback_5yr,
+            # Year-by-year projections for first 5 years
+            "ev_rate_projections": [round(rate) for rate in future_ev_rates[:5]]
         })
         station_id += 1
     
@@ -468,6 +639,18 @@ def create_dashboard_html(df, map_file, traffic_map_file, output_file="output/da
     avg_payback = df[df['payback_period'] < 100]['payback_period'].mean()
     high_viability_count = sum(df['viability_score'] >= 70)
     
+    # Future projections
+    avg_future_viability = df['future_viability_score_5yr'].mean()
+    avg_future_roi = df['future_roi_5yr'].mean()
+    avg_future_payback = df[df['future_payback_5yr'] < 100]['future_payback_5yr'].mean()
+    high_future_viability_count = sum(df['future_viability_score_5yr'] >= 70)
+    
+    # Calculate growth percentages
+    viability_growth = (avg_future_viability - avg_viability) / avg_viability * 100
+    roi_growth = (avg_future_roi - avg_roi) / avg_roi * 100
+    payback_improvement = (avg_payback - avg_future_payback) / avg_payback * 100
+    high_viability_growth = (high_future_viability_count - high_viability_count) / high_viability_count * 100
+    
     # Regional statistics
     regions = df['region'].unique()
     region_stats = {}
@@ -479,7 +662,14 @@ def create_dashboard_html(df, map_file, traffic_map_file, output_file="output/da
             'avg_viability': region_df['viability_score'].mean(),
             'avg_roi': region_df['roi'].mean(),
             'high_viability': sum(region_df['viability_score'] >= 70),
-            'avg_ev_adoption': region_df['ev_adoption_rate'].mean()
+            'avg_ev_adoption': region_df['ev_adoption_rate'].mean(),
+            'avg_ev_sales': region_df['ev_sales_share'].mean(),
+            'avg_ev_growth': region_df['ev_growth_rate'].mean(),
+            # Future projections
+            'future_avg_viability': region_df['future_viability_score_5yr'].mean(),
+            'future_avg_roi': region_df['future_roi_5yr'].mean(),
+            'future_high_viability': sum(region_df['future_viability_score_5yr'] >= 70),
+            'future_avg_ev_adoption': region_df['future_ev_rate_5yr'].mean(),
         }
     
     # Sort regions by average viability score
@@ -497,25 +687,68 @@ def create_dashboard_html(df, map_file, traffic_map_file, output_file="output/da
             </div>
             <div class="region-metrics">
                 <div class="region-metric">
-                    <h4>Avg. Viability Score</h4>
-                    <div class="region-metric-value">{stats['avg_viability']:.1f}</div>
+                    <h4>Viability Score</h4>
+                    <div class="metric-comparison">
+                        <div>
+                            <div class="region-metric-value">{stats['avg_viability']:.1f}</div>
+                            <div>Current</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div>
+                            <div class="region-metric-value future">{stats['future_avg_viability']:.1f}</div>
+                            <div>5-Year</div>
+                        </div>
+                    </div>
                     <div class="progress-bar">
                         <div class="progress-value" style="width: {min(stats['avg_viability'], 100)}%;"></div>
                     </div>
                 </div>
                 <div class="region-metric">
                     <h4>Avg. ROI</h4>
-                    <div class="region-metric-value">{stats['avg_roi']:.1f}%</div>
+                    <div class="metric-comparison">
+                        <div>
+                            <div class="region-metric-value">{stats['avg_roi']:.1f}%</div>
+                            <div>Current</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div>
+                            <div class="region-metric-value future">{stats['future_avg_roi']:.1f}%</div>
+                            <div>5-Year</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="region-metric">
                     <h4>High Viability Stations</h4>
-                    <div class="region-metric-value">{stats['high_viability']}</div>
-                    <div>({(stats['high_viability'] / stats['count'] * 100):.1f}%)</div>
+                    <div class="metric-comparison">
+                        <div>
+                            <div class="region-metric-value">{stats['high_viability']}</div>
+                            <div>Current</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div>
+                            <div class="region-metric-value future">{stats['future_high_viability']}</div>
+                            <div>5-Year</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="region-metric">
-                    <h4>Avg. EV Adoption</h4>
-                    <div class="region-metric-value">{stats['avg_ev_adoption']:.1f}%</div>
+                    <h4>EV Adoption</h4>
+                    <div class="metric-comparison">
+                        <div>
+                            <div class="region-metric-value">{stats['avg_ev_adoption']:.1f}%</div>
+                            <div>Current</div>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div>
+                            <div class="region-metric-value future">{stats['future_avg_ev_adoption']:.1f}%</div>
+                            <div>5-Year</div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="additional-stats">
+                <div><span>Current EV Sales:</span> {stats['avg_ev_sales']:.1f}%</div>
+                <div><span>Annual Growth Rate:</span> {stats['avg_ev_growth']:.1f}%</div>
             </div>
         </div>
         """
@@ -528,7 +761,28 @@ def create_dashboard_html(df, map_file, traffic_map_file, output_file="output/da
     # Create station table rows
     table_rows_html = ""
     for _, row in df.head(20).iterrows():
-        table_rows_html += f'<tr data-region="{row["region"]}"><td>{row["name"]}</td><td>{row["region"]}</td><td>{row["city"]}</td><td>{row["type"]}</td><td>{row["viability_score"]}</td><td>{row["roi"]}</td><td>{row["payback_period"]}</td><td>{row["ev_adoption_rate"]}</td></tr>'
+        table_rows_html += f"""<tr data-region="{row['region']}">
+            <td>{row['name']}</td>
+            <td>{row['region']}</td>
+            <td>{row['city']}</td>
+            <td>{row['type']}</td>
+            <td>
+                {row['viability_score']}
+                <div class="future-value">→ {row['future_viability_score_5yr']}</div>
+            </td>
+            <td>
+                {row['roi']}%
+                <div class="future-value">→ {row['future_roi_5yr']}%</div>
+            </td>
+            <td>
+                {row['payback_period']} 
+                <div class="future-value">→ {row['future_payback_5yr']}</div>
+            </td>
+            <td>
+                {row['ev_adoption_rate']}%
+                <div class="future-value">→ {row['future_ev_rate_5yr']}%</div>
+            </td>
+        </tr>"""
     
     # Create HTML content
     html_content = f"""
@@ -564,12 +818,37 @@ def create_dashboard_html(df, map_file, traffic_map_file, output_file="output/da
                 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
                 padding: 20px;
                 text-align: center;
+                position: relative;
             }}
             .metric-value {{
                 font-size: 2.2rem;
                 font-weight: bold;
                 color: #00a67d;
                 margin: 10px 0;
+            }}
+            .metric-comparison {{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+            }}
+            .future {{
+                color: #0086c3;
+            }}
+            .arrow {{
+                font-size: 1.5rem;
+                color: #666;
+            }}
+            .growth-indicator {{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background-color: #d4f7e7;
+                color: #00a67d;
+                padding: 3px 7px;
+                border-radius: 10px;
+                font-size: 0.8rem;
+                font-weight: bold;
             }}
             .map-container {{
                 height: 600px;
@@ -669,6 +948,7 @@ def create_dashboard_html(df, map_file, traffic_map_file, output_file="output/da
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
                 gap: 15px;
+                margin-bottom: 15px;
             }}
             .region-metric {{
                 text-align: center;
@@ -697,6 +977,47 @@ def create_dashboard_html(df, map_file, traffic_map_file, output_file="output/da
                 padding: 20px;
                 margin-bottom: 20px;
             }}
+            .future-value {{
+                font-size: 0.85rem;
+                color: #0086c3;
+                margin-top: 3px;
+            }}
+            .additional-stats {{
+                display: flex;
+                justify-content: space-around;
+                gap: 10px;
+                font-size: 0.9rem;
+                border-top: 1px solid #eee;
+                padding-top: 10px;
+            }}
+            .additional-stats span {{
+                font-weight: bold;
+                color: #555;
+            }}
+            .time-toggle {{
+                display: flex;
+                justify-content: center;
+                margin: 20px 0;
+                background: white;
+                border-radius: 20px;
+                padding: 5px;
+                width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }}
+            .time-option {{
+                padding: 8px 15px;
+                cursor: pointer;
+                border-radius: 15px;
+                text-align: center;
+                flex: 1;
+            }}
+            .time-option.active {{
+                background-color: #00a67d;
+                color: white;
+                font-weight: bold;
+            }}
         </style>
     </head>
     <body>
@@ -705,24 +1026,67 @@ def create_dashboard_html(df, map_file, traffic_map_file, output_file="output/da
             <p>Analysis of gas station viability for conversion to High-Power Charging stations</p>
         </div>
         
-        <div class="metrics-grid">
+        <div class="time-toggle">
+            <div class="time-option active" onclick="toggleTimeView('current')">Current</div>
+            <div class="time-option" onclick="toggleTimeView('future')">5-Year Projection</div>
+        </div>
+        
+        <div id="current-metrics" class="metrics-grid">
             <div class="metric-card">
                 <h3>Total Stations Analyzed</h3>
                 <div class="metric-value">{len(df)}</div>
             </div>
             <div class="metric-card">
+                <div class="growth-indicator">+{viability_growth:.1f}%</div>
                 <h3>Average Viability Score</h3>
-                <div class="metric-value">{avg_viability:.1f}</div>
+                <div class="metric-comparison">
+                    <div class="metric-value">{avg_viability:.1f}</div>
+                    <div class="arrow">→</div>
+                    <div class="metric-value future">{avg_future_viability:.1f}</div>
+                </div>
                 <div class="metric-unit">out of 100</div>
             </div>
             <div class="metric-card">
+                <div class="growth-indicator">+{roi_growth:.1f}%</div>
                 <h3>Average ROI</h3>
-                <div class="metric-value">{avg_roi:.1f}%</div>
+                <div class="metric-comparison">
+                    <div class="metric-value">{avg_roi:.1f}%</div>
+                    <div class="arrow">→</div>
+                    <div class="metric-value future">{avg_future_roi:.1f}%</div>
+                </div>
             </div>
             <div class="metric-card">
+                <div class="growth-indicator">+{high_viability_growth:.1f}%</div>
                 <h3>High Viability Stations</h3>
-                <div class="metric-value">{high_viability_count}</div>
+                <div class="metric-comparison">
+                    <div class="metric-value">{high_viability_count}</div>
+                    <div class="arrow">→</div>
+                    <div class="metric-value future">{high_future_viability_count}</div>
+                </div>
                 <div class="metric-unit">score >= 70</div>
+            </div>
+        </div>
+        
+        <div id="future-metrics" class="metrics-grid" style="display:none;">
+            <div class="metric-card">
+                <h3>5-Year Projection</h3>
+                <div class="metric-value future">{len(df)}</div>
+                <div class="metric-unit">analyzed stations</div>
+            </div>
+            <div class="metric-card">
+                <h3>Projected Viability Score</h3>
+                <div class="metric-value future">{avg_future_viability:.1f}</div>
+                <div class="metric-unit">+{viability_growth:.1f}% growth</div>
+            </div>
+            <div class="metric-card">
+                <h3>Projected ROI</h3>
+                <div class="metric-value future">{avg_future_roi:.1f}%</div>
+                <div class="metric-unit">+{roi_growth:.1f}% increase</div>
+            </div>
+            <div class="metric-card">
+                <h3>Projected High Viability</h3>
+                <div class="metric-value future">{high_future_viability_count}</div>
+                <div class="metric-unit">+{high_future_viability_count - high_viability_count} new stations</div>
             </div>
         </div>
         
@@ -767,6 +1131,7 @@ def create_dashboard_html(df, map_file, traffic_map_file, output_file="output/da
                     <button class="filter-button" onclick="sortTable('roi')">ROI</button>
                     <button class="filter-button" onclick="sortTable('ev')">EV Adoption</button>
                     <button class="filter-button" onclick="sortTable('traffic')">Traffic Volume</button>
+                    <button class="filter-button" onclick="sortTable('future')">Future Viability</button>
                 </div>
             </div>
         </div>
@@ -777,10 +1142,10 @@ def create_dashboard_html(df, map_file, traffic_map_file, output_file="output/da
                 <th>Region</th>
                 <th>City</th>
                 <th>Type</th>
-                <th>Viability Score</th>
-                <th>ROI (%)</th>
-                <th>Payback (years)</th>
-                <th>EV Adoption (%)</th>
+                <th>Viability Score <span style="color:#0086c3;">→ 5yr</span></th>
+                <th>ROI (%) <span style="color:#0086c3;">→ 5yr</span></th>
+                <th>Payback (yrs) <span style="color:#0086c3;">→ 5yr</span></th>
+                <th>EV Adoption (%) <span style="color:#0086c3;">→ 5yr</span></th>
             </tr>
             {table_rows_html}
         </table>
@@ -807,6 +1172,24 @@ def create_dashboard_html(df, map_file, traffic_map_file, output_file="output/da
                 // Find the clicked tab and make it active
                 var clickedTab = event.target;
                 clickedTab.classList.add('active');
+            }}
+            
+            // Time view toggle
+            function toggleTimeView(timeView) {{
+                if (timeView === 'current') {{
+                    document.getElementById('current-metrics').style.display = 'grid';
+                    document.getElementById('future-metrics').style.display = 'none';
+                }} else {{
+                    document.getElementById('current-metrics').style.display = 'none';
+                    document.getElementById('future-metrics').style.display = 'grid';
+                }}
+                
+                // Update active state
+                var timeOptions = document.getElementsByClassName('time-option');
+                for (var i = 0; i < timeOptions.length; i++) {{
+                    timeOptions[i].classList.remove('active');
+                }}
+                event.target.classList.add('active');
             }}
             
             // Region filtering
@@ -867,14 +1250,32 @@ def create_dashboard_html(df, map_file, traffic_map_file, output_file="output/da
                         // Not directly shown, but could be added
                         sortIndex = 4; // Default to viability
                         break;
+                    case 'future':
+                        sortIndex = 4; // Same column as viability, but we'll parse the future value
+                        break;
                     default:
                         sortIndex = 4;
                 }}
                 
                 // Sort rows
                 rows.sort(function(a, b) {{
-                    var aValue = parseFloat(a.cells[sortIndex].innerText);
-                    var bValue = parseFloat(b.cells[sortIndex].innerText);
+                    var aCell = a.cells[sortIndex];
+                    var bCell = b.cells[sortIndex];
+                    
+                    var aValue, bValue;
+                    
+                    if (criteria === 'future') {{
+                        // Extract the future value (after arrow)
+                        var aFutureDiv = aCell.querySelector('.future-value');
+                        var bFutureDiv = bCell.querySelector('.future-value');
+                        aValue = parseFloat(aFutureDiv.innerText.replace('→', '').trim());
+                        bValue = parseFloat(bFutureDiv.innerText.replace('→', '').trim());
+                    }} else {{
+                        // Extract the current value
+                        aValue = parseFloat(aCell.innerText.split('→')[0]);
+                        bValue = parseFloat(bCell.innerText.split('→')[0]);
+                    }}
+                    
                     return bValue - aValue; // Descending order
                 }});
                 
