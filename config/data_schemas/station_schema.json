@@ -1,0 +1,397 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Charging Station Schema",
+  "description": "Schema for EV charging station metadata",
+  "type": "object",
+  "properties": {
+    "station_id": {
+      "type": "string",
+      "description": "Unique identifier for the charging station"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the charging station"
+    },
+    "operator": {
+      "type": "string",
+      "description": "Company or entity operating the station"
+    },
+    "owner": {
+      "type": "string",
+      "description": "Owner of the charging station (if different from operator)"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "description": "Latitude coordinate of the station"
+        },
+        "longitude": {
+          "type": "number",
+          "description": "Longitude coordinate of the station"
+        },
+        "address": {
+          "type": "string",
+          "description": "Street address of the station"
+        },
+        "city": {
+          "type": "string",
+          "description": "City where the station is located"
+        },
+        "state_province": {
+          "type": "string",
+          "description": "State or province where the station is located"
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "Postal code of the station location"
+        },
+        "country": {
+          "type": "string",
+          "description": "Country where the station is located"
+        },
+        "location_type": {
+          "type": "string",
+          "enum": ["highway", "urban", "suburban", "rural", "commercial", "residential"],
+          "description": "Type of location where the station is situated"
+        },
+        "area_classification": {
+          "type": "string",
+          "enum": ["high_traffic", "low_traffic", "tourist", "business", "residential", "industrial"],
+          "description": "Classification of the area surrounding the station"
+        }
+      },
+      "required": ["latitude", "longitude"],
+      "description": "Location information of the station"
+    },
+    "chargers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "charger_id": {
+            "type": "string",
+            "description": "Unique identifier for the charger within the station"
+          },
+          "manufacturer": {
+            "type": "string",
+            "description": "Manufacturer of the charger"
+          },
+          "model": {
+            "type": "string",
+            "description": "Model of the charger"
+          },
+          "serial_number": {
+            "type": "string",
+            "description": "Serial number of the charger"
+          },
+          "installation_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when the charger was installed"
+          },
+          "last_maintenance_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Date of the last maintenance performed"
+          },
+          "firmware_version": {
+            "type": "string",
+            "description": "Version of firmware running on the charger"
+          },
+          "power_type": {
+            "type": "string",
+            "enum": ["AC", "DC"],
+            "description": "Type of power delivery (AC or DC)"
+          },
+          "max_power_kw": {
+            "type": "number",
+            "description": "Maximum power output in kilowatts"
+          },
+          "connectors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "connector_id": {
+                  "type": "string",
+                  "description": "Identifier for the connector"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": ["CCS", "CHAdeMO", "Type2", "Type1", "GB/T", "Tesla"],
+                  "description": "Type of connector"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": ["available", "occupied", "reserved", "out_of_order", "maintenance"],
+                  "description": "Current status of the connector"
+                },
+                "max_current_amps": {
+                  "type": "number",
+                  "description": "Maximum current in amperes"
+                },
+                "max_voltage": {
+                  "type": "number",
+                  "description": "Maximum voltage"
+                }
+              },
+              "required": ["connector_id", "type"],
+              "description": "Individual connector information"
+            },
+            "description": "List of connectors available on the charger"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["operational", "limited", "out_of_order", "planned_maintenance", "offline"],
+            "description": "Current operational status of the charger"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["smart_charging", "vehicle_to_grid", "reservation", "load_balancing", "dynamic_pricing"]
+            },
+            "description": "Special features supported by the charger"
+          }
+        },
+        "required": ["charger_id", "max_power_kw", "connectors"],
+        "description": "Individual charger information"
+      },
+      "description": "List of chargers at the station"
+    },
+    "operational_hours": {
+      "type": "object",
+      "properties": {
+        "monday": {
+          "type": "string",
+          "description": "Opening hours on Monday"
+        },
+        "tuesday": {
+          "type": "string",
+          "description": "Opening hours on Tuesday"
+        },
+        "wednesday": {
+          "type": "string",
+          "description": "Opening hours on Wednesday"
+        },
+        "thursday": {
+          "type": "string",
+          "description": "Opening hours on Thursday"
+        },
+        "friday": {
+          "type": "string",
+          "description": "Opening hours on Friday"
+        },
+        "saturday": {
+          "type": "string",
+          "description": "Opening hours on Saturday"
+        },
+        "sunday": {
+          "type": "string",
+          "description": "Opening hours on Sunday"
+        },
+        "holidays": {
+          "type": "string",
+          "description": "Opening hours on holidays"
+        },
+        "is_24_7": {
+          "type": "boolean",
+          "description": "Whether the station is open 24/7"
+        }
+      },
+      "description": "Operational hours of the station"
+    },
+    "accessibility": {
+      "type": "object",
+      "properties": {
+        "is_public": {
+          "type": "boolean",
+          "description": "Whether the station is publicly accessible"
+        },
+        "requires_membership": {
+          "type": "boolean",
+          "description": "Whether membership is required to use the station"
+        },
+        "accepted_payment_methods": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["credit_card", "debit_card", "mobile_app", "rfid", "direct_billing", "free"]
+          },
+          "description": "Payment methods accepted at the station"
+        },
+        "requires_reservation": {
+          "type": "boolean",
+          "description": "Whether reservation is required to use the station"
+        },
+        "parking_fee": {
+          "type": "boolean",
+          "description": "Whether parking fee is applicable"
+        }
+      },
+      "description": "Accessibility information of the station"
+    },
+    "amenities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["restrooms", "food", "shopping", "wifi", "shelter", "seating", "lighting"]
+      },
+      "description": "Amenities available at or near the station"
+    },
+    "grid_connection": {
+      "type": "object",
+      "properties": {
+        "grid_capacity_kw": {
+          "type": "number",
+          "description": "Maximum capacity of the grid connection in kilowatts"
+        },
+        "connection_type": {
+          "type": "string",
+          "enum": ["low_voltage", "medium_voltage", "high_voltage"],
+          "description": "Type of grid connection"
+        },
+        "has_battery_storage": {
+          "type": "boolean",
+          "description": "Whether the station has local battery storage"
+        },
+        "battery_capacity_kwh": {
+          "type": "number",
+          "description": "Capacity of battery storage in kilowatt-hours, if available"
+        },
+        "has_local_generation": {
+          "type": "boolean",
+          "description": "Whether the station has local power generation"
+        },
+        "generation_type": {
+          "type": "string",
+          "enum": ["solar", "wind", "other"],
+          "description": "Type of local power generation, if available"
+        },
+        "generation_capacity_kw": {
+          "type": "number",
+          "description": "Capacity of local power generation in kilowatts, if available"
+        }
+      },
+      "description": "Information about the station's grid connection"
+    },
+    "network_provider": {
+      "type": "string",
+      "description": "Charging network provider the station belongs to"
+    },
+    "pricing": {
+      "type": "object",
+      "properties": {
+        "pricing_model": {
+          "type": "string",
+          "enum": ["per_kwh", "per_minute", "per_session", "tiered", "free"],
+          "description": "Pricing model used at the station"
+        },
+        "base_fee": {
+          "type": "number",
+          "description": "Base fee for starting a charging session"
+        },
+        "energy_fee_per_kwh": {
+          "type": "number",
+          "description": "Fee per kilowatt-hour of energy"
+        },
+        "time_fee_per_minute": {
+          "type": "number",
+          "description": "Fee per minute of charging time"
+        },
+        "idle_fee_per_minute": {
+          "type": "number",
+          "description": "Fee per minute for remaining connected after charging is complete"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Currency used for pricing"
+        },
+        "has_dynamic_pricing": {
+          "type": "boolean",
+          "description": "Whether the station uses dynamic pricing"
+        }
+      },
+      "description": "Pricing information for the station"
+    },
+    "contact_info": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "string",
+          "description": "Contact phone number for the station"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Contact email for the station"
+        },
+        "website": {
+          "type": "string",
+          "format": "uri",
+          "description": "Website with information about the station"
+        },
+        "support_hours": {
+          "type": "string",
+          "description": "Hours when customer support is available"
+        }
+      },
+      "description": "Contact information for the station"
+    },
+    "installation_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when the station was installed"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the station information was last updated"
+    },
+    "historical_uptime_percent": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Historical uptime of the station as a percentage"
+    },
+    "average_rating": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "Average user rating of the station (0-5)"
+    },
+    "number_of_ratings": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of user ratings received"
+    },
+    "photos": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri",
+        "description": "URI to a photo of the station"
+      },
+      "description": "Photos of the charging station"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags associated with the station"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata about the station"
+    }
+  },
+  "required": [
+    "station_id",
+    "name",
+    "location",
+    "chargers"
+  ]
+} 

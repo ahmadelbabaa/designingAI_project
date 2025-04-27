@@ -1,0 +1,447 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Charging Session Schema",
+  "description": "Schema for EV charging session data",
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "description": "Unique identifier for the charging session"
+    },
+    "station_id": {
+      "type": "string",
+      "description": "Identifier of the charging station"
+    },
+    "charger_id": {
+      "type": "string",
+      "description": "Identifier of the specific charger used for the session"
+    },
+    "connector_id": {
+      "type": "string",
+      "description": "Identifier of the specific connector used for the session"
+    },
+    "user_id": {
+      "type": "string",
+      "description": "Identifier of the user (may be anonymized)"
+    },
+    "vehicle_id": {
+      "type": "string",
+      "description": "Identifier of the vehicle (may be anonymized)"
+    },
+    "start_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start time of the charging session"
+    },
+    "end_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "End time of the charging session"
+    },
+    "duration_minutes": {
+      "type": "number",
+      "description": "Duration of the charging session in minutes"
+    },
+    "energy_delivered_kwh": {
+      "type": "number",
+      "description": "Total energy delivered during the session in kilowatt-hours"
+    },
+    "energy_measurements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of the energy measurement"
+          },
+          "power_kw": {
+            "type": "number",
+            "description": "Instantaneous power in kilowatts"
+          },
+          "energy_kwh": {
+            "type": "number",
+            "description": "Cumulative energy delivered in kilowatt-hours"
+          },
+          "voltage": {
+            "type": "number",
+            "description": "Voltage in volts"
+          },
+          "current": {
+            "type": "number",
+            "description": "Current in amperes"
+          }
+        },
+        "required": ["timestamp", "power_kw"],
+        "description": "Individual energy measurement during the session"
+      },
+      "description": "Time-series energy measurements during the session"
+    },
+    "charging_curves": {
+      "type": "object",
+      "properties": {
+        "soc_estimates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "timestamp": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Timestamp of the SoC estimate"
+              },
+              "soc_percent": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100,
+                "description": "Estimated State of Charge in percentage"
+              }
+            },
+            "required": ["timestamp", "soc_percent"],
+            "description": "Individual SoC estimate"
+          },
+          "description": "Time-series State of Charge estimates"
+        },
+        "charging_rate_profile": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "timestamp": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Timestamp of the charging rate measurement"
+              },
+              "charging_rate_kw": {
+                "type": "number",
+                "description": "Charging rate in kilowatts"
+              },
+              "charging_mode": {
+                "type": "string",
+                "enum": ["constant_current", "constant_voltage", "taper", "unknown"],
+                "description": "Charging mode at this point"
+              }
+            },
+            "required": ["timestamp", "charging_rate_kw"],
+            "description": "Individual charging rate measurement"
+          },
+          "description": "Time-series charging rate profile"
+        }
+      },
+      "description": "Charging curve data for the session"
+    },
+    "session_cost": {
+      "type": "object",
+      "properties": {
+        "total_amount": {
+          "type": "number",
+          "description": "Total cost of the charging session"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Currency of the cost (e.g., USD, EUR)"
+        },
+        "cost_components": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "component_type": {
+                "type": "string",
+                "enum": ["energy", "time", "connection_fee", "idle_fee", "tax", "discount", "other"],
+                "description": "Type of cost component"
+              },
+              "amount": {
+                "type": "number",
+                "description": "Amount for this cost component"
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of the cost component"
+              }
+            },
+            "required": ["component_type", "amount"],
+            "description": "Individual cost component"
+          },
+          "description": "Breakdown of cost components"
+        },
+        "tariff_id": {
+          "type": "string",
+          "description": "Identifier of the tariff applied to this session"
+        }
+      },
+      "required": ["total_amount", "currency"],
+      "description": "Cost information for the charging session"
+    },
+    "payment_info": {
+      "type": "object",
+      "properties": {
+        "payment_method": {
+          "type": "string",
+          "enum": ["credit_card", "membership", "rfid", "app", "free", "other"],
+          "description": "Method of payment used for the session"
+        },
+        "payment_status": {
+          "type": "string",
+          "enum": ["completed", "pending", "failed", "refunded", "free"],
+          "description": "Status of the payment"
+        },
+        "transaction_id": {
+          "type": "string",
+          "description": "Identifier of the payment transaction"
+        }
+      },
+      "description": "Payment information for the charging session"
+    },
+    "session_status": {
+      "type": "string",
+      "enum": ["completed", "interrupted", "in_progress", "error", "timeout"],
+      "description": "Status of the charging session"
+    },
+    "authentication_method": {
+      "type": "string",
+      "enum": ["app", "rfid", "credit_card", "qr_code", "plug_and_charge", "other"],
+      "description": "Method used to authenticate and start the session"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "description": "Latitude coordinate of the charging station"
+        },
+        "longitude": {
+          "type": "number",
+          "description": "Longitude coordinate of the charging station"
+        },
+        "altitude": {
+          "type": "number",
+          "description": "Altitude of the charging station in meters"
+        },
+        "address": {
+          "type": "string",
+          "description": "Address of the charging station"
+        },
+        "city": {
+          "type": "string",
+          "description": "City where the charging station is located"
+        },
+        "state_province": {
+          "type": "string",
+          "description": "State or province where the charging station is located"
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "Postal code of the charging station location"
+        },
+        "country": {
+          "type": "string",
+          "description": "Country where the charging station is located"
+        }
+      },
+      "description": "Location information for the charging station"
+    },
+    "vehicle_info": {
+      "type": "object",
+      "properties": {
+        "make": {
+          "type": "string",
+          "description": "Make of the vehicle"
+        },
+        "model": {
+          "type": "string",
+          "description": "Model of the vehicle"
+        },
+        "year": {
+          "type": "integer",
+          "description": "Year of the vehicle"
+        },
+        "battery_capacity_kwh": {
+          "type": "number",
+          "description": "Battery capacity of the vehicle in kilowatt-hours"
+        },
+        "vehicle_type": {
+          "type": "string",
+          "enum": ["bev", "phev", "fcev"],
+          "description": "Type of electric vehicle"
+        }
+      },
+      "description": "Information about the vehicle that charged"
+    },
+    "charger_info": {
+      "type": "object",
+      "properties": {
+        "charger_type": {
+          "type": "string",
+          "enum": ["ac_level_1", "ac_level_2", "dc_fast", "wireless"],
+          "description": "Type of charger"
+        },
+        "max_power_kw": {
+          "type": "number",
+          "description": "Maximum power output of the charger in kilowatts"
+        },
+        "connector_type": {
+          "type": "string",
+          "enum": ["chademo", "ccs1", "ccs2", "type1", "type2", "tesla", "gb/t", "other"],
+          "description": "Type of connector used"
+        },
+        "manufacturer": {
+          "type": "string",
+          "description": "Manufacturer of the charger"
+        },
+        "model": {
+          "type": "string",
+          "description": "Model of the charger"
+        },
+        "firmware_version": {
+          "type": "string",
+          "description": "Firmware version of the charger"
+        }
+      },
+      "description": "Information about the charger used for the session"
+    },
+    "weather_conditions": {
+      "type": "object",
+      "properties": {
+        "temperature_celsius": {
+          "type": "number",
+          "description": "Ambient temperature in degrees Celsius"
+        },
+        "humidity_percent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Relative humidity in percentage"
+        },
+        "weather_condition": {
+          "type": "string",
+          "enum": ["clear", "cloudy", "rain", "snow", "windy", "fog", "storm"],
+          "description": "General weather condition"
+        },
+        "wind_speed_kmh": {
+          "type": "number",
+          "description": "Wind speed in kilometers per hour"
+        }
+      },
+      "description": "Weather conditions during the charging session"
+    },
+    "grid_conditions": {
+      "type": "object",
+      "properties": {
+        "voltage_stability": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Stability of grid voltage (0-1)"
+        },
+        "frequency_hz": {
+          "type": "number",
+          "description": "Grid frequency in hertz"
+        },
+        "demand_response_event": {
+          "type": "boolean",
+          "description": "Whether a demand response event was active during the session"
+        },
+        "power_factor": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1,
+          "description": "Power factor during charging"
+        }
+      },
+      "description": "Grid conditions during the charging session"
+    },
+    "user_preferences": {
+      "type": "object",
+      "properties": {
+        "target_soc_percent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "User's target State of Charge in percentage"
+        },
+        "max_charging_time_minutes": {
+          "type": "number",
+          "description": "Maximum charging time set by the user in minutes"
+        },
+        "max_cost": {
+          "type": "number",
+          "description": "Maximum cost set by the user"
+        },
+        "scheduled_departure_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "User's scheduled departure time"
+        },
+        "smart_charging_enabled": {
+          "type": "boolean",
+          "description": "Whether smart charging optimization was enabled"
+        }
+      },
+      "description": "User's preferences for the charging session"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the error occurred"
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Error code"
+          },
+          "error_description": {
+            "type": "string",
+            "description": "Description of the error"
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["info", "warning", "error", "critical"],
+            "description": "Severity of the error"
+          },
+          "resolution": {
+            "type": "string",
+            "description": "How the error was resolved, if applicable"
+          }
+        },
+        "required": ["timestamp", "error_code", "severity"],
+        "description": "Individual error during the session"
+      },
+      "description": "Errors that occurred during the charging session"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags associated with the charging session"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata about the charging session"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this record was created"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this record was last updated"
+    }
+  },
+  "required": [
+    "session_id",
+    "station_id",
+    "charger_id",
+    "start_time",
+    "end_time",
+    "energy_delivered_kwh"
+  ]
+} 

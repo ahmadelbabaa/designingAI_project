@@ -1,0 +1,155 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Charging Stations Schema",
+  "description": "Schema for standardized charging station data",
+  "type": "object",
+  "properties": {
+    "station_id": {
+      "type": "string",
+      "description": "Unique identifier for the charging station"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the charging station"
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Latitude coordinate of the station location"
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Longitude coordinate of the station location"
+    },
+    "address": {
+      "type": "string",
+      "description": "Physical address of the station"
+    },
+    "city": {
+      "type": "string",
+      "description": "City where the station is located"
+    },
+    "state": {
+      "type": "string",
+      "description": "State where the station is located"
+    },
+    "zip_code": {
+      "type": "string",
+      "description": "ZIP code of the station location"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country where the station is located"
+    },
+    "owner_operator": {
+      "type": "string",
+      "description": "Entity that owns or operates the station"
+    },
+    "charger_count": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of chargers at the station"
+    },
+    "chargers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "charger_id": {
+            "type": "string",
+            "description": "Unique identifier for the charger"
+          },
+          "charger_type": {
+            "type": "string",
+            "enum": ["Level 1", "Level 2", "DC Fast Charger"],
+            "description": "Type of charger"
+          },
+          "power_output_kw": {
+            "type": "number",
+            "description": "Maximum power output in kilowatts"
+          },
+          "connector_types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["CCS", "CHAdeMO", "J1772", "Tesla"]
+            },
+            "description": "Types of connectors available"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["Available", "Occupied", "Offline", "Maintenance"],
+            "description": "Current status of the charger"
+          }
+        },
+        "required": ["charger_id", "charger_type", "power_output_kw"]
+      },
+      "description": "Details of individual chargers at the station"
+    },
+    "opening_hours": {
+      "type": "object",
+      "properties": {
+        "monday": {
+          "type": "string",
+          "description": "Operating hours on Monday"
+        },
+        "tuesday": {
+          "type": "string",
+          "description": "Operating hours on Tuesday"
+        },
+        "wednesday": {
+          "type": "string",
+          "description": "Operating hours on Wednesday"
+        },
+        "thursday": {
+          "type": "string",
+          "description": "Operating hours on Thursday"
+        },
+        "friday": {
+          "type": "string",
+          "description": "Operating hours on Friday"
+        },
+        "saturday": {
+          "type": "string",
+          "description": "Operating hours on Saturday"
+        },
+        "sunday": {
+          "type": "string",
+          "description": "Operating hours on Sunday"
+        }
+      },
+      "description": "Operating hours of the station"
+    },
+    "payment_methods": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["Credit Card", "Mobile App", "RFID Card", "Subscription"]
+      },
+      "description": "Accepted payment methods"
+    },
+    "amenities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Nearby amenities like restaurants, shops, etc."
+    },
+    "installation_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when the station was installed"
+    },
+    "last_maintenance_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of last maintenance check"
+    }
+  },
+  "required": [
+    "station_id",
+    "latitude",
+    "longitude",
+    "charger_count",
+    "chargers"
+  ]
+} 

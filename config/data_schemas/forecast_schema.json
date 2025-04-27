@@ -1,0 +1,487 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Forecast Schema",
+  "description": "Schema for EV charging demand forecast data",
+  "type": "object",
+  "properties": {
+    "forecast_id": {
+      "type": "string",
+      "description": "Unique identifier for the forecast"
+    },
+    "station_id": {
+      "type": "string",
+      "description": "Identifier of the charging station"
+    },
+    "forecast_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the forecast was generated"
+    },
+    "forecast_type": {
+      "type": "string",
+      "enum": ["short_term", "medium_term", "long_term"],
+      "description": "Type of forecast based on prediction horizon"
+    },
+    "model_version": {
+      "type": "string",
+      "description": "Version of the forecasting model used"
+    },
+    "model_name": {
+      "type": "string",
+      "description": "Name of the forecasting model used"
+    },
+    "prediction_horizon": {
+      "type": "object",
+      "properties": {
+        "start_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Start time of the forecast horizon"
+        },
+        "end_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "End time of the forecast horizon"
+        },
+        "resolution": {
+          "type": "string",
+          "enum": ["15min", "30min", "1hour", "3hour", "6hour", "12hour", "1day"],
+          "description": "Time resolution of the forecast data points"
+        }
+      },
+      "required": ["start_time", "end_time", "resolution"],
+      "description": "Time horizon for the forecast"
+    },
+    "forecasted_values": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp for the forecasted value"
+          },
+          "predicted_demand_kwh": {
+            "type": "number",
+            "description": "Predicted energy demand in kilowatt-hours"
+          },
+          "predicted_occupancy_rate": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Predicted occupancy rate (0-1)"
+          },
+          "predicted_sessions_count": {
+            "type": "number",
+            "description": "Predicted number of charging sessions"
+          },
+          "confidence_level": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Confidence level for the prediction (0-1)"
+          },
+          "prediction_interval": {
+            "type": "object",
+            "properties": {
+              "lower_bound": {
+                "type": "number",
+                "description": "Lower bound of prediction interval"
+              },
+              "upper_bound": {
+                "type": "number",
+                "description": "Upper bound of prediction interval"
+              },
+              "confidence_percentage": {
+                "type": "number",
+                "description": "Confidence percentage of the interval (e.g., 95)"
+              }
+            },
+            "description": "Prediction interval for uncertainty quantification"
+          }
+        },
+        "required": ["timestamp", "predicted_demand_kwh"],
+        "description": "Individual forecasted data point"
+      },
+      "description": "Array of forecasted values over the prediction horizon"
+    },
+    "input_features": {
+      "type": "object",
+      "properties": {
+        "weather": {
+          "type": "object",
+          "properties": {
+            "temperature": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "timestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp for the temperature data"
+                  },
+                  "value": {
+                    "type": "number",
+                    "description": "Temperature value"
+                  },
+                  "unit": {
+                    "type": "string",
+                    "enum": ["celsius", "fahrenheit"],
+                    "description": "Unit of temperature measurement"
+                  }
+                },
+                "required": ["timestamp", "value", "unit"],
+                "description": "Temperature data point"
+              },
+              "description": "Temperature data used in the forecast"
+            },
+            "precipitation": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "timestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp for the precipitation data"
+                  },
+                  "value": {
+                    "type": "number",
+                    "description": "Precipitation amount"
+                  },
+                  "unit": {
+                    "type": "string",
+                    "enum": ["mm", "inches"],
+                    "description": "Unit of precipitation measurement"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": ["rain", "snow", "sleet", "hail"],
+                    "description": "Type of precipitation"
+                  }
+                },
+                "required": ["timestamp", "value", "unit"],
+                "description": "Precipitation data point"
+              },
+              "description": "Precipitation data used in the forecast"
+            },
+            "wind_speed": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "timestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp for the wind speed data"
+                  },
+                  "value": {
+                    "type": "number",
+                    "description": "Wind speed value"
+                  },
+                  "unit": {
+                    "type": "string",
+                    "enum": ["m/s", "km/h", "mph"],
+                    "description": "Unit of wind speed measurement"
+                  }
+                },
+                "required": ["timestamp", "value", "unit"],
+                "description": "Wind speed data point"
+              },
+              "description": "Wind speed data used in the forecast"
+            },
+            "cloud_cover": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "timestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp for the cloud cover data"
+                  },
+                  "value": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100,
+                    "description": "Cloud cover percentage"
+                  }
+                },
+                "required": ["timestamp", "value"],
+                "description": "Cloud cover data point"
+              },
+              "description": "Cloud cover data used in the forecast"
+            }
+          },
+          "description": "Weather data used as input features"
+        },
+        "temporal": {
+          "type": "object",
+          "properties": {
+            "time_of_day_encoding": {
+              "type": "string",
+              "enum": ["hour_of_day", "normalized_time", "sine_cosine"],
+              "description": "Method used to encode time of day"
+            },
+            "day_of_week_encoding": {
+              "type": "string",
+              "enum": ["one_hot", "cyclic", "ordinal"],
+              "description": "Method used to encode day of week"
+            },
+            "month_encoding": {
+              "type": "string",
+              "enum": ["one_hot", "cyclic", "ordinal"],
+              "description": "Method used to encode month"
+            },
+            "holiday_encoding": {
+              "type": "string",
+              "enum": ["binary", "categorical"],
+              "description": "Method used to encode holidays"
+            },
+            "season_encoding": {
+              "type": "string",
+              "enum": ["one_hot", "cyclic", "ordinal"],
+              "description": "Method used to encode seasons"
+            }
+          },
+          "description": "Temporal feature encoding methods"
+        },
+        "historical_usage": {
+          "type": "object",
+          "properties": {
+            "lookback_window": {
+              "type": "string",
+              "description": "Time window for historical data used (e.g., '7d', '30d')"
+            },
+            "aggregation_method": {
+              "type": "string",
+              "enum": ["mean", "median", "sum", "max", "min"],
+              "description": "Method used to aggregate historical data"
+            },
+            "features_included": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["energy_delivered", "session_count", "occupancy_rate", "peak_demand"]
+              },
+              "description": "Historical features included in the model"
+            }
+          },
+          "description": "Historical usage data configuration"
+        },
+        "special_events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "event_name": {
+                "type": "string",
+                "description": "Name of the special event"
+              },
+              "start_time": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Start time of the event"
+              },
+              "end_time": {
+                "type": "string",
+                "format": "date-time",
+                "description": "End time of the event"
+              },
+              "impact_factor": {
+                "type": "number",
+                "description": "Estimated impact factor of the event on charging demand"
+              }
+            },
+            "required": ["event_name", "start_time", "end_time"],
+            "description": "Special event information"
+          },
+          "description": "Special events considered in the forecast"
+        },
+        "external_factors": {
+          "type": "object",
+          "properties": {
+            "electricity_price": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "timestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp for the electricity price data"
+                  },
+                  "value": {
+                    "type": "number",
+                    "description": "Electricity price value"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "Currency of the price"
+                  },
+                  "unit": {
+                    "type": "string",
+                    "enum": ["per_kwh", "per_mwh"],
+                    "description": "Unit of the price"
+                  }
+                },
+                "required": ["timestamp", "value", "currency", "unit"],
+                "description": "Electricity price data point"
+              },
+              "description": "Electricity price data used in the forecast"
+            },
+            "traffic_conditions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "timestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp for the traffic data"
+                  },
+                  "value": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Traffic congestion level (0-1)"
+                  },
+                  "location": {
+                    "type": "string",
+                    "description": "Location reference for the traffic data"
+                  }
+                },
+                "required": ["timestamp", "value"],
+                "description": "Traffic condition data point"
+              },
+              "description": "Traffic condition data used in the forecast"
+            }
+          },
+          "description": "External factors considered in the forecast"
+        }
+      },
+      "description": "Input features used in generating the forecast"
+    },
+    "model_metrics": {
+      "type": "object",
+      "properties": {
+        "mape": {
+          "type": "number",
+          "description": "Mean Absolute Percentage Error of the forecast"
+        },
+        "rmse": {
+          "type": "number",
+          "description": "Root Mean Square Error of the forecast"
+        },
+        "mae": {
+          "type": "number",
+          "description": "Mean Absolute Error of the forecast"
+        },
+        "r_squared": {
+          "type": "number",
+          "description": "R-squared value of the forecast"
+        },
+        "calibration_score": {
+          "type": "number",
+          "description": "Calibration score for the forecast (reliability of uncertainty estimates)"
+        }
+      },
+      "description": "Metrics describing the accuracy of the forecast"
+    },
+    "forecast_adjustments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of the adjustment"
+          },
+          "original_value": {
+            "type": "number",
+            "description": "Original forecasted value before adjustment"
+          },
+          "adjusted_value": {
+            "type": "number",
+            "description": "Value after adjustment"
+          },
+          "adjustment_reason": {
+            "type": "string",
+            "description": "Reason for the adjustment"
+          },
+          "adjustment_method": {
+            "type": "string",
+            "enum": ["manual", "automated_rule", "ensemble_blend"],
+            "description": "Method used for the adjustment"
+          }
+        },
+        "required": ["timestamp", "original_value", "adjusted_value", "adjustment_reason"],
+        "description": "Individual forecast adjustment"
+      },
+      "description": "Adjustments made to the raw model forecasts"
+    },
+    "scenario_analysis": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scenario_name": {
+            "type": "string",
+            "description": "Name of the scenario"
+          },
+          "scenario_description": {
+            "type": "string",
+            "description": "Description of the scenario"
+          },
+          "scenario_probability": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Probability of the scenario occurring"
+          },
+          "forecasted_values": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "timestamp": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Timestamp for the forecasted value"
+                },
+                "predicted_demand_kwh": {
+                  "type": "number",
+                  "description": "Predicted energy demand in kilowatt-hours under this scenario"
+                }
+              },
+              "required": ["timestamp", "predicted_demand_kwh"],
+              "description": "Individual forecasted data point for the scenario"
+            },
+            "description": "Forecasted values under this scenario"
+          }
+        },
+        "required": ["scenario_name", "forecasted_values"],
+        "description": "Alternative scenario forecast"
+      },
+      "description": "Alternative scenario forecasts"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the forecast was last updated"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata about the forecast"
+    }
+  },
+  "required": [
+    "forecast_id",
+    "station_id",
+    "forecast_timestamp",
+    "forecasted_values"
+  ]
+} 

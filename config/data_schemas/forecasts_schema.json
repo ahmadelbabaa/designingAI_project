@@ -1,0 +1,172 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Forecasts Schema",
+  "description": "Schema for standardized EV charging forecasting data",
+  "type": "object",
+  "properties": {
+    "forecast_id": {
+      "type": "string",
+      "description": "Unique identifier for the forecast"
+    },
+    "station_id": {
+      "type": "string",
+      "description": "Identifier of the charging station"
+    },
+    "creation_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the forecast was created"
+    },
+    "forecast_horizon": {
+      "type": "string",
+      "enum": ["day_ahead", "week_ahead", "month_ahead"],
+      "description": "Time horizon for the forecast"
+    },
+    "forecast_type": {
+      "type": "string",
+      "enum": ["occupancy", "energy_demand", "revenue"],
+      "description": "Type of forecast being provided"
+    },
+    "forecasting_method": {
+      "type": "string",
+      "description": "Method or algorithm used for forecasting"
+    },
+    "model_version": {
+      "type": "string",
+      "description": "Version of the forecasting model used"
+    },
+    "input_features": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Features used as input to the forecasting model"
+    },
+    "forecast_data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp for the forecast point"
+          },
+          "predicted_value": {
+            "type": "number",
+            "description": "Predicted value for the forecast point"
+          },
+          "confidence_interval_lower": {
+            "type": "number",
+            "description": "Lower bound of confidence interval"
+          },
+          "confidence_interval_upper": {
+            "type": "number",
+            "description": "Upper bound of confidence interval"
+          },
+          "prediction_interval_lower": {
+            "type": "number",
+            "description": "Lower bound of prediction interval"
+          },
+          "prediction_interval_upper": {
+            "type": "number",
+            "description": "Upper bound of prediction interval"
+          }
+        },
+        "required": ["timestamp", "predicted_value"]
+      },
+      "description": "Array of forecast points with timestamps and values"
+    },
+    "accuracy_metrics": {
+      "type": "object",
+      "properties": {
+        "mape": {
+          "type": "number",
+          "description": "Mean Absolute Percentage Error of the forecast"
+        },
+        "rmse": {
+          "type": "number",
+          "description": "Root Mean Square Error of the forecast"
+        },
+        "mae": {
+          "type": "number",
+          "description": "Mean Absolute Error of the forecast"
+        },
+        "r_squared": {
+          "type": "number",
+          "description": "R-squared value of the forecast"
+        }
+      },
+      "description": "Accuracy metrics for the forecast"
+    },
+    "external_factors": {
+      "type": "object",
+      "properties": {
+        "weather": {
+          "type": "object",
+          "properties": {
+            "temperature_c": {
+              "type": "number",
+              "description": "Temperature in Celsius"
+            },
+            "precipitation_mm": {
+              "type": "number",
+              "description": "Precipitation in millimeters"
+            },
+            "weather_condition": {
+              "type": "string",
+              "description": "General weather condition"
+            }
+          },
+          "description": "Weather conditions affecting the forecast"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "event_name": {
+                "type": "string",
+                "description": "Name of the event"
+              },
+              "event_type": {
+                "type": "string",
+                "description": "Type of event (holiday, sporting event, etc.)"
+              },
+              "start_time": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Start time of the event"
+              },
+              "end_time": {
+                "type": "string",
+                "format": "date-time",
+                "description": "End time of the event"
+              },
+              "impact_factor": {
+                "type": "number",
+                "description": "Estimated impact factor of the event on charging demand"
+              }
+            },
+            "required": ["event_name", "start_time"]
+          },
+          "description": "Events that may affect charging demand"
+        }
+      },
+      "description": "External factors that might influence the forecast"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the last update to the forecast"
+    }
+  },
+  "required": [
+    "forecast_id",
+    "station_id",
+    "creation_timestamp",
+    "forecast_horizon",
+    "forecast_type",
+    "forecast_data"
+  ]
+} 
