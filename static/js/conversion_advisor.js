@@ -51,12 +51,26 @@ const recommendationCache = {};
 let stationMap = null;
 let stationMarkers = {};
 let selectedStation = null;
+let allStations = []; // Store all stations for reference
 
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize map if container exists
     const mapContainer = document.getElementById('station-map');
     if (mapContainer) {
-        initializeMap();
+        // Wait for page to fully load before initializing map
+        window.addEventListener('load', () => {
+            // Small additional delay to ensure all resources are loaded
+            setTimeout(() => {
+                try {
+                    initializeMap();
+                } catch (error) {
+                    console.error('Error initializing map:', error);
+                    document.getElementById('map-error').textContent = 'Error initializing map. Please refresh the page.';
+                    document.getElementById('map-error').style.display = 'block';
+                    document.querySelector('.map-loading').style.display = 'none';
+                }
+            }, 300);
+        });
     }
     
     // Set up form submission handler if form exists
@@ -69,97 +83,350 @@ document.addEventListener('DOMContentLoaded', () => {
     const stationSelect = document.getElementById('station-select');
     if (stationSelect) {
         stationSelect.addEventListener('change', handleStationSelection);
-        
-        // Trigger recommendation generation if recommend button exists
-        const recommendButton = document.getElementById('generate-recommendation');
-        if (recommendButton) {
-            recommendButton.addEventListener('click', generateRecommendation);
-        }
+    }
+    
+    // Explicitly set up the recommendation button
+    const recommendButton = document.getElementById('generate-recommendation');
+    if (recommendButton) {
+        recommendButton.addEventListener('click', function() {
+            generateRecommendation();
+        });
     }
 });
 
 // Initialize the map with station markers
 function initializeMap() {
-    // Create a map centered on the US
-    stationMap = L.map('station-map').setView([39.8283, -98.5795], 4);
+    console.log("Initializing map");
     
-    // Add OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(stationMap);
-    
-    // Fetch gas stations data
-    fetch('/api/gas_stations')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error fetching gas stations');
-            }
-            return response.json();
-        })
-        .then(stations => {
-            addStationsToMap(stations);
-        })
-        .catch(error => {
-            console.error('Error loading stations:', error);
-            document.getElementById('map-error').textContent = 'Error loading stations. Please try again later.';
+    try {
+        // Hide the loading indicator when map is initialized
+        const mapLoading = document.querySelector('.map-loading');
+        
+        // Create a map centered on the San Francisco Bay Area (where our sample data is)
+        stationMap = L.map('station-map', {
+            center: [37.7749, -122.4194],
+            zoom: 9,
+            minZoom: 3,
+            maxZoom: 18
         });
+        
+        // Add multiple tile layer options for redundancy
+        const openStreetMapLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        });
+        
+        const cartoDBLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd'
+        });
+        
+        // Try to add OpenStreetMap first
+        openStreetMapLayer.addTo(stationMap)
+            .on('tileerror', function() {
+                console.warn('OpenStreetMap tiles failed to load, switching to CartoDB');
+                openStreetMapLayer.remove();
+                cartoDBLayer.addTo(stationMap);
+            });
+            
+        // Add a fallback handler if both tile layers fail
+        cartoDBLayer.on('tileerror', function() {
+            console.error('Both tile layers failed to load');
+            document.getElementById('map-error').textContent = 'Map tiles failed to load. Please check your internet connection.';
+            document.getElementById('map-error').style.display = 'block';
+        });
+        
+        // Listen for map load event
+        stationMap.on('load', function() {
+            console.log("Map loaded successfully");
+            if (mapLoading) mapLoading.style.display = 'none';
+        });
+        
+        // Set a timeout to ensure map loading indicator is hidden
+        setTimeout(() => {
+            if (mapLoading) mapLoading.style.display = 'none';
+        }, 3000);
+        
+        console.log("Fetching gas stations data");
+        
+        // Fetch gas stations data
+        fetch('/api/gas_stations')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error fetching gas stations');
+                }
+                return response.json();
+            })
+            .then(stations => {
+                console.log(`Loaded ${stations.length} stations`);
+                allStations = stations; // Store all stations
+                addStationsToMap(stations);
+                
+                // Select the first station by default
+                if (stations.length > 0) {
+                    console.log(`Selecting first station: ${stations[0].station_id}`);
+                    selectStation(stations[0]);
+                    
+                    // Update dropdown to show first station
+                    const stationSelect = document.getElementById('station-select');
+                    if (stationSelect && stationSelect.options.length > 0) {
+                        stationSelect.selectedIndex = 0;
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error loading stations:', error);
+                document.getElementById('map-error').textContent = 'Error loading stations. Please refresh the page.';
+                document.getElementById('map-error').style.display = 'block';
+                if (mapLoading) mapLoading.style.display = 'none';
+            });
+    } catch (error) {
+        console.error('Error in map initialization:', error);
+        document.getElementById('map-error').textContent = 'Error initializing map. Please refresh the page.';
+        document.getElementById('map-error').style.display = 'block';
+        const mapLoading = document.querySelector('.map-loading');
+        if (mapLoading) mapLoading.style.display = 'none';
+    }
 }
 
 // Add station markers to the map
 function addStationsToMap(stations) {
+    console.log(`Adding ${stations.length} stations to map`);
+    
+    // Define marker icons for different viability scores
+    const greenIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+    
+    const orangeIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+    
+    const redIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+    
+    const blueIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+    
     stations.forEach(station => {
         // Only add markers for stations with coordinates
         if (station.latitude && station.longitude) {
-            const marker = L.marker([station.latitude, station.longitude])
-                .addTo(stationMap)
-                .bindTooltip(station.station_id)
-                .on('click', () => selectStation(station));
+            // Determine marker color based on viability score
+            let markerIcon = blueIcon;
+            if (station.viability_score >= 70) {
+                markerIcon = greenIcon;
+            } else if (station.viability_score >= 50) {
+                markerIcon = orangeIcon;
+            } else {
+                markerIcon = redIcon;
+            }
+            
+            // Create popup content
+            const popupContent = `
+                <div class="station-popup">
+                    <h3>${station.name}</h3>
+                    <p><strong>ID:</strong> ${station.station_id}</p>
+                    <p><strong>Viability Score:</strong> ${station.viability_score || 'N/A'}</p>
+                    <p><strong>Estimated ROI:</strong> ${station.estimated_roi ? station.estimated_roi + '%' : 'N/A'}</p>
+                    <p><strong>Daily Customers:</strong> ${station.daily_customers || 'N/A'}</p>
+                    <p><strong>Recommendation:</strong> ${station.recommendation || 'N/A'}</p>
+                    <button onclick="selectAndShowStation('${station.station_id}')" class="popup-button">Select Station</button>
+                </div>
+            `;
+            
+            // Create marker
+            const marker = L.marker([station.latitude, station.longitude], {
+                icon: markerIcon
+            })
+            .bindPopup(popupContent)
+            .addTo(stationMap)
+            .on('click', () => {
+                selectStation(station);
+                
+                // Update dropdown to match selected station
+                const stationSelect = document.getElementById('station-select');
+                if (stationSelect) {
+                    stationSelect.value = station.station_id;
+                }
+            });
             
             stationMarkers[station.station_id] = marker;
         }
     });
+    
+    // Add custom CSS for popups
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .station-popup { min-width: 200px; }
+        .station-popup h3 { margin-top: 0; color: #00a67d; }
+        .popup-button {
+            background-color: #00a67d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .popup-button:hover {
+            background-color: #008f6c;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    console.log("Map markers added");
 }
+
+// Global function to select and show station from popup button
+window.selectAndShowStation = function(stationId) {
+    const station = allStations.find(s => s.station_id === stationId);
+    if (station) {
+        selectStation(station);
+        
+        // Update dropdown to match selected station
+        const stationSelect = document.getElementById('station-select');
+        if (stationSelect) {
+            stationSelect.value = stationId;
+        }
+        
+        // Close the popup
+        stationMarkers[stationId].closePopup();
+    }
+};
 
 // Handle station selection on map
 function selectStation(station) {
+    console.log(`Selecting station: ${station.station_id}`);
+    
     // Update selected station
     selectedStation = station;
     
     // Update UI to show selected station
-    const stationSelect = document.getElementById('station-select');
-    if (stationSelect) {
-        stationSelect.value = station.station_id;
-    }
-    
-    // Show station details
     const stationDetails = document.getElementById('station-details');
     if (stationDetails) {
+        let featuresHtml = '';
+        if (station.features) {
+            featuresHtml = '<h4>Key Factors:</h4><ul>';
+            for (const [key, value] of Object.entries(station.features)) {
+                const readableKey = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                featuresHtml += `<li><strong>${readableKey}:</strong> ${value}</li>`;
+            }
+            featuresHtml += '</ul>';
+        }
+        
         stationDetails.innerHTML = `
-            <h3>${station.station_id}</h3>
+            <h3>${station.name} (${station.station_id})</h3>
             <p><strong>Location:</strong> ${station.latitude.toFixed(4)}, ${station.longitude.toFixed(4)}</p>
-            <p><strong>Daily Customers:</strong> ${station.daily_customers}</p>
-            <p><strong>Monthly Revenue:</strong> $${station.monthly_revenue.toFixed(2)}</p>
+            <p><strong>Viability Score:</strong> ${station.viability_score || 'N/A'}</p>
+            <p><strong>Estimated ROI:</strong> ${station.estimated_roi ? station.estimated_roi + '%' : 'N/A'}</p>
+            <p><strong>Daily Customers:</strong> ${station.daily_customers || 'N/A'}</p>
+            <p><strong>Monthly Revenue:</strong> $${station.monthly_revenue?.toFixed(2) || 'N/A'}</p>
+            <p><strong>Recommendation:</strong> ${station.recommendation || 'N/A'}</p>
+            ${featuresHtml}
         `;
         stationDetails.style.display = 'block';
     }
     
-    // Update marker styles to highlight selected station
-    Object.values(stationMarkers).forEach(m => {
-        m.setIcon(L.icon({
-            iconUrl: '/static/images/marker-icon.png',
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [1, -34]
-        }));
-    });
+    // Highlight the selected marker
+    for (const [id, marker] of Object.entries(stationMarkers)) {
+        // Reset all markers to their original icons
+        const s = allStations.find(s => s.station_id === id);
+        if (s) {
+            let iconUrl = 'blue';
+            if (s.viability_score >= 70) {
+                iconUrl = 'green';
+            } else if (s.viability_score >= 50) {
+                iconUrl = 'orange';
+            } else {
+                iconUrl = 'red';
+            }
+            
+            // Use standard icon for non-selected markers
+            if (id !== station.station_id) {
+                marker.setIcon(new L.Icon({
+                    iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${iconUrl}.png`,
+                    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41],
+                    popupAnchor: [1, -34],
+                    shadowSize: [41, 41]
+                }));
+            } else {
+                // Use a larger icon for the selected marker
+                marker.setIcon(new L.Icon({
+                    iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${iconUrl}.png`,
+                    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                    iconSize: [35, 57], // Larger size
+                    iconAnchor: [17, 57],
+                    popupAnchor: [1, -34],
+                    shadowSize: [41, 41]
+                }));
+            }
+        }
+    }
     
+    // Center map on selected station
+    if (stationMap) {
+        stationMap.setView([station.latitude, station.longitude], 12);
+    }
+    
+    // Open the popup for this station
     if (stationMarkers[station.station_id]) {
-        stationMarkers[station.station_id].setIcon(L.icon({
-            iconUrl: '/static/images/marker-icon-selected.png',
-            iconSize: [30, 46],
-            iconAnchor: [15, 46],
-            popupAnchor: [1, -34]
-        }));
+        stationMarkers[station.station_id].openPopup();
+    }
+    
+    // Enable chat if it was disabled
+    document.getElementById('chat-input').disabled = false;
+    document.getElementById('chat-button').disabled = false;
+    
+    // Add AI message in chat about the selected station
+    const chatMessages = document.getElementById('chat-messages');
+    if (chatMessages) {
+        chatMessages.innerHTML = `
+            <div class="message message-ai">
+                Hello! I can help you understand ${station.name}'s potential for EV charging conversion. This station has a viability score of ${station.viability_score || 'N/A'} and is located in the San Francisco Bay Area. What would you like to know about converting this station?
+            </div>
+        `;
+    }
+    
+    // Store station data as current recommendation context
+    currentRecommendation = `
+Station: ${station.name} (${station.station_id})
+Location: ${station.latitude.toFixed(4)}, ${station.longitude.toFixed(4)}
+Viability Score: ${station.viability_score || 'N/A'}
+Estimated ROI: ${station.estimated_roi ? station.estimated_roi + '%' : 'N/A'}
+Daily Customers: ${station.daily_customers || 'N/A'}
+Monthly Revenue: $${station.monthly_revenue?.toFixed(2) || 'N/A'}
+Recommendation: ${station.recommendation || 'N/A'}
+    `;
+    
+    if (station.features) {
+        currentRecommendation += '\nKey Factors:\n';
+        for (const [key, value] of Object.entries(station.features)) {
+            const readableKey = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            currentRecommendation += `- ${readableKey}: ${value}\n`;
+        }
     }
 }
 
@@ -181,6 +448,9 @@ function generateRecommendation() {
     if (loader) loader.style.display = 'block';
     if (frame) frame.style.display = 'none';
     if (textOutput) textOutput.style.display = 'none';
+    
+    // Scroll to results
+    resultsDiv.scrollIntoView({ behavior: 'smooth' });
     
     // Check if we have a cached result
     if (recommendationCache[stationId]) {
@@ -218,6 +488,16 @@ function generateRecommendation() {
             };
             recommendationCache[stationId] = result;
             displayRecommendation(result, loader, frame, textOutput);
+            
+            // Update current recommendation for chat context
+            currentRecommendation = data.recommendation || FALLBACK_RECOMMENDATION;
+            
+            // Enable chat
+            document.getElementById('chat-input').disabled = false;
+            document.getElementById('chat-button').disabled = false;
+            
+            // Add AI message in chat
+            addChatMessage("I've analyzed this station's data and generated a detailed recommendation. You can now ask me specific questions about this recommendation or the station's conversion potential.", false);
         })
         .catch(error => {
             clearTimeout(timeoutId);
@@ -230,6 +510,13 @@ function generateRecommendation() {
             };
             recommendationCache[stationId] = fallbackResult;
             displayRecommendation(fallbackResult, loader, frame, textOutput);
+            
+            // Still update current recommendation for chat context
+            currentRecommendation = FALLBACK_RECOMMENDATION;
+            
+            // Enable chat
+            document.getElementById('chat-input').disabled = false;
+            document.getElementById('chat-button').disabled = false;
         });
 }
 
@@ -363,23 +650,25 @@ function handleFormSubmit(e) {
 function handleStationSelection(e) {
     const stationId = e.target.value;
     
-    // Find station data and update the map selection
-    fetch(`/api/gas_stations/${stationId}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error fetching station details');
-            }
-            return response.json();
-        })
-        .then(station => {
-            selectStation(station);
-            
-            // Center map on selected station
-            if (stationMap && station.latitude && station.longitude) {
-                stationMap.setView([station.latitude, station.longitude], 10);
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching station details:', error);
-        });
+    // Find station data in our local cache first
+    let station = allStations.find(s => s.station_id === stationId);
+    
+    if (station) {
+        selectStation(station);
+    } else {
+        // If not in cache, fetch from API
+        fetch(`/api/gas_stations/${stationId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error fetching station details');
+                }
+                return response.json();
+            })
+            .then(station => {
+                selectStation(station);
+            })
+            .catch(error => {
+                console.error('Error fetching station details:', error);
+            });
+    }
 } 
