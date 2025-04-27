@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gas Station Conversion Advisor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .input-form {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        select, button {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #2c3e50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #34495e;
+        }
+        #loading-indicator {
+            text-align: center;
+            padding: 20px;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gas Station Conversion Advisor</h1>
+        <p>Use this AI-powered tool to get personalized recommendations on converting your gas station to include EV charging infrastructure.</p>
+        
+        <div class="input-form">
+            <h2>Select Station</h2>
+            <div>
+                <label for="station-select">Gas Station:</label>
+                <select id="station-select">
+                    {% for station in stations %}
+                    <option value="{{ station.station_id }}">{{ station.station_id }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <button id="generate-btn" onclick="generateRecommendation()">Generate Recommendation</button>
+        </div>
+        
+        <div id="loading-indicator" style="display: none;">
+            <p>Generating recommendation... This may take a moment.</p>
+            <div class="spinner"></div>
+        </div>
+        
+        <div id="recommendation-container" style="display: none;">
+            <iframe id="recommendation-frame" style="width: 100%; height: 800px; border: none;"></iframe>
+        </div>
+    </div>
+    
+    <script>
+        function generateRecommendation() {
+            const stationId = document.getElementById('station-select').value;
+            document.getElementById('loading-indicator').style.display = 'block';
+            document.getElementById('recommendation-container').style.display = 'none';
+            
+            fetch(`/generate_recommendation?station_id=${stationId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('loading-indicator').style.display = 'none';
+                    document.getElementById('recommendation-container').style.display = 'block';
+                    document.getElementById('recommendation-frame').src = data.dashboard_url;
+                })
+                .catch(error => {
+                    alert(`Error: ${error.message}`);
+                    document.getElementById('loading-indicator').style.display = 'none';
+                });
+        }
+    </script>
+</body>
+</html> 

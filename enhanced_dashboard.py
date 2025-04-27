@@ -16,9 +16,16 @@ import time_series_forecasting as tsf
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 import shutil
+from flask import Flask, render_template, request, jsonify
+from conversion_advisor import generate_conversion_recommendation, create_dashboard_html, load_gas_stations
+
+# Create Flask app
+app = Flask(__name__, 
+            static_folder='output',
+            template_folder='templates')
 
 # Create necessary folders if they don't exist
-for folder in ['data', 'config', 'output', 'output/forecasts']:
+for folder in ['data', 'config', 'output', 'output/forecasts', 'output/conversion_advisor', 'templates']:
     os.makedirs(folder, exist_ok=True)
 
 # Constants for synthetic data generation
@@ -92,7 +99,11 @@ def generate_gas_stations(num_stations=50, save_data=True):
             "features": features,
             "viability_score": viability_score,
             "estimated_roi": roi,
-            "recommendation": recommendation
+            "recommendation": recommendation,
+            "daily_customers": random.randint(200, 1000),
+            "monthly_revenue": random.randint(50000, 200000),
+            "property_size_sqft": random.randint(5000, 30000),
+            "has_convenience_store": random.choice([True, False])
         }
         
         stations.append(station)
@@ -112,6 +123,10 @@ def generate_gas_stations(num_stations=50, save_data=True):
                 "viability_score": s["viability_score"],
                 "estimated_roi": s["estimated_roi"],
                 "recommendation": s["recommendation"],
+                "daily_customers": s["daily_customers"],
+                "monthly_revenue": s["monthly_revenue"],
+                "property_size_sqft": s["property_size_sqft"],
+                "has_convenience_store": s["has_convenience_store"],
                 **{f"feature_{k}": v for k, v in s["features"].items()}
             } for s in stations
         ])
@@ -746,41 +761,61 @@ def create_dashboard_html(stations, stats, forecast_results, save_file="output/e
     
     return save_file
 
+# Add routes for the web interface
+@app.route('/')
+def index():
+    """Main dashboard page"""
+    return render_template('dashboard.html')
+
+@app.route('/conversion_advisor')
+def conversion_advisor_page():
+    """Conversion advisor page"""
+    stations_df = load_gas_stations()
+    stations = [row.to_dict() for _, row in stations_df.iterrows()]
+    return render_template('conversion_advisor.html', stations=stations)
+
+@app.route('/generate_recommendation')
+def generate_recommendation_api():
+    """API endpoint for generating recommendations"""
+    station_id = request.args.get('station_id')
+    if not station_id:
+        return jsonify({'error': 'No station ID provided'}), 400
+    
+    result = generate_conversion_recommendation(station_id)
+    dashboard_path = create_dashboard_html(result)
+    
+    # Get relative URL for dashboard
+    dashboard_url = dashboard_path.replace('output/', '')
+    
+    return jsonify({
+        'success': True,
+        'dashboard_url': dashboard_url
+    })
+
 def main():
-    """
-    Main function to run the enhanced dashboard generation
-    """
-    print("Creating folders for data, config, and output...")
-    for folder in ['data', 'config', 'output', 'output/forecasts']:
-        os.makedirs(folder, exist_ok=True)
+    """Main function to run the dashboard"""
+    # Generate synthetic gas stations
+    stations = generate_gas_stations(num_stations=50)
     
-    print("Generating synthetic gas station data for analysis...")
-    stations = generate_gas_stations(num_stations=50, save_data=True)
-    print(f"Generated {len(stations)} stations for analysis")
-    
-    print("Creating station map...")
-    create_map(stations, save_file="output/station_map.html")
-    print("Map saved to output/station_map.html")
-    
-    print("Creating EV adoption heatmap...")
-    create_heatmap(stations, save_file="output/ev_adoption_heatmap.html")
-    print("Heatmap saved to output/ev_adoption_heatmap.html")
-    
-    print("Calculating dashboard statistics...")
+    # Calculate dashboard statistics
     stats = calculate_dashboard_stats(stations)
-    print(f"Average viability score: {stats['avg_viability']}")
-    print(f"High viability stations: {stats['high_viability_count']}")
     
-    print("Generating time series forecasts for top stations...")
+    # Create interactive map
+    create_map(stations)
+    
+    # Create EV adoption heatmap
+    create_heatmap(stations)
+    
+    # Generate forecasts for top stations
     forecast_results = generate_forecasts(stations, top_n=5)
-    print(f"Generated forecasts for {len(forecast_results)} stations")
     
-    print("Creating enhanced dashboard...")
-    dashboard_file = create_dashboard_html(stations, stats, forecast_results)
-    print(f"Enhanced dashboard saved to {dashboard_file}")
+    # Create dashboard HTML
+    create_dashboard_html(stations, stats, forecast_results)
     
-    print("Enhanced dashboard generation complete!")
-    print(f"Open {dashboard_file} in a web browser to view the dashboard")
+    print(f"Dashboard generated at output/enhanced_dashboard.html")
+    
+    # Start the Flask app
+    app.run(debug=True, port=5000)
 
 if __name__ == "__main__":
     main() 

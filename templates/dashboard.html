@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HPC Station Conversion Dashboard</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-menu {
+            display: flex;
+            margin-top: 20px;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .nav-item {
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-item.active {
+            background-color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .dashboard-content {
+            margin-top: 20px;
+        }
+        
+        .dashboard-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1, h2, h3 {
+            margin-top: 0;
+            color: var(--secondary-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .iframe-container {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard-header">
+            <h1>EV Charging Infrastructure Dashboard</h1>
+            <p>Analyze gas station conversion opportunities with AI-powered insights</p>
+            
+            <div class="nav-menu">
+                <a href="/" class="nav-item active">Overview</a>
+                <a href="/conversion_advisor" class="nav-item">Conversion Advisor</a>
+                <a href="#forecasts" class="nav-item">Forecasts</a>
+                <a href="#maps" class="nav-item">Maps</a>
+            </div>
+        </div>
+        
+        <div class="dashboard-content">
+            <div class="dashboard-card">
+                <h2>Welcome to the EV Charging Infrastructure Dashboard</h2>
+                <p>This dashboard provides tools and insights to help gas station owners make informed decisions about converting to EV charging infrastructure.</p>
+                
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>AI-Powered Conversion Advisor:</strong> Get personalized recommendations for your gas station</li>
+                    <li><strong>Financial Forecasting:</strong> See projected ROI and revenue for different scenarios</li>
+                    <li><strong>Interactive Maps:</strong> Visualize EV adoption and charging station locations</li>
+                </ul>
+                
+                <a href="/conversion_advisor" class="btn">Try the Conversion Advisor</a>
+            </div>
+            
+            <div class="dashboard-card">
+                <h2>Interactive Maps</h2>
+                <div class="iframe-container">
+                    <iframe src="/station_map.html"></iframe>
+                </div>
+            </div>
+            
+            <div class="dashboard-card">
+                <h2>EV Adoption Heatmap</h2>
+                <div class="iframe-container">
+                    <iframe src="/ev_adoption_heatmap.html"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
