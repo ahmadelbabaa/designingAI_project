@@ -177,21 +177,28 @@ def query_gpt4(prompt, max_tokens=1000):
     }
     
     try:
+        print("Calling Azure OpenAI API...")
         endpoint = f"{OPENAI_API_BASE}openai/deployments/{OPENAI_DEPLOYMENT_NAME}/chat/completions?api-version={OPENAI_API_VERSION}"
+        print(f"Endpoint: {endpoint}")
+        
         response = requests.post(
             endpoint,
             headers=headers,
-            json=payload
+            json=payload,
+            timeout=30  # Set a timeout to avoid hanging
         )
         
         if response.status_code != 200:
             print(f"Error calling Azure OpenAI API: {response.status_code}")
             print(f"Response: {response.text}")
+            print("Using placeholder recommendation instead.")
             return generate_placeholder_recommendation()
             
+        print("Successfully received response from Azure OpenAI API")
         return response.json()["choices"][0]["message"]["content"]
     except Exception as e:
         print(f"Error calling Azure OpenAI API: {e}")
+        print("Using placeholder recommendation instead.")
         return generate_placeholder_recommendation()
 
 def generate_placeholder_recommendation():
@@ -261,6 +268,175 @@ def format_scenario_summary(scenarios, roi_results):
     
     return "\n".join(summary)
 
+def integrate_real_charging_data():
+    """
+    Load and integrate real charging data to enhance recommendations
+    
+    Returns:
+        dict: Processed charging data with key insights
+    """
+    print("Integrating real EV charging data...")
+    
+    # Define paths to datasets
+    patterns_path = "data/ev_charging_patterns.csv"
+    workplace_path = "Electric Vehicle Charging Data.csv"
+    palo_alto_path = "data/EVChargingStationUsage.csv"
+    
+    try:
+        # Try to load the datasets
+        patterns_df = pd.read_csv(patterns_path)
+        print(f"Loaded EV charging patterns: {len(patterns_df)} records")
+    except Exception as e:
+        print(f"Error loading patterns data: {e}")
+        patterns_df = pd.DataFrame()
+    
+    try:
+        workplace_df = pd.read_csv(workplace_path)
+        print(f"Loaded workplace charging data: {len(workplace_df)} records")
+    except Exception as e:
+        print(f"Error loading workplace data: {e}")
+        workplace_df = pd.DataFrame()
+    
+    try:
+        palo_alto_df = pd.read_csv(palo_alto_path, nrows=25000)
+        print(f"Loaded Palo Alto data: {len(palo_alto_df)} records")
+    except Exception as e:
+        print(f"Error loading Palo Alto data: {e}")
+        palo_alto_df = pd.DataFrame()
+    
+    # Extract key insights from the data
+    insights = {}
+    
+    # Process EV charging patterns
+    if not patterns_df.empty:
+        try:
+            # Extract user type distribution
+            if 'User Type' in patterns_df.columns:
+                user_type_dist = patterns_df['User Type'].value_counts(normalize=True).to_dict()
+                insights['user_type_distribution'] = user_type_dist
+            
+            # Extract charging duration stats
+            if 'Charging Duration (hours)' in patterns_df.columns:
+                insights['avg_charging_duration'] = patterns_df['Charging Duration (hours)'].mean()
+                insights['max_charging_duration'] = patterns_df['Charging Duration (hours)'].max()
+            
+            # Extract energy consumption stats
+            if 'Energy Consumed (kWh)' in patterns_df.columns:
+                insights['avg_energy_consumed'] = patterns_df['Energy Consumed (kWh)'].mean()
+                insights['max_energy_consumed'] = patterns_df['Energy Consumed (kWh)'].max()
+            
+            # Extract charger type preferences
+            if 'Charger Type' in patterns_df.columns:
+                charger_type_dist = patterns_df['Charger Type'].value_counts(normalize=True).to_dict()
+                insights['charger_type_distribution'] = charger_type_dist
+        except Exception as e:
+            print(f"Error processing patterns data: {e}")
+    
+    # Process workplace charging data
+    if not workplace_df.empty:
+        try:
+            # Extract weekday distribution
+            weekdays = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun']
+            if all(day in workplace_df.columns for day in weekdays):
+                weekday_counts = [workplace_df[day].sum() for day in weekdays]
+                total = sum(weekday_counts)
+                weekday_pct = [count/total*100 for count in weekday_counts]
+                insights['weekday_distribution'] = {day: pct for day, pct in zip(weekdays, weekday_pct)}
+                
+            # Extract energy usage
+            if 'kwhTotal' in workplace_df.columns:
+                insights['workplace_avg_energy'] = workplace_df['kwhTotal'].mean()
+        except Exception as e:
+            print(f"Error processing workplace data: {e}")
+    
+    # Process Palo Alto data
+    if not palo_alto_df.empty:
+        try:
+            # Extract station usage
+            if 'Station Name' in palo_alto_df.columns:
+                station_usage = palo_alto_df['Station Name'].value_counts().head(5).to_dict()
+                insights['top_stations_usage'] = station_usage
+                
+            # Extract port type distribution
+            if 'Port Type' in palo_alto_df.columns:
+                port_type_dist = palo_alto_df['Port Type'].value_counts(normalize=True).to_dict()
+                insights['port_type_distribution'] = port_type_dist
+                
+            # Extract energy stats
+            if 'Energy (kWh)' in palo_alto_df.columns:
+                insights['palo_alto_avg_energy'] = palo_alto_df['Energy (kWh)'].mean()
+        except Exception as e:
+            print(f"Error processing Palo Alto data: {e}")
+    
+    print("Completed integration of real charging data")
+    return insights
+
+def enrich_recommendation_prompt(prompt, insights):
+    """
+    Enhance recommendation prompt with real-world insights from charging data
+    
+    Args:
+        prompt (str): Original recommendation prompt
+        insights (dict): Real-world charging data insights
+        
+    Returns:
+        str: Enhanced prompt with real-world data
+    """
+    if not insights:
+        return prompt
+    
+    # Create insights section for the prompt
+    insights_text = "\n\n## REAL-WORLD CHARGING DATA INSIGHTS:\n"
+    
+    # Add user type distribution
+    if 'user_type_distribution' in insights:
+        insights_text += "\n### User Type Distribution:\n"
+        for user_type, percentage in insights['user_type_distribution'].items():
+            insights_text += f"- {user_type}: {percentage*100:.1f}%\n"
+    
+    # Add charging duration stats
+    if 'avg_charging_duration' in insights:
+        insights_text += f"\n### Charging Duration:\n"
+        insights_text += f"- Average: {insights['avg_charging_duration']:.2f} hours\n"
+        if 'max_charging_duration' in insights:
+            insights_text += f"- Maximum: {insights['max_charging_duration']:.2f} hours\n"
+    
+    # Add energy consumption stats
+    if 'avg_energy_consumed' in insights:
+        insights_text += f"\n### Energy Consumption:\n"
+        insights_text += f"- Average: {insights['avg_energy_consumed']:.2f} kWh\n"
+        if 'max_energy_consumed' in insights:
+            insights_text += f"- Maximum: {insights['max_energy_consumed']:.2f} kWh\n"
+    
+    # Add charger type preferences
+    if 'charger_type_distribution' in insights:
+        insights_text += "\n### Charger Type Preferences:\n"
+        for charger_type, percentage in insights['charger_type_distribution'].items():
+            insights_text += f"- {charger_type}: {percentage*100:.1f}%\n"
+    
+    # Add weekday distribution
+    if 'weekday_distribution' in insights:
+        insights_text += "\n### Weekday Usage Distribution:\n"
+        for day, percentage in insights['weekday_distribution'].items():
+            insights_text += f"- {day}: {percentage:.1f}%\n"
+    
+    # Add top station usage
+    if 'top_stations_usage' in insights:
+        insights_text += "\n### Top Stations by Usage:\n"
+        for station, count in list(insights['top_stations_usage'].items())[:3]:
+            insights_text += f"- {station}: {count} sessions\n"
+    
+    # Add port type distribution
+    if 'port_type_distribution' in insights:
+        insights_text += "\n### Port Type Distribution:\n"
+        for port_type, percentage in insights['port_type_distribution'].items():
+            insights_text += f"- {port_type}: {percentage*100:.1f}%\n"
+    
+    # Append insights to the prompt
+    enhanced_prompt = prompt + insights_text
+    
+    return enhanced_prompt
+
 def create_conversion_prompt(station_data, scenarios, roi_results):
     """Create a prompt for GPT-4 to generate conversion recommendations"""
     prompt = f"""
@@ -288,63 +464,92 @@ def create_conversion_prompt(station_data, scenarios, roi_results):
     
     Format your response in clear business language that a gas station owner would understand, with section headings and bullet points where appropriate.
     """
-    return prompt
+    
+    # Integrate real-world insights from charging data
+    real_data_insights = integrate_real_charging_data()
+    enhanced_prompt = enrich_recommendation_prompt(prompt, real_data_insights)
+    
+    return enhanced_prompt
 
 def generate_conversion_recommendation(station_id):
     """Generate a complete conversion recommendation for a gas station"""
-    # Load station data
-    stations_df = load_gas_stations()
-    station_data = stations_df[stations_df['station_id'] == station_id].iloc[0].to_dict()
-    
-    # Define investment tiers
-    investment_tiers = {
-        'Basic (1 charger)': {
-            'num_chargers': 1,
-            'charger_type': 'Level 2',
-            'capex': 50000
-        },
-        'Standard (2 chargers)': {
-            'num_chargers': 2,
-            'charger_type': 'Level 2 + DC Fast',
-            'capex': 150000
-        },
-        'Premium (4 chargers)': {
-            'num_chargers': 4,
-            'charger_type': 'DC Fast + Level 2',
-            'capex': 300000
+    try:
+        print(f"Starting recommendation generation for station: {station_id}")
+        
+        # Ensure output directory exists
+        os.makedirs(OUTPUT_DIR, exist_ok=True)
+        
+        # Load station data
+        stations_df = load_gas_stations()
+        
+        # Check if station exists
+        if station_id not in stations_df['station_id'].values:
+            print(f"Error: Station ID {station_id} not found")
+            raise ValueError(f"Station ID {station_id} not found")
+            
+        station_data = stations_df[stations_df['station_id'] == station_id].iloc[0].to_dict()
+        print(f"Loaded data for station: {station_id}")
+        
+        # Define investment tiers
+        investment_tiers = {
+            'Basic (1 charger)': {
+                'num_chargers': 1,
+                'charger_type': 'Level 2',
+                'capex': 50000
+            },
+            'Standard (2 chargers)': {
+                'num_chargers': 2,
+                'charger_type': 'Level 2 + DC Fast',
+                'capex': 150000
+            },
+            'Premium (4 chargers)': {
+                'num_chargers': 4,
+                'charger_type': 'DC Fast + Level 2',
+                'capex': 300000
+            }
         }
-    }
-    
-    # Generate demand scenarios
-    scenarios = generate_demand_scenarios(station_data)
-    
-    # Calculate ROI metrics
-    roi_results = calculate_roi_metrics(scenarios, investment_tiers)
-    
-    # Create prompt for GPT-4
-    prompt = create_conversion_prompt(station_data, scenarios, roi_results)
-    
-    # Get recommendation from GPT-4
-    recommendation = query_gpt4(prompt)
-    
-    # Prepare result object
-    result = {
-        'station_data': station_data,
-        'scenarios': {
-            name: {
-                'forecast_summary': data['forecast'].describe().to_dict(),
-                'plot_path': data['plot_path']
-            } for name, data in scenarios.items()
-        },
-        'roi_results': roi_results,
-        'recommendation': recommendation
-    }
-    
-    # Save result to file
-    with open(f"{OUTPUT_DIR}/{station_id}_recommendation.json", 'w') as f:
-        json.dump(result, f, default=str, indent=2)
-    
-    return result
+        
+        # Generate demand scenarios
+        print("Generating demand scenarios...")
+        scenarios = generate_demand_scenarios(station_data)
+        
+        # Calculate ROI metrics
+        print("Calculating ROI metrics...")
+        roi_results = calculate_roi_metrics(scenarios, investment_tiers)
+        
+        # Create prompt for GPT-4
+        print("Creating GPT-4 prompt with real-world data...")
+        prompt = create_conversion_prompt(station_data, scenarios, roi_results)
+        
+        # Get recommendation from GPT-4
+        print("Querying GPT-4 for recommendation...")
+        recommendation = query_gpt4(prompt)
+        
+        # Prepare result object
+        result = {
+            'station_data': station_data,
+            'scenarios': {
+                name: {
+                    'forecast_summary': data['forecast'].describe().to_dict(),
+                    'plot_path': data['plot_path']
+                } for name, data in scenarios.items()
+            },
+            'roi_results': roi_results,
+            'recommendation': recommendation
+        }
+        
+        # Save result to file
+        result_file = f"{OUTPUT_DIR}/{station_id}_recommendation.json"
+        with open(result_file, 'w') as f:
+            json.dump(result, f, default=str, indent=2)
+        print(f"Saved recommendation to {result_file}")
+        
+        return result
+    except Exception as e:
+        import traceback
+        print(f"Error in generate_conversion_recommendation: {str(e)}")
+        print(traceback.format_exc())
+        raise
 
 def create_dashboard_html(recommendation_result):
     """Create HTML for conversion advisor dashboard"""
@@ -356,8 +561,8 @@ def create_dashboard_html(recommendation_result):
     # Create HTML components
     scenario_plots_html = ""
     for name, data in scenarios.items():
-        # Use full URL with localhost:8000 for plot paths
-        plot_path = data['plot_path'].replace('output/', 'http://localhost:8000/')
+        # Use correct static URL format
+        plot_path = data['plot_path'].replace('output/', '/static/')
         scenario_plots_html += f"""
         <div class="scenario-card">
             <h3>{name.capitalize()} Scenario</h3>

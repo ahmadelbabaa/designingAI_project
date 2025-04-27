@@ -1,0 +1,16 @@
+[
+  {
+    "id": "conversion_advisor",
+    "name": "Conversion Advisor",
+    "route": "/conversion_advisor",
+    "icon": "map-marker",
+    "permission": "analyst"
+  },
+  {
+    "id": "charging_patterns",
+    "name": "EV Charging Patterns",
+    "route": "/charging_patterns",
+    "icon": "chart-line",
+    "permission": "analyst"
+  }
+] 

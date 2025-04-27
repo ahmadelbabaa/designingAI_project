@@ -1,135 +1,641 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gas Station Conversion Advisor</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
+        :root {
+            --primary-color: #00a67d;
+            --secondary-color: #333;
+            --accent-color: #f39c12;
+            --background-color: #f8f9fa;
+            --card-color: #ffffff;
+            --text-color: #333;
+            --border-color: #e1e4e8;
         }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        
+        .header p {
+            margin: 5px 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .navigation {
+            background-color: var(--secondary-color);
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .navigation a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .navigation a:hover {
+            color: var(--accent-color);
+        }
+        
         .container {
             max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 5px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
         }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
+        
+        .map-container {
+            flex: 1;
+            min-width: 300px;
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        #station-map {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #map-error {
+            color: red;
+            text-align: center;
+            padding: 10px;
+            display: none;
+        }
+        
+        .selection-panel {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .card {
+            background-color: var(--card-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        
+        .card h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 10px;
         }
-        .input-form {
-            background-color: #f8f9fa;
-            padding: 20px;
+        
+        .station-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 20px;
-            border-radius: 5px;
         }
-        select, button {
+        
+        .station-selector select {
+            flex: 1;
             padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 16px;
         }
-        button {
-            background-color: #2c3e50;
+        
+        .action-button {
+            background-color: var(--primary-color);
             color: white;
-            cursor: pointer;
             border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
-        button:hover {
-            background-color: #34495e;
+        
+        .action-button:hover {
+            background-color: #00875e;
         }
-        #loading-indicator {
+        
+        #station-details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+        }
+        
+        #station-details h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .form-card {
+            background-color: var(--card-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        #loadingIndicator {
+            display: none;
             text-align: center;
             padding: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
         }
+        
         .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #3498db;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--primary-color);
             border-radius: 50%;
             width: 30px;
             height: 30px;
             animation: spin 1s linear infinite;
-            margin: 0 auto;
+            margin: 0 auto 10px;
         }
+        
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        .nav-menu {
+        
+        #resultCard {
+            display: none;
+            margin-top: 20px;
+            background-color: var(--card-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        
+        #resultCard h2 {
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        
+        #recommendationOutput {
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+        
+        #recommendationOutput h1,
+        #recommendationOutput h2,
+        #recommendationOutput h3 {
+            color: var(--primary-color);
+        }
+        
+        #recommendationOutput ul {
+            padding-left: 20px;
+        }
+        
+        .recommendation-results {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .loader {
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .recommendation-frame {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        
+        .recommendation-text {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            line-height: 1.6;
+        }
+        
+        .fallback-note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
             margin-bottom: 20px;
-            background-color: #2c3e50;
-            border-radius: 5px;
-            overflow: hidden;
+            border-radius: 4px;
         }
-        .nav-item {
-            padding: 15px 25px;
+        
+        .chat-container {
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .chat-messages {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: 300px;
+            overflow-y: auto;
+            padding: 15px;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+        }
+        
+        .message-user {
+            margin-left: auto;
+            background-color: #e1f5fe;
+            padding: 10px 15px;
+            border-radius: 18px 18px 0 18px;
+        }
+        
+        .message-ai {
+            margin-right: auto;
+            background-color: #f5f5f5;
+            padding: 10px 15px;
+            border-radius: 18px 18px 18px 0;
+        }
+        
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 16px;
+        }
+        
+        .chat-input button {
+            background-color: var(--primary-color);
             color: white;
-            text-decoration: none;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
-        .nav-item:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="header">
         <h1>Gas Station Conversion Advisor</h1>
-        
-        <div class="nav-menu">
-            <a href="/" class="nav-item">Dashboard</a>
-            <a href="/conversion_advisor" class="nav-item">Conversion Advisor</a>
+        <p>AI-powered recommendation engine for EV charging station conversion</p>
+    </div>
+
+    <div class="navigation">
+        <a href="/">Dashboard Home</a>
+        <a href="/conversion_advisor">Conversion Advisor</a>
+        <a href="/charging_patterns">Charging Patterns</a>
+    </div>
+
+    <div class="container">
+        <div class="map-container">
+            <div id="station-map"></div>
+            <div id="map-error"></div>
         </div>
         
-        <p>Use this AI-powered tool to get personalized recommendations on converting your gas station to include EV charging infrastructure.</p>
-        
-        <div class="input-form">
-            <h2>Select Station</h2>
-            <div>
-                <label for="station-select">Gas Station:</label>
-                <select id="station-select">
-                    {% for station in stations %}
-                    <option value="{{ station.station_id }}">{{ station.station_id }}</option>
-                    {% endfor %}
-                </select>
+        <div class="selection-panel">
+            <div class="card">
+                <h2>Select a Gas Station</h2>
+                <p>Choose a station from the map or select from the list below.</p>
+                
+                <div class="station-selector">
+                    <select id="station-select">
+                        {% for station in stations %}
+                            <option value="{{ station.station_id }}">{{ station.station_id }}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <button id="generate-recommendation" class="action-button">
+                        Generate Recommendation
+                    </button>
+                </div>
+                
+                <div id="station-details"></div>
             </div>
             
-            <button id="generate-btn" onclick="generateRecommendation()">Generate Recommendation</button>
+            <div class="card">
+                <h2>Custom Analysis</h2>
+                <p>Don't see your station on the map? Fill out the form to get a custom recommendation.</p>
+                
+                <div class="form-group">
+                    <label for="stationName">Station Name</label>
+                    <input type="text" id="stationName" name="stationName" placeholder="Your station name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location" placeholder="City, State, Country">
+                </div>
+                
+                <div class="form-group">
+                    <label for="dailyTraffic">Average Daily Traffic (vehicles)</label>
+                    <input type="number" id="dailyTraffic" name="dailyTraffic" min="0" placeholder="e.g., 500">
+                </div>
+                
+                <button onclick="runCustomAnalysis()" class="action-button">Run Custom Analysis</button>
+            </div>
         </div>
         
-        <div id="loading-indicator" style="display: none;">
-            <p>Generating recommendation... This may take a moment.</p>
-            <div class="spinner"></div>
+        <div id="recommendation-results" class="recommendation-results">
+            <div id="recommendation-loader" class="loader">
+                <div class="spinner"></div>
+                <p>Generating recommendation...</p>
+            </div>
+            
+            <iframe id="recommendation-frame" class="recommendation-frame" style="display: none;"></iframe>
+            
+            <div id="recommendation-text" class="recommendation-text" style="display: none;"></div>
         </div>
         
-        <div id="recommendation-container" style="display: none;">
-            <iframe id="recommendation-frame" style="width: 100%; height: 800px; border: none;"></iframe>
+        <div class="chat-container">
+            <div class="card">
+                <h2>Chat with AI Advisor</h2>
+                <p>Ask follow-up questions about your EV charging conversion recommendation.</p>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message message-ai">
+                        Hello! I can help you understand your EV charging station conversion recommendation or answer any follow-up questions. Just select a station or run an analysis first.
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <input type="text" id="chat-input" placeholder="Ask a question about your recommendation..." disabled>
+                    <button onclick="sendChatMessage()" id="chat-button" disabled>
+                        <i class="fas fa-paper-plane"></i> Send
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="{{ url_for('static', filename='js/conversion_advisor.js') }}"></script>
     
     <script>
-        function generateRecommendation() {
-            const stationId = document.getElementById('station-select').value;
-            document.getElementById('loading-indicator').style.display = 'block';
-            document.getElementById('recommendation-container').style.display = 'none';
+        let currentRecommendation = null;
+        
+        function runCustomAnalysis() {
+            const stationName = document.getElementById('stationName').value;
+            const location = document.getElementById('location').value;
+            const dailyTraffic = document.getElementById('dailyTraffic').value;
             
-            fetch(`/generate_recommendation?station_id=${stationId}`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('loading-indicator').style.display = 'none';
-                    document.getElementById('recommendation-container').style.display = 'block';
-                    document.getElementById('recommendation-frame').src = 'http://localhost:8000/' + data.dashboard_url;
-                })
-                .catch(error => {
-                    alert(`Error: ${error.message}`);
-                    document.getElementById('loading-indicator').style.display = 'none';
-                });
+            if (!stationName || !location || !dailyTraffic) {
+                alert('Please fill in all fields for custom analysis');
+                return;
+            }
+            
+            const resultsDiv = document.getElementById('recommendation-results');
+            const loader = document.getElementById('recommendation-loader');
+            const textOutput = document.getElementById('recommendation-text');
+            
+            // Show loading state
+            resultsDiv.style.display = 'block';
+            loader.style.display = 'flex';
+            textOutput.style.display = 'none';
+            
+            // Scroll to results
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+            
+            // Prepare data
+            const data = {
+                stationName: stationName,
+                location: location,
+                stationType: 'Urban',
+                dailyTraffic: parseInt(dailyTraffic)
+            };
+            
+            // Send request
+            fetch('/api/generate_recommendation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Hide loading indicator
+                loader.style.display = 'none';
+                
+                // Store the recommendation for chat context
+                currentRecommendation = data.recommendation;
+                
+                // Show recommendation
+                textOutput.style.display = 'block';
+                textOutput.innerHTML = formatMarkdown(data.recommendation);
+                
+                // Enable chat
+                document.getElementById('chat-input').disabled = false;
+                document.getElementById('chat-button').disabled = false;
+                
+                // Add AI message in chat
+                addChatMessage("I've analyzed your custom gas station data. You can now ask me specific questions about this recommendation.", false);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                loader.style.display = 'none';
+                textOutput.style.display = 'block';
+                textOutput.innerHTML = `
+                    <div class="fallback-note">Error connecting to analysis service. Using AI-generated recommendation instead.</div>
+                    ${formatMarkdown(FALLBACK_RECOMMENDATION)}
+                `;
+                
+                // Store fallback recommendation
+                currentRecommendation = FALLBACK_RECOMMENDATION;
+                
+                // Enable chat anyway
+                document.getElementById('chat-input').disabled = false;
+                document.getElementById('chat-button').disabled = false;
+                
+                // Add AI message in chat
+                addChatMessage("I've provided a generic recommendation based on typical gas stations. You can still ask me questions about EV charging conversion.", false);
+            });
         }
+        
+        // Format markdown to HTML
+        function formatMarkdown(markdown) {
+            if (!markdown) return '';
+            
+            return markdown
+                .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+                .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+                .replace(/^### (.*$)/gm, '<h3>$1</h3>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/^\* (.*$)/gm, '<li>$1</li>')
+                .replace(/^\d+\. (.*$)/gm, '<li>$1</li>')
+                .replace(/<\/li>\n<li>/g, '</li><li>')
+                .replace(/^\n<li>/gm, '<ul><li>')
+                .replace(/<\/li>\n\n/gm, '</li></ul>\n\n')
+                .replace(/\n\n/g, '<br><br>');
+        }
+        
+        // Chat functionality
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            
+            if (!text) return;
+            
+            // Add user message to chat
+            addChatMessage(text, true);
+            
+            // Clear input
+            input.value = '';
+            
+            // Disable input while processing
+            input.disabled = true;
+            document.getElementById('chat-button').disabled = true;
+            
+            // Create context from current recommendation
+            const context = currentRecommendation || "No specific recommendation has been generated yet.";
+            
+            // Add "thinking" message
+            const thinkingId = 'thinking-' + Date.now();
+            const chatMessages = document.getElementById('chat-messages');
+            chatMessages.innerHTML += `
+                <div class="message message-ai" id="${thinkingId}">
+                    <em>Thinking...</em>
+                </div>
+            `;
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Send to GPT
+            fetch('/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: text,
+                    context: context
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Remove thinking message
+                document.getElementById(thinkingId).remove();
+                
+                // Add AI response
+                addChatMessage(data.response || "I'm sorry, I couldn't generate a response at this time.", false);
+                
+                // Re-enable input
+                input.disabled = false;
+                document.getElementById('chat-button').disabled = false;
+                input.focus();
+            })
+            .catch(error => {
+                console.error('Chat error:', error);
+                
+                // Remove thinking message
+                document.getElementById(thinkingId).remove();
+                
+                // Add error message
+                addChatMessage("I'm sorry, I'm having trouble connecting to my knowledge base right now. Please try again later.", false);
+                
+                // Re-enable input
+                input.disabled = false;
+                document.getElementById('chat-button').disabled = false;
+            });
+        }
+        
+        function addChatMessage(text, isUser) {
+            const chatMessages = document.getElementById('chat-messages');
+            chatMessages.innerHTML += `
+                <div class="message message-${isUser ? 'user' : 'ai'}">
+                    ${text}
+                </div>
+            `;
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Enter key in chat input
+        document.getElementById('chat-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendChatMessage();
+            }
+        });
     </script>
 </body>
 </html> 
