@@ -1,0 +1,501 @@
+id,name,latitude,longitude,address,city,state,postcode,country,power_kw,connector_types,access_type,operator,network,status,region
+277159,Heritage Trinity Commons SPE LLC,40.7127753,-74.0059728,PO Box 30907,New York,NY,10087,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+294558,10 Reade St,40.713898,-74.00434,10 Reade St,New York,NY,10007,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+90360,Rapidpark 25-27 Beekman Street,40.710786,-74.006017,25-27 Beekman St,New York,New York,10038,,16.0,,Unknown,Unknown,Unknown,Unknown,New York
+142405,Environmental Protection Agency,40.714723,-74.005143,290 Broadway,New York,NY,10007,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+12933,25 Beekman St,40.71063614,-74.00619507,25 Beekman St,Manhattan,New York,10038,,0.0,,Unknown,Unknown,Unknown,Unknown,New York
+100951,Icon Parking 70 Gold Street,40.710019,-74.004385,80 Gold St,New York,New York,10038,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+105395,Icon Parking 54 Murray Street,40.714266,-74.009921,54 Murray St,New York,New York,10007,,10.0,,Unknown,Unknown,Unknown,Unknown,New York
+62139,BEAM CHARGING,40.7142163,-74.0106122,75 Park Place,New York,NY,10007,,3.0,,Unknown,Unknown,Unknown,Unknown,New York
+226804,170 Park Row,40.713246,-74.001,170 Park Row,New York,NY,10013,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+97819,MPG 121 Reade Street,40.716268,-74.009491,121 Reade St,New York,New York,10013,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+246276,123 Leonard St,40.7160793,-74.0021648,123 Leonard S,New York,NY,10013,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+226808,IPark-170 Park Row,40.713832,-74.000059,170  Park Row,New York,NY,10038,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+97636,Standard Parking 270 Greenwich,40.715071,-74.012203,270 Greenwich St,New York,New York,10007,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+71521,Icon Parking - Tesla,40.7076664,-74.004679,238 Pearl St,New York,NY,10063,,6.0,,Unknown,Unknown,Unknown,Unknown,New York
+82195,Icon Parking 308 Greenwich,40.717686,-74.010613,308 Greenwich St,New York,New York,10013,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+226797,200 Liberty,40.710179,-74.013169,200 Liberty St,New York,NY,10006,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+97646,Central Parking 200 Chambers,40.716256,-74.012543,200 Chambers St,New York,New York,10007,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+67359,ParkIt - Tesla,40.7199913,-74.0074134,27 N Moore St,New York,NY,10013,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+246274,250 Vesey,40.714113,-74.01581,250 Vesey St,New York,NY,10281,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+81794,Icon Parking Wall Park,40.705922,-74.010175,39 Exchange PL,New York,New York,10005,,16.0,,Unknown,Unknown,Unknown,Unknown,New York
+90713,Icon 376 Greenwich Street,40.719825,-74.010137,376 Greenwich St,New York,New York,10013,,16.0,,Unknown,Unknown,Unknown,Unknown,New York
+67354,Andaz Wall Street - Tesla,40.7051404,-74.0079954,75 Wall St,New York,NY,10005,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+246279,Tribeca Green,40.71695,-74.014948,325 North End Ave,New York,NY,10282,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+246278,20RTAC GARAGE TOP,40.716132,-74.015557,211 North End Ave,New York,NY,10282,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+125171,Center Park 250 Albany,40.709803,-74.015771,250 Albany St,Manhattan,New York,10280,,10.0,,Unknown,Unknown,Unknown,Unknown,New York
+92561,Standard Parking Gateway Plaza Garage,40.711145,-74.016332,339 South End Ave,New York,New York,10280,,16.0,,Unknown,Unknown,Unknown,Unknown,New York
+148619,"Manhattan, Ny - Vesey Street Supercharger",40.7143965,-74.0164439,250 Vesey Street,Manhattan,NY,10080,,72.0,,Unknown,Unknown,Unknown,Unknown,New York
+100362,"New York, NY - Mott Street (Valet & Pay to Park)",40.717522,-73.997302,106 Mott Street,New York,NY,10013-4600,,72.0,,Unknown,Unknown,Unknown,Unknown,New York
+71522,ALBANESE ORG,40.7151023,-74.0163292,95 North End Ave,New York,NY,10282,,3.0,,Unknown,Unknown,Unknown,Unknown,New York
+81767,Ipark Nyc 75 Wall Street,40.704776,-74.008276,75 Wall St,New York,NY,10005,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+90296,Icon Liberty View Parking,40.716079,-74.015929,400 Murray St,New York,New York,10016,,16.0,,Unknown,Unknown,Unknown,Unknown,New York
+67358,iPark - Tesla,40.7169064,-73.9964708,44 Elizabeth St,New York,NY,10013,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+140752,Tribeca Park,40.717717,-74.015049,400 Chambers St,New York,NY,10282,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+18343,MP 225 LLC,40.7092248,-74.0161545,225 Rector Pl,New York,NY,10280,,3.0,,Unknown,Unknown,Unknown,Unknown,New York
+48234,ParkIt - Tesla,40.7213314,-74.0035293,10 Wooster St,New  York,NY,10013,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+81965,Parkit 10 Wooster St.,40.721658,-74.004402,10 Wooster St,New York,NY,10013,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+82099,Icon Parking 14-26 William Street,40.704514,-74.01074,14-26 William St,New York,New York,10004,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+105370,Icon Parking 237 West Thames,40.708165,-74.016641,237 W Thames,New York,New York,10280,,10.0,,Unknown,Unknown,Unknown,Unknown,New York
+90274,City Parking RL Mercer Street,40.721437,-74.001238,40 Mercer St,New York,New York,10025,,13.0,,Unknown,Unknown,Unknown,Unknown,New York
+92684,GGMC the Cove,40.707738,-74.016845,99 Battery PL,New York,New York,10280,,16.0,,Unknown,Unknown,Unknown,Unknown,New York
+7977,55 Water St,40.70325851,-74.0096283,55 Water St,Manhattan,New York,10041,,0.0,,Unknown,Unknown,Unknown,Unknown,New York
+48233,Quik Park - Tesla,40.7070972,-74.0168867,70 Little W St,New York,NY,10280,,16.0,,Unknown,Unknown,Unknown,Unknown,New York
+246271,Quik Park Little West LLC - Tesla Destination,40.70663,-74.016916,70 Little West St,New York,NY,10280,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+100573,GGMC Parking Battery Place,40.706965,-74.017971,50 Battery PL,New York,New York,10280,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+108933,"New York, Ny - 59 Allen Street Supercharger",40.717153,-73.991869,59 Allen Street,Lower Manhattan,NY,95123,,72.0,,Unknown,Unknown,Unknown,Unknown,New York
+67360,Quik Park - Tesla,40.7237272,-74.0109856,32 Debrosses St,New York,NY,10013,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+105373,Ipark 59-63 Allen Street,40.717143,-73.991597,59-63 Allen St,New York,New York,10002,,10.0,,Unknown,Unknown,Unknown,Unknown,New York
+85883,1 Hotel Brooklyn Bridge,40.701461,-73.995566,60 Furman St,Brooklyn,New York,11201,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+105416,Icon Parking 240 East Broadway,40.714821,-73.987138,188 Clinton St,New York,New York,10002,,10.0,,Unknown,Unknown,Unknown,Unknown,New York
+102832,Delancey & Essex Municipal Parking Garage,40.719051,-73.988181,107 Essex St,Manhattan,NY,10002,,150.0,,Unknown,Unknown,Unknown,Unknown,New York
+92026,Park Kwik LLC 50 Washington St.,40.702882,-73.990594,45 Main St,Brooklyn,New York,11201,,16.0,,Unknown,Unknown,Unknown,Unknown,New York
+7984,413 Grand St,40.71485138,-73.98568726,413 Grand St,New York,New York,10002,,0.0,,Unknown,Unknown,Unknown,Unknown,New York
+28398,BEAM CHARGING,40.7284126,-74.0073318,375 Hudson St,Manhattan,NY,10014,,3.0,,Unknown,Unknown,Unknown,Unknown,New York
+142421,New York University - Plaza Nursery School,40.7273617,-73.9975331999999,110 Bleecker St,New York,NY,10011,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+105390,Parkright 169 Ludlow Street,40.721713,-73.987533,169 Ludlow St,New York,New York,10012,,10.0,,Unknown,Unknown,Unknown,Unknown,New York
+246297,NYU NYU # 1,40.72808,-73.99724,2 Washington Square Village,New York,NY,10012,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+246301,Parkit 575 Washington - Tesla Destination,40.729364,-74.008513,575 Washington St,New York,NY,10014,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+82164,Parkit 221 Thompson Street,40.729234,-73.999013,221 Thompson St,New York,NY,10012,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+105418,Standard Parking 200 Cadman Plaza West,40.698707,-73.992365,75 Henry St,Brooklyn,New York,11221,,10.0,,Unknown,Unknown,Unknown,Unknown,New York
+28400,FedEx,40.7303419,-74.0082654,130 Leroy St,New York,NY,10014,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+7986,75 Henry St,40.69868469,-73.99187469,75 Henry St,Brooklyn,New York,11201,,0.0,,Unknown,Unknown,Unknown,Unknown,New York
+92283,MPG 100 Jay Street,40.702194,-73.98672,100 Jay St,Brooklyn,New York,10021,,16.0,,Unknown,Unknown,Unknown,Unknown,New York
+28401,BEAM CHARGING,40.730485,-74.000728,122 W 3rd St,New York,NY,10012,,3.0,,Unknown,Unknown,Unknown,Unknown,New York
+28387,MP 225 LLC,40.7018205,-73.9868238,100 Jay St,New York,NY,11201,,3.0,,Unknown,Unknown,Unknown,Unknown,New York
+226780,35 Red Cross Pl,40.699487,-73.989516,35 Red Cross Pl,Brooklyn,NY,11201,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+81909,Parkit 403 Lafayette St.,40.728287,-73.992746,403 Lafayette St,New York,NY,10003,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+246296,"The Standard, East Village - Tesla Destination",40.727797,-73.990746,25 Cooper Street,New York,NY,10004,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+246306,Minetta Garage,40.73137973,-74.0007049,122 West 3rd Street,New York,NY,10012,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+67351,Quik Park - Tesla,40.694155,-73.9998143,4 Joralemon St,Brooklyn,NY,11201,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+263043,Park-it Area Garage - Tesla Destination,40.7156449097173,-73.9808096971768,275 Delancey St,New York,NY,10002,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+62140,Hyatt Regency Jersey City on the Hudson - Tesla,40.7171013,-74.0317368,2 Exchange Pl,Jersey City,NJ,07302,,16.0,,Unknown,Unknown,Unknown,Unknown,New York
+246304,Champion Parking 60 E 8th - Tesla Destination,40.730487,-73.993569,60-68 E 8th St,New York,NY,10003,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+28399,CARCHARGING,40.729535,-73.991398,445 Lafayette St,New York,NY,10003,,3.0,,Unknown,Unknown,Unknown,Unknown,New York
+246260,Quik Park Brooklyn Bridge LLC - Tesla Destination,40.692941,-74.000298,4 Joralemon St,Brooklyn,NY,11201,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+246281,Hyatt Regency Jersey City on the Hudson - Tesla Destination,40.716966,-74.032769,2 Exchange Pl,Jersey City,NJ,07302,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+67362,Icon Parking - Tesla,40.732296,-73.9960757,11 5th Ave,New York,NY,10003,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+105376,Standard Parking Pierepoint Plaza,40.695115,-73.990993,300 Cadman,Brooklyn,New York,11201,,10.0,,Unknown,Unknown,Unknown,Unknown,New York
+81917,GGMC Parking Stewart House Garage (located At 91 E 9th St),40.731257,-73.992101,91 East 9th St,New York,NY,10003,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+67361,GGMC Parking - Tesla,40.7312576,-73.9920918,91 E 9th St,New York,NY,10003,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+246305,GGMC 91 E 9th Street - Tesla Destination,40.730723,-73.990854,91 East 9th Street,New York,NY,10003,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+95532,Icon Parking 150 Charles Street,40.734006,-74.009079,150 Charles St,New York,NY,10014,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+67363,Icon Parking - Tesla,40.7325223,-73.995208,12 E 9th St,New York,NY,10003,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+226839,LaSalle Parking LLS Shumai LLC (220 E 9th St.),40.729495,-73.988375,220 E 9th St,Manhattan,NY,10003,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+48823,Crystal Point Garage,40.7215275250882,-74.0318107,2 2nd Street,Jersey City,NJ,07302,,7.0,,Unknown,Unknown,Unknown,Unknown,New York
+115871,Littleman Parking Crystal Point Garage - Tesla Destination,40.721293,-74.03204,2 Second St,Jersey City,NJ,07032,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+294559,10 Exchange Pl. Garage,40.71662150647494,-74.03390856845364,10 Exchange Pl.,Jersey City,NJ,07302,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+90282,Rapidpark 44 State Street,40.692062,-73.99816,44 State St,Brooklyn,New York,11201,,16.0,,Unknown,Unknown,Unknown,Unknown,New York
+246286,Veris Residential,40.719128,-74.033226,475 Washington Blvd,Jersey City,NJ,07310,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+246308,Parkright 738 Greenwich Street - Tesla Destination,40.734412,-74.007184,738 Greenwich St,New York,NY,10014,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+142429,GMC Parking - Travelers Garage,40.7343139648,-74.001953125,200  Cabrini Blvd,New York,NY,10033,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+81348,Icon Parking University 10 Parking (entrance on 50 E 10th Street),40.731887,-73.991906,63 E 9th St,New York,New York,10003,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+246309,Travelers Parking,40.73491,-74.001634,160 W 10th Street,New York,NY,10014,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+71526,Parkright - Tesla,40.735158,-74.007276,738 Greenwich St,New York,NY,10014,,6.0,,Unknown,Unknown,Unknown,Unknown,New York
+131493,101 Hudson-Littleman Parking,40.71585,-74.035362,101 Hudson Street,Jersey City,NJ,07311,,10.0,,Unknown,Unknown,Unknown,Unknown,New York
+85117,Apple Parking 332 W 11th Street,40.735597,-74.007693,332 W 11th St,New York,New York,10014,,11.0,,Unknown,Unknown,Unknown,Unknown,New York
+131458,160 Greene-Littleman Parking,40.718398,-74.035327,135 Greene St,Jersey City,New Jersey,07311,,10.0,,Unknown,Unknown,Unknown,Unknown,New York
+81822,Parkit 310 E 11th Street,40.730017,-73.985512,310 E 11th St,New York,New York,10003,,14.0,,Unknown,Unknown,Unknown,Unknown,New York
+226842,CHHA2 Garages LLC,40.733934,-73.993118,21 E 12th St,New York,NY,10003,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+246261,Brooklyn Renaissance Plaza,40.693463,-73.988245,335 Adams St,Brooklyn,NY,11201,,3.7,,Unknown,Unknown,Unknown,Unknown,New York
+67352,Parkright - Tesla,40.6968521,-73.9828995,257 Gold St,Brooklyn,NY,11201,,8.0,,Unknown,Unknown,Unknown,Unknown,New York
+139728,Caltrans - District 32,34.052238,-118.243344,100 S Main St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+139727,ONNI SQUARE,34.052017,-118.245732,221 W 2ND ST,Los Angeles,CA,90012,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+139733,City Hall East P1,34.053051,-118.241806,201 N Los Angeles St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241147,ONNI SQUARE STATION 2,34.052609,-118.24581,221 W 2ND ST,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+72918,DoubleTree by Hilton - Tesla,34.0505282,-118.2426489,120 S Los Angeles St,Los Angeles,CA,90012,,8.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+281778,Los Angeles & 2nd,34.050009,-118.243651,203 S. Los Angeles St.,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241151,GSA CW 350 WEST 1ST,34.05377,-118.245784,300-354 W 1st St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+122210,Los Angeles Police Department - Main Street Parking,34.0497723610577,-118.245105779098,260 S Main St,Los Angeles,CA,90012,,50.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+139723,Aiso Street Parking Garage,34.051235,-118.240515,101 Judge John Aiso St,Los Angeles,CA,90012,,40.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241104,AVA LITTLE TOKYO 1,34.049281,-118.243911,236 S Los Angeles St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241103,430617 : AVA Little Tokyo,34.0489937,-118.2437437,236 South Los Angeles Street,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+122237,Los Angeles County - Hall of Records Lot 10,34.055641,-118.244271,227 N Broadway,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+122207,Ronald Reagan State Building,34.049286,-118.246717,300 S Spring St,Los Angeles,CA,90013,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+122217,DGS MAIN,34.050775,-118.248151,300 W 3rd St,Los Angeles,CA,90013,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241133,282 S Hill St,34.052198,-118.248472,282 S Hill St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+139730,BROOKFIELD WEST,34.052931,-118.248509,235 S Hill St,Los Angeles,CA,90012,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241158,GALA Parking,34.054562,-118.248333,131 South Olive Street,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241092,LA COURTHOUSE 2 GW 1,34.047596,-118.24527,350 W 1St,Los Angeles,CA,90013,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+122195,CITY OF LA,34.047854,-118.2468473,101-115 E 4th St,Los Angeles,CA,90013,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+139731,GOLDRICH & KEST,34.053407,-118.249858,225 S Olive St,Los Angeles,CA,90012,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+121128,EV CHARGER 1,34.0476717,-118.240258,360 E 2nd St,Los Angeles,CA,90012,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241094,412 S MAIN ST,34.047766,-118.247409,412 S MAIN ST,Los Angeles,CA,90013,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+122239,LA County ISD Walt Disney Parking Garage P3,34.055505,-118.248852,111 S Grand Ave,Los Angeles,CA,90012,,50.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241138,LADWP - Temple St,34.052494,-118.23696,444 E Ducommun St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241161,Los Angeles County - Hall of Administration Board of Supervisors,34.0565004,-118.2481775,140 N Grand Ave,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241089,414 S LOS ANGELES ST,34.046915,-118.246501,414 S LOS ANGELES ST,Los Angeles,CA,90014,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241163,LA County HOA Lower Lot 18 Fleet,34.056889,-118.247789,140 N Grand Ave,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+122219,LADWP - Ducommun Center,34.051852,-118.236702,433 E Temple St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241137,ONE CAL PLAZA P1 07,34.052376,-118.250755,300 S Grand Ave,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+220612,LA PLAZA PUBLIC STATION3,34.057614,-118.241021,555 N Spring St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+122208,DGS MAIN,34.04953,-118.24999,320 W 4th St,Los Angeles,CA,90013,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+220614,LA PLAZA PUBLIC STATION4,34.057674,-118.241139,555 N Spring St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241160,651 W 1st,34.056143,-118.249264,651 W 1st,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+220616,LA PLAZA CVS UPSTAIRS4,34.058162,-118.241181,555 N Broadway,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+139724,CIM,34.0512543,-118.2513623,350 S Grand Ave,Los Angeles,CA,90071,,40.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241146,ONE CAL PLAZA P1 04,34.052583,-118.251437,300 S Grand Ave,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241144,ONE CAL PLAZA P1 03,34.052562,-118.251456,300 S Grand Ave,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241141,ONE CAL PLAZA P1 02,34.052535,-118.251477,300 S Grand Ave,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241171,Music Center Parking - Level 2,34.057657,-118.24789,135 N Grand Ave,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241139,ONE CAL PLAZA P1 01,34.052508,-118.251503,300 S Grand Ave,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241148,ONE CAL PLAZA P5 06,34.052626,-118.251507,300 S Grand Ave,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+139726,CIM,34.051557,-118.25152,350 S Grand,Los Angeles,CA,90013,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+158715,182 S Alameda St,34.0474847,-118.23795603,182 S Alameda St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+122224,BROOKFIELD WEST,34.0532427,-118.252277,330 S Grand Ave,Los Angeles,CA,90071,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241087,LADWP - Materials Test Lab,34.04684,-118.237458,510 E 2nd St,Los Angeles,CA,90012,,50.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241145,BROOKFIELD WEST WFC 355 P4 02,34.052572,-118.252886,355 S Grand Ave,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241140,BROOKFIELD WEST WFC 355 P4 01,34.052515,-118.252926,355 S. Grand Ave,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241136,BROOKFIELD WEST WFC 355 P1 02,34.052289,-118.252948,355 S Grand Ave,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241135,BROOKFIELD WEST WFC 355 P1 03,34.052263,-118.252972,355 S Grand Ave,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241142,BROOKFIELD WEST WFC 355 P3 02,34.052541,-118.252966,355 S Grand Ave,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+139710,Greenlots - 12251A,34.045654296875,-118.238655090332,640 E 3RD ST,Los Angeles,CA,90013,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+220599,498 N Garey St,34.052082,-118.234274,498 N Garey St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+220584,301 N Garey St,34.050628,-118.234419,301 N Garey St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+122197,GAREY,34.048058,-118.235429,115 S Garey St,Los Angeles,CA,90012,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+2391,LADWP - John Ferraro Building,34.059133,-118.248589,111 N Hope St,Los Angeles,CA,90012,,50.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+5078,BROOKFIELD WEST,34.053626,-118.253273,333 S Hope St,Los Angeles,CA,90071,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241190,California Community Foundation,34.0596705,-118.2478879,717 W Temple St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241114,THE GAS CO TWR GAS CO TWR 3-4,34.05004,-118.253351,555 W 5th St,Los Angeles,CA,90013,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241112,THE GAS CO TWR GAS CO TWR 5-6,34.050021,-118.253362,555 W 5th St,Los Angeles,CA,90013,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+281780,Spring & C.E.Chavez,34.059269,-118.238255,663 N Spring St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241150,BROOKFIELD WEST 333 S HOPE EV2,34.052937,-118.253949,333 S Hope St,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+134119,Millennium Biltmore Los Angeles Noodoe EV Chargers,34.04955105070715,-118.2538491010978,506 South Grand Avenue,Los Angeles,California ,90071,,7.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+139707,ESSEX,34.044985,-118.24995,610 S Main St,Los Angeles,CA,90014,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+26918,CITYNATNL PLAZA,34.052162,-118.254614,400 S Flower St,Los Angeles,CA,90071,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+122238,ESSEX,34.0554862,-118.2538892,234 S Figueroa St,Los Angeles,CA,90012,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+275747,Personnel Building,34.049667,-118.2332,700 E Temple Street,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+26914,US BANK TOWER,34.050843,-118.254666,633 W 5th St,Los Angeles,CA,90071,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241188,Figueroa Plaza P1,34.059093,-118.251429,201 N Figueroa St,Los Angeles,CA,90012,,50.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241102,PACMUTUAL STATION 1,34.04896,-118.254616,523 W 6th St,Los Angeles,CA,90014,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+158740,729 N North Spring St,34.06047,-118.23769,729 N Spring St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+122247,GOLDRICH & KEST,34.057671,-118.25337,123 S Figueroa St,Los Angeles,CA,90012,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+81982,The Westin Bonaventure Hotel & Suites,34.052495,-118.255408,404 S Figueroa St,Los Angeles,CA,90071,,8.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241220,719 Yale St,34.061799,-118.241624,719 Yale St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+122254,LA County DHS 313 Fig,34.060148,-118.250747,313 N Figueroa St,Los Angeles,CA,90012,,50.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+13796,523 W 6th St,34.04838943,-118.2546997,523 W 6th St,Los Angeles,California,90014,,0.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+122243,THE PARK DTLA,34.0568464,-118.2542755,221 s. Figueroa st.,Los Angeles,CA,90012,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241169,PROM TOWERS PROM TOWERS 02,34.057353,-118.253932,123 S Figueroa St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241166,Los Angeles Metro - Metropolitan Transportation Authority Headquarters,34.05701742921838,-118.2330489306894,1 Gateway Plz,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241081,923 E 3rd St,34.046057,-118.233975,923 E 3rd St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241108,KPMG KPMG 4,34.049722,-118.25565,550 S Hope St,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+139736,Los Angeles Metro - Union Station,34.056077,-118.232293,801 N Vignes St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+220635,ORSINI III LA SPACE 374,34.062407,-118.245232,816 Bartlett St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241064,LADWP - East 4th Street,34.043191,-118.23737,800 E 4th St,Los Angeles,CA,90013,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241122,CITYNATNL PLAZA ALVL #2,34.05114,-118.256314,520 S Flower St,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241106,KPMG KPMG 3,34.049646,-118.256005,550 S Hope St,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241090,LAAC GARAGE STATION 2,34.04693,-118.254822,644 S Olive St,Los Angeles,CA,90014,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241088,LAAC GARAGE STATION 4,34.046894,-118.254929,646 S Olive St,Los Angeles,CA,90014,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241168,549 Clara St,34.057116,-118.232109,549 Clara St,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241123,CITYNATNL PLAZA CLVL #9,34.051216,-118.256731,515 S Flower St,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241217,LA County ISD Alameda Garage,34.061528,-118.236723,1055 N Alameda St,Los Angeles,CA,90012,,50.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241126,CITYNATNL PLAZA J2 #11,34.051401,-118.25694,515 Flower St,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241128,CITYNATNL PLAZA CLVL #12,34.05158,-118.256993,515 S Flower St,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241125,CITYNATNL PLAZA ALVL #1,34.051355,-118.257042,515 S Flower St,Los Angeles,CA,90071,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+139751,Canvas LA,34.0598956,-118.2533475,138 North Beaudry Avenue,Los Angeles,CA,90012,,3.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+8546,810 N. Vignes St.,34.055829,-118.230996,810 N. Vignes St.,Los Angeles,CA,90012,,0.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+139711,One Santa Fe,34.045989,-118.232425,300 S Santa Fe Ave,Los Angeles,CA,90013,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241105,SHORENSTEIN 707 EV2,34.049598,-118.256885,707 Wilshire Blvd,Los Angeles,CA,90017,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+81910,"The Standard, Downtown la",34.050184,-118.257063,550 S Flower St,Los Angeles,California,90071,,16.0,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+241097,ONNI 600 EV17,34.047971,-118.256332,600 Wilshire Blvd,Los Angeles,CA,90017,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+139752,126 N Beaudry Ave,34.059941,-118.253619,126 N Beaurdy Ave,Los Angeles,CA,90012,,3.7,,Unknown,Unknown,Unknown,Unknown,Los Angeles
+3040,INTERPARK,41.877804,-87.629911,318 S Federal St,Chicago,IL,60604,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+3605,InterPark - South Loop Self-Park Garage,41.87741852,-87.63001251,318 S Federal St,Chicago,IL,60604,,0.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+3463,InterPark - South Loop Self-Park Garage,41.87741852,-87.63001251,318 S Federal St,Chicago,IL,60604,,0.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+246864,175 W JACKSON 175 W JACKSON,41.877872,-87.6332,175 Jackson Blvd,Chicago,IL,60604,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+28682,LAZ PARKING LLC,41.8807571,-87.6291122,30 W Monroe St,Chicago,IL,60603,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+2972,INTERPARK,41.879396,-87.626578,17 E Adams St,Chicago,IL,60603,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+228337,425 S. FIN PLAC 440LASALLE,41.876306,-87.632975,425 S Financial Pl,Chicago,IL,60605,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+269903,Inland Steel Building Garage,41.88124376024821,-87.62923300266266,53 S. Dearborn St.,Chicago,IL,60603,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246863,INTERPARK 314 S WELLS 1,41.877528,-87.634217,314 S Wells St,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+159883,Tower Self Park,41.8790805,-87.63455515,211 West Adams,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+67461,Grant Park South - Tesla,41.8774374,-87.6242333,325 S Michigan Ave,Chicago,IL,60604,,6.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+228346,Parking Garage - 70 West Madison - Tesla Destination,41.882312,-87.630943,11 N Clark St,Chicago,IL,60602,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+142883,PARKING GARAGE 111SW STATION 2,41.880164,-87.636483,111 S Wacker Dr,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+142884,IRVINE  CO  OFC 71SW L1 09-10,41.880947,-87.636038,71 S Wacker Dr,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+142877,THE COOPER,41.87309,-87.633797,720 S Wells St,Chicago,IL,60699,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+81366,Grant Park North,41.882267,-87.624325,25 N Michigan Ave,Chicago,IL,60602,,6.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+246869,INTERPARK 217WASHINGTON 3,41.883001,-87.634317,219 W Washington St,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246867,ONE SOUTH WACKE OSW STATION #1,41.881597,-87.636514,1 S Wacker Dr,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246856,THE COOPER GATEWAY,41.87256,-87.633911,720 S Wells St,Chicago,IL,60607,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+2975,INTERPARK,41.8834035,-87.635081,230 W Washington St,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+142876,The Atlantic Condominium Association,41.87167,-87.626889,"270 17Th Street, Nw",Atlanta,GA,30363,,3.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+228334,ABM OLD POST OFFICE,41.875714,-87.638725,404 W Harrison St,Chicago,IL,60607,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+2976,INTERPARK,41.884864,-87.627044,20 E Randolph St,Chicago,IL,60601,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246868,110 UPPERWACKER STATION 2,41.882767,-87.637283,110 N Upper Wacker Dr,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+3606,Theatre District Self-Park Garage - InterPark,41.8854599,-87.62924957,181 N Dearborn St,Chicago,IL,60601,,0.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+3464,Theatre District Self-Park Garage - InterPark,41.8854599,-87.62924957,181 N Dearborn St,Chicago,IL,60601,,0.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+246876,Government Center Self Park,41.8856135,-87.63075645,181 North Clark,Chicago,IL,60601,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+2978,INTERPARK,41.8852234,-87.6337509,177 N Wells St,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+82280,Millennium Parking Garage,41.881747,-87.620555,5 S Columbus DR,Chicago,IL,60601,,16.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+246877,INTERPARK 200 N CLARK 2,41.885939,-87.631256,200 N Clark St,Chicago,IL,60601,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246871,110 UPPERWACKER STATION 3,41.883759,-87.637353,110 N Upper Wacker Dr,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+7749,203 N LaSalle Blvd,41.88591003,-87.63202667,203 N LaSalle Blvd,Chicago,Illinois,60601,,0.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+82307,Millennium Lakeside Garage,41.882094,-87.620496,5 S Columbus DR,Chicago,IL,60603,,16.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+228338,320 S CANAL EV3,41.877104,-87.64055,320 S Canal St,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+2939,MILLENNIUM GRGS,41.8824425,-87.6204453,5 S Columbus Dr,Chicago,IL,60601,,1.9,,Unknown,Unknown,Unknown,Unknown,Chicago
+228349,155 N WACKER DR P1,41.884913,-87.636437,155 N Upper Wacker Dr,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246878,"Virgin Hotels, Chicago - LAZ Parking - Tesla Destination",41.88605,-87.626025,203 N Wabash Ave,Chicago,IL,60601,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246881,One Eleven,41.8865153,-87.6314343,111 W Wacker Dr,Chicago,IL,60601,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+269905,PNC Centre at One North Franklin,41.8857555,-87.6353777,North Franklin Street,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246882,222 N LaSalle Parking Garage,41.886578,-87.632776,222 N La Salle St,Chicago,IL,60601,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+68900,PRUDENTIALPLAZA STATION 01,41.88536,-87.623191,130 E Randolph St,Chicago,IL,60601,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246879,225 W WACKER 225 W WACKER,41.886307,-87.635075,225 W Wacker Dr,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246875,530207 : Aon Center Parking Garage,41.884798,-87.6215123,200 E. Randolph Street,Chicago,IL,60601,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+228335,TPM AVRA STATION 1,41.87582,-87.64171,1125 W Van Buren Ave,Chicago,IL,60607,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+277450,530206 : 333 West Wacker Drive,41.886053,-87.6359543,333 West Wacker Drive,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+269904,300 E. Randolph Unit #3,41.8846651,-87.6199166,300 E. Randolph,Chicago,IL,60601,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+64698,540 W. MADISON,41.882585,-87.641656,540 West Madison St,Chicago,IL,60661,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246855,ELEVEN THIRTY 1130 S MICHIGAN,41.868618,-87.624626,1130 S Michigan Ave,Chicago,IL,60605,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246870,540 W. MADISON LL1 - 3,41.883025,-87.642101,540 West Madison St,Chicago,IL,60661,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+142875,ELEVEN40,41.867945,-87.626037,1140 S Wabash Ave,Chicago,IL,60605,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+7746,225 N Columbus Dr,41.88625336,-87.6204071,225 N Columbus Dr,Chicago,Illinois,60601,,0.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+246884,PRUDENTIALPLAZA STATION 02,41.887424,-87.622235,310 N Stetson Ave,Chicago,IL,60601,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+142888,Trump International Hotel & Tower Chicago,41.888835,-87.626658,401 N Wabash Avenue,Chicago,IL,60611,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+128063,Greenway Parking Garage,41.889236,-87.630247,60 W Kinzie,Chicago,Illinois,60654,,16.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+246886,EnV Chicago,41.8889472,-87.6336346,161 W Kinzie St,Chicago,IL,60654,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246872,PARKING GARAGE GARAGE LEVEL 1,41.883868,-87.642736,118 N Jefferson St,Chicago,IL,60661,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+28687,3RD FLOOR GREENWAY-3,41.889356,-87.630403,60 W Kinzie St,Chicago,IL,60661,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+92855,"Chicago, IL - North Columbus Drive (Pay to Park)",41.88651,-87.61972,225 North Columbus Drive,Chicago,IL,60601-7910,,150.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+246853,Jewel Osco #3345 Roosevelt and Wabash,41.867041,-87.6262505,1224 South Wabash,Chicago,IL,60605,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+29887,400 E. Randolph,41.88368607,-87.61616516,400 E. Randolph,Chicago,Illinois,60601,,0.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+99718,"Chicago, Il - South Canal Street Supercharger",41.869126,-87.639971,1100 South Canal Street,Chicago,IL,60607,,72.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+9142,1101 S Canal St,41.86839294,-87.63871002,1101 S Canal St,Chicago,Illinois,60607,,0.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+246854,Whole Foods - Canal St,41.86809,-87.638211,1101 S Canal St,Chicago,IL,60607,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+228358,LEFT BANK CS STATION 1,41.887215,-87.640641,300 N Canal St,Chicago,IL,60606,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+102907,Hubbard 221 Apartments,41.889972,-87.634711,221 W Hubbard Street,Chicago,IL,60654,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+228366,401NMAPARKING 401 N MICHIGAN,41.889778,-87.623525,150 E Lower North Water St,Chicago,IL,60611,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+7754,111 S Halsted,41.879623,-87.646791,111 S Halsted,Chicago,Illinois,60661,,0.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+277452,530208 : University of Chicago Booth School of Business - Gleacher Center,41.8896871,-87.6222251,450 North Cityfront Plaza Drive,Chicago,IL,60611,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+142874,OMPE ONE MUSEUM PARK,41.866571,-87.621756,1201 S Prairie Ave,Chicago,IL,60605,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246866,"Walgreens at 111 S Halsted St, Chicago",41.880205,-87.6470495,111 S Halsted St,Chicago,IL,60661,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246889,B3 LEVEL PARK B3 PARKING,41.889535,-87.620768,284 E North Water St,Chicago,IL,60611,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246852,"Walgreens at 501 W Roosevelt Rd, Chicago",41.86692,-87.639553,501 W Roosevelt Rd,Chicago,IL,60607,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246890,The Shops at North Bridge Rush St,41.8911105,-87.625614,520 N Michigan Ave,Chicago,IL,60611,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+28688,HUBBARD CHARGE,41.89035,-87.638405,360 W Hubbard St,Chicago,IL,60654,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+269906,540 E Lower Wacker,41.887439,-87.6160571,540 East Lower Wacker Drive,Chicago,IL,60601,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246893,The Shops at North Bridge Grant St,41.891844,-87.626446,520 N Michigan Ave,Chicago,IL,60611,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246888,Cityfront Place Garage - Floor 2 Right,41.8891899,-87.6181012,400 N. McClurg Court,Chicago,IL,60611,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+81723,Loews Chicago Hotel,41.889755,-87.618659,455 N Park DR,Chicago,IL,60611,,8.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+159885,BUCK MANAGEMENT LEVEL 2 327,41.880655,-87.648861,845 W Madison,Chicago,IL,60607,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+159887,BUCK MANAGEMENT LEVEL 1 NORTH,41.880735,-87.648861,845 W Madison St,Chicago,IL,60607,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+40335,"CFP II, LLC 206",41.891113,-87.620957,240 E Illinois St,Chicago,IL,60611,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246895,McDonalds 6676,41.892786,-87.631728,600 N Clark,Chicago,IL,60610,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+29884,760 W Taylor St,41.86981201,-87.64645386,760 W Taylor St,Chicago,Illinois,60607,,0.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+2980,INTERPARK 50 EAST OHIO 2,41.892757,-87.626038,50 E Ohio St,Chicago,IL,60611,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+7748,50 E Ohio St,41.89275742,-87.6260376,50 E Ohio St,Chicago,Illinois,60611,,0.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+282772,GRANDOHIO CONDO STATION 1,41.891997,-87.621655,211 East Ohio Street,Chicago,IL,60611,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+28678,Walsh Construction,41.87757111,-87.65041351,307 S Sangamon,Chicago,IL,60607,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+20947,640 N LASALLE,41.8935938,-87.632785,640 N LaSalle St,Chicago,IL,60290,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+81846,AC Hotel Chicago Downtown,41.893499,-87.625498,630 N Rush St,Chicago,IL,60611,,14.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+94977,640 N Lasalle Parking Garage,41.8936252,-87.6334239,640 N Lasalle St,Chicago,Illinois,60654,,16.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+29888,614 N St Clair St,41.893147,-87.623135,614 N St Clair St,Chicago,Illinois,60611,,0.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+228355,THOR816WFULTON STATION 1,41.88694,-87.64766,800 W Fulton Market,Chicago,IL,60607,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+277445,UIC Parking Services Lot 9,41.8748062,-87.6507875,501 South Morgan Street,Chicago,IL,60612,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+228347,Union West,41.882764,-87.651188,939 W Washington Blvd,Chicago,IL,60607,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246891,One Bennett Park,41.891466,-87.616338,456 E Illinois St,Chicago,IL,60611,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246894,MOMENT MOMENT 1,41.892047,-87.617241,545 N McClurg Ct,Chicago,IL,60611,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+246896,PARKING B LOT B FLOOR9 #3,41.89356,-87.620889,240 E Ontario St,Chicago,IL,60611,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+29890,30 W Huron St,41.89500046,-87.62918091,30 W Huron St,Chicago,Illinois,60654,,0.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+246897,PARKING B LOT B FLOOR8 #3,41.89369,-87.620964,259 E Erie St,Chicago,IL,60611,,3.7,,Unknown,Unknown,Unknown,Unknown,Chicago
+72618,Whole Foods - West Huron,41.8950201,-87.6290687,"30 West Huron St. Chicago, IL",Chicago,ILLINOIS,60654,,50.0,,Unknown,Unknown,Unknown,Unknown,Chicago
+253415,BMM-CP-000504,51.507351,-0.127758,Rainsford Road,Chelmsford,,CM1 2XB,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+4396,Masterpark Trafalgar Square Car Park,51.507291,-0.128896,Spring Garden,London,,SW1A 2BN,,0.0,,Unknown,Unknown,Unknown,Unknown,London
+52877,Q-Park Trafalgar Car Park,51.507099,-0.130117,Spring Gardens,London,,SW1A 2TS,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+146490,Coutts Bank,51.50890313863235,-0.1255337882317917,440 Strand,London,,WC2R 0QS,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+4399,Q-Park Leicester Square Car Park,51.509162,-0.13065,Whitcomb Street,London,,WC2H 7DT,,4.0,,Unknown,Unknown,Unknown,Unknown,London
+170689,Westminster-Whitehall Place,51.506477,-0.12377,Whitehall Place,Westminster,London,SW1A 2BD,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+104898,Saint Martins Lane Hotel,51.510475,-0.126729,Saint Martins Lane Hotel,45 Saint Martin's Lane,London,WC2N 4HX,,50.0,,Unknown,Unknown,Unknown,Unknown,London
+253530,Junc. Bedfordbury,51.510492,-0.125554,Junc. Bedfordbury,London,,WC2N 4DQ,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+99712,Stirling Square,51.506042,-0.133653,5 - 7 Carlton Gardens,London,,SW1Y 5AD,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+107862,St James Square,51.507729,-0.13457,St James Square,London,,SW1Y 4PD,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+129386,St James's Square,51.50773,-0.13457,St James's Square,,,SW1Y 4PD,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+4413,Masterpark Chinatown Car Park,51.512046,-0.129753,Newport Place,London,,WC2H 7PU,,0.0,,Unknown,Unknown,Unknown,Unknown,London
+253591,5 Upper St Martin's Lane,51.512373,-0.12711,5 Upper St Martin's Lane,London,,WC2H 9NY,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+128396,Q-Park Chinatown,51.512299,-0.129615,Q-Park Chinatown,20 Newport Place,London,WC2H 7PR,,50.0,,Unknown,Unknown,Unknown,Unknown,London
+46743,Southampton Street,51.5109927464186,-0.122040510177612,Southampton Street,London,,WC2E 7HE,,4.0,,Unknown,Unknown,Unknown,Unknown,London
+253607,Q-Park Chinatown,51.512699,-0.130012,20 Newport Place,London,,WC2H 7PR,,3.0,,Unknown,Unknown,Unknown,Unknown,London
+285956,33 King Charles Street,51.501845,-0.127892,33 King Charles Street,London,,SW1A 2AH,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+253610,Q-Park Chinatown,51.512798,-0.130113,20 Newport Place,London,,WC2H 7PR,,22.0,,Unknown,Unknown,Unknown,Unknown,London
+4409,NCP Brewer Street - Chargepost 1,51.511865,-0.134884,2 Lexington Street,London,,W1F 0LA,,0.0,,Unknown,Unknown,Unknown,Unknown,London
+253549,Shell Recharge/Ubitricity,51.511428,-0.135708,,London,,W1F 9UN,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+253565,Exeter Street,51.511902,-0.119569,City of London,London,,WC2E 7DU,,3.0,,Unknown,Unknown,Unknown,Unknown,London
+5832,Belvedere Road Car Park,51.5052551,-0.1168898,Belvedere Road,Lambeth,London,SE1 8XU,,0.0,,Unknown,Unknown,Unknown,Unknown,London
+253213,Shell Recharge/Ubitricity,51.501,-0.13328,,London,,SW1H 9AB,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+19466,Exeter Street,51.51229585,-0.119148037008377,Opposite 17 Exeter Street,London,,WC2E 7DU,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+132780,Golden Square,51.511818,-0.137617,33 Golden Square,London,,W1F 9JT,,22.0,,Unknown,Unknown,Unknown,Unknown,London
+187712,23 Queen Anne's Gate,51.500544,-0.133597,23 Queen Anne's Gate,London,,SW1H 9BU,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+67840,Trenchard House,51.513535,-0.135519,19-25 Broadwick Street,London,,W1F 0DF,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+5510,NCP Car Park Drury Lane,51.51422,-0.12136,Parker Street,,London,WC2b 5NT,,0.0,,Unknown,Unknown,Unknown,Unknown,London
+253707,Opp.,51.514955,-0.132093,Opp.,London,,W1D 3QR,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+253685,Shell Recharge/Ubitricity,51.514418,-0.134767,,London,,W1F 8WG,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+127806,Carlisle Street,51.515133,-0.132938,Carlisle Street,Westminster,London,W1D 3BX,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+4420,Broadwick Road Carpark,51.513645,-0.137168,Dufours Place,London,,W1F 7SJ,,0.0,,Unknown,Unknown,Unknown,Unknown,London
+52879,Q-Park Burlington Street,51.510632,-0.14051870000003,3-9 Old Burlington Street,London,,W1S 3AF,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+101372,Concert Hall Approach,51.50463,-0.11455,Concert Hall Approach,South Bank,London,SE1 8XU,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+53024,Q-Park Soho,51.514198,-0.136689,Poland Street,London,,W1F 7NQ,,50.0,,Unknown,Unknown,Unknown,Unknown,London
+16030,Park Plaza Westminster Bridge Hotel ,51.5014098,-0.117240600000059,200 Westminster Bridge Rd,,London,SE1 7UT,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+253751,Opp.,51.516,-0.13187,Opp.,London,,W1D 3QH,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+253772,Almacantar,51.516312,-0.129476,103 New Oxford Street,London,,WC1A 1DD,,22.0,,Unknown,Unknown,Unknown,Unknown,London
+173461,20 Great Queen Street,51.515614,-0.120802,20 Great Queen Street,London,,WC2B 5AZ,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+4400,Albemarle Street,51.5096839873231,-0.142478942871094,Albemarle Street,London,,W1S 4BS,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+252974,Q-Park Westminster,51.4977,-0.126443,Great College Street,London,,SW1P 3RX,,22.0,,Unknown,Unknown,Unknown,Unknown,London
+57086,Sardinia Street,51.5151901467396,-0.118159841802967,Sardinia Street,London,England,WC2B 6TE,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+52878,Q-Park Westminster,51.4975281,-0.127408500000001,Great College Street,London,,SW1P 3RX,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+4376,Masterpark Abingdon Car Park,51.497528,-0.127409,Great College Street,London,,SW1P 3RX,,0.0,,Unknown,Unknown,Unknown,Unknown,London
+4390,76 Upper Ground,51.5068393098305,-0.111933946609497,Waterloo,London,,SE1 9PP,,22.0,,Unknown,Unknown,Unknown,Unknown,London
+19465,Temple Place,51.5116935,-0.113055249442683,Temple Place,London,,WC2R 2PG,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+253491,Shell Recharge/Ubitricity,51.50908,-0.143872,,London,,W1J 8NR,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+253042,22 Caxton Street,51.498522,-0.13584,22 Caxton Street,London,,SW1H 0QU,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+136293,Adeline Pl 15,51.517603,-0.129837,Adeline Pl 15,London,,WC1B 3AJ,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+253548,Temple Place site 2,51.511407,-0.112471,Temple Place site 2,Westminster,,WC2R 2PG,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+253603,Opp.,51.512568,-0.142311,Opp.,London,,W1S 2AT,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+136295,Adeline Pl 12,51.517782,-0.130023,Adeline Pl 12,London,,WC1B 3AJ,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+252927,27 Great Peter Street,51.496896,-0.127436,27 Great Peter Street,London,,SW1P 3LN,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+43412,"Lincolns Inn Fields, Westminster",51.5152860135492,-0.116643905639648,Lincolns Inn Fields,London,,WC2A 3PE,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+252924,Great Peter St 31,51.496887,-0.127973,Great Peter St 31,London,,SW1P 3NQ,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+252926,Great Peter St 41,51.496895,-0.128714,Great Peter St 41,London,,SW1P 3LT,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+126177,Westminster-Lincoln's Inn Fields,51.515375,-0.116745,Lincoln's Inn Fields,Westminster,London,WC2A 3PE,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+268058,Stephens Street,51.517475,-0.133047,Stephens Street,Camden Town,,W1T 1AL,,22.0,,Unknown,Unknown,Unknown,Unknown,London
+252921,Great Peter St 16,51.496866,-0.129591,Great Peter St 16,London,,SW1P 2BX,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+118286,"Cornwall Road, Lambeth",51.50542,-0.11099,Cornwall Road,Lambeth,Greater London,SE1 9PU,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+205270,Adeline Place,51.51798,-0.130288,Adeline Place,London,England,WC1B 3AH,,22.0,,Unknown,Unknown,Unknown,Unknown,London
+53025,Berkeley Square,51.509495,-0.144767,Berkeley Square,London,,W1J 6EG,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+173459,24 Little Russell Street,51.518054,-0.12494,24 Little Russell Street,London,,WC1A 2HS,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+125894,Berkeley Square,51.509472,-0.14487,Berkeley Square,Westminster,,W1J 6ES,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+5835,Holborn NCP Car Park,51.5181387,-0.1255737,Museum Street,Camden,London,WC1A 1JP,,3.0,,Unknown,Unknown,Unknown,Unknown,London
+45049,5 Spenser Street,51.497912,-0.136349,5 Spenser Street,London,,SW1E 6AA,,3.0,,Unknown,Unknown,Unknown,Unknown,London
+60268,Society of Motor Traders,51.496653,-0.13111,73 Great Peter Street,London,,SW1P 2BN,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+253851,2 Bury Place,51.518144,-0.12398,2 Bury Place,London,,WC1A 2JU,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+173531,14 St George Street,51.512844,-0.143349,14 St George Street,London,,W1S 1FH,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+252909,Great Peter Street,51.496731,-0.132808,Great Peter Street,London,,SW1P 2JX,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+173460,17 Southampton Place,51.517947,-0.121831,17 Southampton Place,London,,WC1A 2DB,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+52972,Berners Street,51.517235,-0.136815,16-18 Berners Street,London,,W1T 3LN,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+92443,Islamic Relief UK,51.500361,-0.113099,16 Lower Marsh,London,,SE1 7RJ,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+264631,Shell Recharge/Ubitricity,51.496,-0.13085,,London,,SW1P 2BQ,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+253462,Shell Recharge/Ubitricity,51.508257,-0.146484,,London,,W1J 5DJ,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+214237,Opp.,51.514586,-0.142564,Opp.,London,,W1B 2LY,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+253550,Opp.,51.511441,-0.145558,Opp.,London,,W1K 3QU,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+52918,NCP Carrington Street,51.506001,-0.146775,Mayfair,London,,W1J 7AF,,3.0,,Unknown,Unknown,Unknown,Unknown,London
+268054,Grosvenor Street,51.512165,-0.145341,18 Grosvenor Street,City of Westminster,,W1K 4PZ,,22.0,,Unknown,Unknown,Unknown,Unknown,London
+4443,Bloomsbury Square Car Park,51.5190133,-0.1222460000000182,Bloomsbury Square,London,,WC1A 2RJ,,0.0,,Unknown,Unknown,Unknown,Unknown,London
+253070,14 Stafford Place,51.498965,-0.141783,14 Stafford Place,London,,SW1E 6NP,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+52817,NCP Berners Street,51.518002,-0.137539,45-47 Berners Street,London,,W1T 3NE,,4.0,,Unknown,Unknown,Unknown,Unknown,London
+4427,Lincolns Inn,51.51643,-0.114483,Lincolns Inn Fields,London,,WC2A 3TL,,0.0,,Unknown,Unknown,Unknown,Unknown,London
+253567,Shell Recharge/Ubitricity,51.511983,-0.146098,,London,,W1K 4PS,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+4405,NCP Grosvenor Hill,51.510944,-0.146848,21 Grosvenor Hill,London,,W1K 3QQ,,3.0,,Unknown,Unknown,Unknown,Unknown,London
+4404,NCP Grosvenor Hill,51.510944,-0.146848,21 Grosvenor Hill,London,,W1K 3QQ,,0.0,,Unknown,Unknown,Unknown,Unknown,London
+252872,opp.,51.495919,-0.135237,opp.,London,,SW1P 1AB,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+95361,Palace Street,51.497297,-0.139462,Palace Street,London,,SW1E 5JL,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+252877,Shell Recharge/Ubitricity,51.496,-0.13586,,London,,SW1P 1AB,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+85098,Zipcar Horseferry Road,51.4948439,-0.12867,Horseferry Road,London,,SW1P 3RE,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+253825,Newmans Row,51.5175,-0.115606,Newmans Row,Camden,,WC2A 3PD,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+56960,Horseferry Road,51.494767503224,-0.130060857177789,Horseferry Road,London,England,SW1P 4DR,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+147933,Department for Transport,51.494678,-0.129862,33 Horseferry Road,London,England,SW1P 4DR,,50.0,,Unknown,Unknown,Unknown,Unknown,London
+4456,Charlotte Street,51.519293,-0.135446,40 Charlotte Street,London,,W1T 2NH,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+252820,"Regency Place, Belgravia",51.494868,-0.132312,"Regency Place, Belgravia, Westminster, SW1P 2DZ",Westminster,,SW1P 2DZ,,50.0,,Unknown,Unknown,Unknown,Unknown,London
+136167,7 Francis Street,51.495977,-0.137269,7 Francis Street,Victoria Station,,SW1P 1QP,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+57552,"Store Street, London WC1",51.5201029380956,-0.131020545959473,8 Store Street,London,,W1B 1AD,,7.0,,Unknown,Unknown,Unknown,Unknown,London
+167016,Carlisle Lane Parking/Charging,51.497106,-0.115396,"195 Carlisle Lane, Lambeth",London,England,SE17LH,,50.0,,Unknown,Unknown,Unknown,Unknown,London
+252803,2 Dean Ryle Street,51.494536,-0.126872,2 Dean Ryle Street,London,,SW1P 4DA,,3.7,,Unknown,Unknown,Unknown,Unknown,London
+252801,Shell Recharge/Ubitricity,51.494531,-0.126872,,London,,SW1P 4DA,,5.0,,Unknown,Unknown,Unknown,Unknown,London
+7008,angle rue Poulet - Barbès,48.856614,2.3522219000000177,angle rue Poulet - Barbès,Paris,,,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6931,Parking Lobau-Rivoli,48.8560139,2.353280600000062,Rue Lobau,Paris,,75004.0,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+60368,Place Saint-Gervais,48.855837,2.35409470000002,4 Place Saint-Gervais,Paris,,75004.0,,22.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6977,Place Saint-Gervais autolib,48.8557973,2.35414830000002,Place Saint-Gervais,Paris,,,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+7025,Parking Hôtel de Ville,48.8569839,2.3497155999999677,3 rue de la Tacherie,Paris,,75004.0,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198809,Paris | Quai aux Fleurs 23,48.854847,2.3505278,23 Quai aux Fleurs 75004 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198838,Paris | Rue Sainte-Croix de la Bretonnerie 37,48.858505,2.3543751,37 Rue Sainte-Croix de la Bretonnerie 75004 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+7026,Parking St Martin Rivoli,48.8585079,2.3496165999999903,5 rue Pernelle,Paris,,75004.0,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198846,Paris | Rue du Temple 36,48.85967,2.3542652,36 Rue du Temple 75004 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+7024,Parking Notre Dame,48.8545607,2.347677699999963,Rue de la Cité,Paris,,75004.0,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198835,Paris | Avenue Victoria 17,48.85788,2.34681,17 Avenue Victoria 75001 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198815,Paris | Rue François Miron 80,48.855366,2.3591938,80 Rue François Miron 75004 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+77520,Quai du Marche Neuf,48.854057,2.34556,4 QUAI DU MARCHE NEUF,Paris,Paris 9,75004.0,,22.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6928,Parking Sébastopol,48.8615398,2.3496910999999727," Boulevard de Sébastopol , 43 bis",Paris,,75001.0,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198842,Paris | Rue Bertin Poirée 14,48.85881,2.3449502,14 Rue Bertin Poirée 75001 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198862,pompidou,48.861996,2.352638,"31 Rue Beaubourg, 75003 Paris, France",,,,,22.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198787,Paris | Quai de Béthune 36,48.851254,2.3564553,36 Quai de Béthune 75004 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198823,Paris | Rue Malher 13,48.85648,2.361378,13 Rue Malher 75004 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198782,SAEMES | PARKING LAGRANGE,48.85072312818277,2.3486904895097536,19 rue Maubert 75005 Paris,,,,,22.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198777,Paris | Quai de la Tournelle 21,48.850033,2.354431,21 Quai de la Tournelle 75005 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198871,Paris | Rue Saint-Martin 204,48.86334,2.3526978,204 Rue Saint-Martin 75003 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+77519,Rue Saint Jacques,48.85104,2.345493,32 RUE SAINT JACQUES,Paris,Paris 9,75005.0,,22.0,,Unknown,Unknown,Unknown,Unknown,Paris
+7023,Parking St Eustache,48.8623474,2.3458559000000605,Forum des halles,Paris,,75001.0,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6932,Parking Place Saint-Michel,48.8519137,2.342407099999946,Rue Hautefeuille,Paris,,75005.0,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+97772,Relais Christine,48.854369,2.340142,3 Rue Christine,Paris,Paris,75006.0,,11.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198803,Paris | Rue Neuve Saint-Pierre 2,48.853573,2.363958,2 Rue Neuve Saint-Pierre 75004 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6974,Rue de l'Amiral de Coligny,48.8599749,2.3403485000000046,Rue de l'Amiral de Coligny,Paris,,,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198780,Paris | Quai Henri IV 44,48.85023,2.3615763,44 Quai Henri IV 75004 Paris,,,,,22.0,,Unknown,Unknown,Unknown,Unknown,Paris
+77528,Rue de Reaumur,48.864719,2.359043,5 Rue de Reaumur,Paris,Paris 9,75003.0,,22.0,,Unknown,Unknown,Unknown,Unknown,Paris
+7027,Parking Ecole de Médecine,48.8512146,2.3403983000000608,21 rue de l'école de Médecine,Paris,,75006.0,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198812,Paris | Rue Jacques Callot 5,48.855206,2.337108,5 Rue Jacques Callot 75006 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6976,Rue Perrée (Mairie),48.86466840000001,2.361330500000008,Rue Perrée,Paris,,,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198863,Paris | Rue de Turenne 98,48.86235,2.3648512,98 Rue de Turenne 75003 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198843,Paris | Boulevard Beaumarchais 87,48.858967,2.36738,87 Boulevard Beaumarchais 75003 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198864,Paris | Rue des Croix des Petits Champs 4,48.862465,2.3393006,4 Rue des Croix des Petits Champs 75001 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+77510,Rue Etienne Marcel,48.865311,2.343436,44 RUE ETIENNE MARCEL,Paris,Paris 9,75001.0,,22.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6978,Place du Panthéon,48.8467002,2.3463884000000235,Place du Panthéon,Paris,,,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198898,Paris | Rue d'Alexandrie 7,48.868008,2.3508835,7 Rue d'Alexandrie 75002 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198736,Paris | Rue Linnée 18,48.845257,2.3548336,18 Rue Linnée 75005 Paris,,,,,3.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6975,6 rue d'Aboukir,48.86620610000001,2.342473899999959,6 rue d'Aboukir,Paris,,,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6933,Parking Soufflot-Panthéon,48.8472745,2.3417546000000584,"22, Rue Soufflot",Paris,,75005.0,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198731,Paris | Rue Monge 55,48.84477,2.35242,55 Rue Monge 75005 Paris,,,,,22.0,,Unknown,Unknown,Unknown,Unknown,Paris
+77561,Place du Panthéon,48.845715,2.345032,17 Place du Panthéon,Paris,Paris 9,75005.0,,22.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198897,Paris | Rue Réaumur 116,48.86781,2.34525,116 Rue Réaumur 75002 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198728,Paris | Rue Monge 58,48.84443,2.3522773,58 Rue Monge 75005 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198881,Paris | Boulevard du Temple 27,48.865097,2.36554,27 Boulevard du Temple 75011 Paris,,,,,22.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198831,Paris | Boulevard Richard Lenoir 36,48.857258,2.37139,36 Boulevard Richard Lenoir 75011 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198895,Paris | Place de la République 17,48.86745,2.3630073,17 Place de la République 75003 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198885,Paris | Boulevard Voltaire  8,48.865765,2.3664377,8 Boulevard Voltaire 75011 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198764,Paris | Boulevard de la Bastille 20,48.84837,2.367915,20 Boulevard de la Bastille 75012 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+195666,PARIS - Saint Sulpice n-1,48.851196289,2.333564997,Place Saint-Sulpice - 75006 PARIS,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198852,Paris | Boulevard Richard Lenoir 63,48.86023,2.3719914,63 Boulevard Richard Lenoir 75011 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+195669,PARIS - Saint Germain des PrÃÂ©s,48.854099274,2.33178401,Boulevard Saint-Germain - 75006 PARIS,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198917,Paris | Boulevard Bonne Nouvelle 21,48.8703,2.349722,21 Boulevard Bonne Nouvelle 75002 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6930,Parking Bourse,48.8686698,2.3413497000000234,Place de la Bourse,Paris,,75002.0,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198923,Paris | Rue de Metz 6,48.87081,2.354076,6 Rue de Metz 75010 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198891,Paris | Avenue de la République 5,48.86661,2.36784,5 Avenue de la République 75011 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198817,Paris | Rue du Commandant Lamy 2,48.85579,2.374203,2 Rue du Commandant Lamy 75011 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198919,Paris | Rue d'Uzès 1,48.870422,2.3454537,1 Rue d'Uzès 75002 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198915,Paris | Rue Pierre Chausson 1,48.87026,2.3600461,1 Rue Pierre Chausson 75010 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198875,Paris | Boulevard Richard Lenoir 110,48.864063,2.3713984,110 Boulevard Richard Lenoir 75011 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198709,Paris | Rue Pierre Brossolette 1,48.84196,2.347262,1 Rue Pierre Brossolette 75005 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198745,Paris | Avenue Ledru Rollin 20,48.84652,2.3692153,20 Avenue Ledru Rollin 75012 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198879,Paris | Rue des Pyramides 12,48.86486,2.3329713,12 Rue des Pyramides 75001 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6979,76 rue de Rennes,48.8510946,2.3306301000000076,76 rue de Rennes,Paris,,,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+195677,PARIS - Louvre,48.861721039,2.330333948,Avenue du GÃÂ©nÃÂ©ral Lemonnier - 75001 PARIS,,,,,3.7,,Unknown,Unknown,Unknown,Unknown,Paris
+198890,SARL ALBIN,48.8665157,2.3340766,9 Rue Paul Sabatier 71100 Chalon-sur-Saône,,,,,44.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198700,Paris | Rue Monge  99,48.841064,2.352048,495 Rue Monge 75005 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198876,Paris | Rue Saint Roch 3,48.864292,2.3314855,3 Saint Roch 75001 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198710,Paris | Rue Gay-Lussac 66,48.842007,2.3430684,66 Rue Gay-Lussac 75005 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198920,Paris | Rue Vivienne 43,48.870564,2.3408933,43 Rue Vivienne 75002 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+77513,Rue du Bac,48.857124,2.327753,35 Rue du Bac,Paris,Paris 9,75007.0,,22.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198900,Paris | Rue Dalayrac 19,48.86818,2.335097,19 Rue Dalayrac 75002 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198750,Paris | Rue de Fleurus 2,48.847107,2.332121,2 Rue de Fleurus 75006 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+195665,PARIS - Faubourg Saint Antoine,48.850849152,2.375396013,Avenue Ledru Rollin - 75012 PARIS,,,,,3.7,,Unknown,Unknown,Unknown,Unknown,Paris
+6988,42 bd de Magenta,48.8724139,2.3597886000000017,42 boulevard de Magenta,Paris,,,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198924,Paris | Rue Beaurepaire 31,48.87119,2.364206,31 Rue Beaurepaire 75010 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198689,Paris | Rue Claude Bernard 16,48.839775,2.3476574,16 Rue Claude Bernard 75005 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198769,Paris | Rue de Rennes 105,48.84896,2.328735,105 Rue de Rennes 75006 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198814,Paris | Avenue Ledru Rollin 155,48.855328,2.378338,930 Avenue Ledru Rollin 75011 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6927,Parking Marché Saint-Honoré,48.867521,2.3317144999999755,"39, Place du Marché Saint-Honoré",Paris,,75001.0,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198685,Paris | Rue Monge 112,48.839275,2.3507414,112 Rue Monge 75005 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198943,Paris | Rue du conservatoire 13,48.87359,2.3466527,13 Rue du conservatoire 75009 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198704,Paris | Rue Henri Barbusse 25,48.8415,2.338973,25 Rue Henri Barbusse 75005 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198714,Paris | Rue Michelet 6,48.842564,2.3363895,6 Rue Michelet 75006 Paris,,,,,3.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198906,Paris | Bis Avenue Parmentier 125,48.86908,2.371679,125 Bis Avenue Parmentier 75011 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198929,Paris | boulevard Haussmann 6,48.87232,2.338776,6 boulevard Haussmann 75009 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198933,Paris | Avenue Richerand 11,48.87237,2.366288,11 Avenue Richerand 75010 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+77518,Avenue Parmentier,48.858952,2.379874,4 AVENUE PARMENTIER,Paris,Paris 9,75011.0,,22.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198849,Paris | Rue de Bellechasse 5,48.85988,2.3245049,5 Rue de Bellechasse 75007 Paris,,,,,3.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6929,Parking Vendôme,48.8675335,2.3292922000000544,Place Vendôme,Paris,,75001.0,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+7028,Parking Sèvres-Babylone,48.8511867,2.3250289999999723,Rue Velpeau,Paris,,75007.0,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198951,Paris | Rue du Faubourg Poissonnière 64,48.87517,2.348162,64 Rue du Faubourg Poissonnière 75010 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198913,Paris | Rue de la Paix 24,48.869926,2.3320835,24 Rue de la Paix 75002 Paris,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+198922,Paris | Boulevard des Capucines 7,48.87063,2.33321,7 Boulevard des Capucines 75002 Paris,,,,,4.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6987,129 rue Fg St Martin,48.8749566,2.3588815000000523,129 Rue du Faubourg Saint-Martin,Paris,,,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+8774,Novotel Paris Gare de Lyon,48.8453558,2.3753134999999475,2 rue Hector Malot,PARIS,,75012.0,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+195694,PARIS - Magenta - Niveau -6,48.875442505,2.354827881,2 - 75010 PARIS,,,,,7.0,,Unknown,Unknown,Unknown,Unknown,Paris
+6991,94 rue Saint Maur,48.8653543,2.377723400000036,94 rue Saint Maur,Paris,,,,0.0,,Unknown,Unknown,Unknown,Unknown,Paris
+77509,Rue Saint Maur,48.865358,2.37793880000004,94 Rue Saint-Maur,Paris,Paris 9,75011.0,,22.0,,Unknown,Unknown,Unknown,Unknown,Paris

@@ -1,0 +1,13 @@
+
+hpc_tiers:
+ - name: HPC_350KW
+   capex: 300000
+   cable_cooling: 25000
+ - name: HPC_1000KW
+   capex: 500000
+   cable_cooling: 40000
+
+electricity_rate: 0.15
+staff_cost_monthly: 1200
+maintenance_percent: 0.05
+hpc_fee_per_kwh: 0.40

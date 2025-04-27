@@ -1,0 +1,42 @@
+{
+  "date_generated": "2025-04-26 20:26:11",
+  "stations_forecasted": 5,
+  "forecast_days": 90,
+  "overall_stats": {
+    "avg_sessions": 25.8,
+    "avg_energy": 1367.7,
+    "total_revenue": 218816.51
+  },
+  "station_forecasts": {
+    "GS-0022": {
+      "viability_score": 77.8,
+      "avg_sessions": 23.3,
+      "total_energy": 93460.8,
+      "total_revenue": 36899.96
+    },
+    "GS-0028": {
+      "viability_score": 74.3,
+      "avg_sessions": 27.7,
+      "total_energy": 126644.7,
+      "total_revenue": 39079.29
+    },
+    "GS-0019": {
+      "viability_score": 72.7,
+      "avg_sessions": 25.1,
+      "total_energy": 123151.8,
+      "total_revenue": 44042.03
+    },
+    "GS-0035": {
+      "viability_score": 70.4,
+      "avg_sessions": 28.6,
+      "total_energy": 142009.9,
+      "total_revenue": 52306.44
+    },
+    "GS-0042": {
+      "viability_score": 70.1,
+      "avg_sessions": 24.1,
+      "total_energy": 130181.0,
+      "total_revenue": 46488.79
+    }
+  }
+}

@@ -1,0 +1,101 @@
+id,name,latitude,longitude,address,city,state,postcode,country,power_kw,connector_types,access_type,operator,network,status
+181518,Karl-Liebknecht-Straße 5; U3 064,52.51991,13.403986,Karl-Liebknecht-Straße 5; U3 064,Berlin,,10178,,11.0,,Unknown,Unknown,Unknown,Unknown
+65825,Spandauer Straße,52.5208455657791,13.4039381981476,Spandauer Straße,Berlin,Berlin,10178,,11.0,,Unknown,Unknown,Unknown,Unknown
+47290,Parkhaus Radisson Blu,52.51926694894463,13.403098212601448,Karl-Liebknecht-Straße 3,Alt-Berlin,Berlin,10178,,11.0,,Unknown,Unknown,Unknown,Unknown
+186949,Karl-Liebknechtstraße 13,52.5220352,13.4077372,Karl-Liebknechtstraße 13,Berlin,,10178,,50.0,,Unknown,Unknown,Unknown,Unknown
+38402,Jüdenstrasse 1,52.51886749783287,13.40899786623571,Jüdenstrasse 1,Berlin,,10178,,22.0,,Unknown,Unknown,Unknown,Unknown
+47289,Klosterstraße,52.51771281821817,13.412332777099092,Klosterstraße 71,,Berlin,10179,,11.0,,Unknown,Unknown,Unknown,Unknown
+38391,Neue Jüdenstraße 1,52.51579,13.41046,Neue Jüdenstraße 1,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+183611,Neue Jüdenstraße 1,52.51579,13.41046,Neue Jüdenstraße 1,Berlin,,10117,,22.0,,Unknown,Unknown,Unknown,Unknown
+7668,Parkhaus Alexa,52.51998,13.41475,Grunerstraße 20 ,Berlin,,10179 ,,11.0,,Unknown,Unknown,Unknown,Unknown
+74908,Alexanderstraße,52.52275975921836,13.41390533093568,Alexanderstraße 4,Berlin,Berlin,10178,,50.0,,Unknown,Unknown,Unknown,Unknown
+87439,Karl-Liebknecht-Straße,52.524438232115585,13.412951344982966,Karl-Liebknecht-Straße 29,Berlin,Berlin,10178,,11.0,,Unknown,Unknown,Unknown,Unknown
+188475,Alexanderplatz,52.52188789419978,13.415833917838654,Alexanderplatz,Berlin,Berlin,10178,,11.0,,Unknown,Unknown,Unknown,Unknown
+38390,Französische Straße 33,52.515556,13.395833,Französische Straße 33,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+68665,Ubitricity Ladelaterne,52.515760620459545,13.393046093254064,Markgrafenstraße 44,Berlin,Berlin,10117,,3.7,,Unknown,Unknown,Unknown,Unknown
+45042,Be emobil Ladesäule,52.5136513,13.4154654,Am Köllnischen Park 3,Berlin,Berlin,10179,,22.0,,Unknown,Unknown,Unknown,Unknown
+75430,NH Collection Berlin Friedrichstrasse,52.519711,13.390212,Friedrichstraße 96,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+38404,Planckstr. 4,52.51897,13.390248,Planckstr. 4,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+181128,Am Köllnischen Park 3,52.513388,13.415578,Am Köllnischen Park 3,Berlin,,10179,,11.0,,Unknown,Unknown,Unknown,Unknown
+68667,ubitricity Ladelaterne,52.52923335329063,13.408170000000025,Torstraße 65,Berlin,Berlin,10119,,3.7,,Unknown,Unknown,Unknown,Unknown
+183437,Straßburger Str. 2,52.528486,13.412186,Straßburger Str. 2,Berlin,,10405,,11.0,,Unknown,Unknown,Unknown,Unknown
+104146,Straßburger Straße,52.52861,13.41245989999993,Straßburger Straße 2,Berlin,Berlin,10405,,11.0,,Unknown,Unknown,Unknown,Unknown
+38359,Alte Jakobstraße 76,52.510383,13.409065,Alte Jakobstraße 76,Berlin,,10179,,11.0,,Unknown,Unknown,Unknown,Unknown
+184302,Seydelstraße 7,52.510113,13.403225,Seydelstraße 7,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+184305,Leipziger Str. 59 in Jerusalemer Str .,52.511309,13.396763,Leipziger Str. 59 in Jerusalemer Str .,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+38393,Behrensstraße 28,52.515846,13.389922,Behrensstraße 28,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+177136,Behrensstraße 28,52.515846,13.389922,Behrensstraße 28,Berlin,,10117,,22.0,,Unknown,Unknown,Unknown,Unknown
+98016,Hotel Meliá Berlin,52.52146,13.388302,Friedrichstrasse 103,Berlin,,10117,,17.0,,Unknown,Unknown,Unknown,Unknown
+186945,Markgrafenstr. 33,52.512212,13.393597,Markgrafenstr. 33,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+91257,Hampton By Hilton Berlin Alexanderplatz,52.525192,13.420235,Otto-Braun-Straße 69,Berlin,,10178,,14.0,,Unknown,Unknown,Unknown,Unknown
+38445,Torstraße 165,52.529125,13.395841,Torstraße 165,Berlin,,10115,,11.0,,Unknown,Unknown,Unknown,Unknown
+38426,Mollstraße 4,52.524167,13.421389,Mollstraße 4,Berlin,,10178,,11.0,,Unknown,Unknown,Unknown,Unknown
+178315,Mollstraße 4,52.524167,13.421389,Mollstraße 4,Berlin,,10178,,22.0,,Unknown,Unknown,Unknown,Unknown
+84369,Jägerstraße,52.5140536,13.390045399999963,Jägerstraße 61,Berlin,Berlin,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+68666,Ubitricity Ladelaterne,52.52387,13.422239999999988,Mollstraße 9,Berlin,Berlin,10178,,3.7,,Unknown,Unknown,Unknown,Unknown
+178034,Beuthstr. 2,52.508887,13.402657,Beuthstr. 2,Berlin,,10117,,22.0,,Unknown,Unknown,Unknown,Unknown
+99836,Backfabrik,52.529205,13.415984,Saarbrücker Strasse 36-38,Berlin,,10405,,22.0,,Unknown,Unknown,Unknown,Unknown
+185287,Rungestr. 22,52.512341,13.4189,Rungestr. 22,Berlin,,10179,,11.0,,Unknown,Unknown,Unknown,Unknown
+181157,Taubenstr. 14,52.512969,13.390118,Taubenstr. 14,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+93620,Dorotheenstraße,52.5185989,13.386203900000055,Dorotheenstraße 68,Berlin,Berlin,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+84800,Borsigstraße,52.52809999999999,13.391290000000026,Borsigstraße 1,Berlin,Berlin,10115,,11.0,,Unknown,Unknown,Unknown,Unknown
+38451,Christinenstraße 14,52.53147,13.40938,Christinenstraße 14,Prenzlauer Berg,,10119,,5.0,,Unknown,Unknown,Unknown,Unknown
+87438,Neustädtische Kirchstraße,52.51943010000001,13.38557620000006,Neustädtische Kirchstraße 8,Berlin,Berlin,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+176243,Aral Holzmarktstraße,52.51380902118618,13.421715295884724,Holzmarktstraße,Berlin,Berlin,10179,,350.0,,Unknown,Unknown,Unknown,Unknown
+156274,Markgrafenstraße,52.5095657013822,13.39395901018986,Markgrafenstraße,,Berlin,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+186953,Schröderstr. 9,52.530867,13.39438,Schröderstr. 9,Berlin,,10115,,11.0,,Unknown,Unknown,Unknown,Unknown
+38353,Krausenstraße 17-20,52.509536,13.393106,Krausenstraße 17-20,Berlin,,10115,,11.0,,Unknown,Unknown,Unknown,Unknown
+38369,Kronenstraße,52.511173,13.389563,Kronenstraße,Berlin,,10117,,5.0,,Unknown,Unknown,Unknown,Unknown
+177552,Heinrich-Heine-Str. 13,52.508218,13.414446,Heinrich-Heine-Str. 13,Berlin,,10179,,11.0,,Unknown,Unknown,Unknown,Unknown
+78716,Schoenhouse Studio,52.530269,13.418482,Prenzlauer Allee 241,Berlin,,10405,,22.0,,Unknown,Unknown,Unknown,Unknown
+75724,Heinrich-Heine-Straße,52.50812,13.414819999999963,Heinrich-Heine-Straße 13,Berlin,Berlin,10179,,11.0,,Unknown,Unknown,Unknown,Unknown
+38448,Gartenstraße 13,52.530483,13.39135,Gartenstraße 13,Berlin,,10115,,11.0,,Unknown,Unknown,Unknown,Unknown
+84467,Mauerstraße,52.5152901,13.3843899,Mauerstraße 32,Berlin,Berlin,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+178641,Mauerstr. 32,52.515197,13.38431,Mauerstr. 32,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+38455,Parkhaus LPG Biomarkt,52.5327496362053,13.4135818481445,Kollwitzstrasse 17,Berlin,,10405,,3.7,,Unknown,Unknown,Unknown,Unknown
+38459,Veteranenstraße 25,52.53382,13.403185,Veteranenstraße 25,Berlin,,10119,,11.0,,Unknown,Unknown,Unknown,Unknown
+186955,Straßburger Str. 26,52.532219,13.416585,Straßburger Str. 26,Berlin,,10405,,11.0,,Unknown,Unknown,Unknown,Unknown
+38352,Krausenstraße 72,52.509467,13.389543,Krausenstraße 72,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+38441,Hannoverschestr. 28-30,52.527554,13.385167,Hannoverschestr. 28-30,Berlin,,10115,,11.0,,Unknown,Unknown,Unknown,Unknown
+38418,Reinhardtstraße 32,52.522819,13.380966,Reinhardtstraße 32,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+70044,Markgrafenstraße,52.5065,13.394630000000006,Markgrafenstraße 18,Berlin,Berlin,10969,,11.0,,Unknown,Unknown,Unknown,Unknown
+182267,Luisenstr. 31,52.51983,13.38025,Luisenstr. 31,Berlin,,10117,,22.0,,Unknown,Unknown,Unknown,Unknown
+38407,Luisenstr. 31,52.519933,13.380231,Luisenstr. 31,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+57964,Kollwitzstraße,52.53384,13.414809999999989,Kollwitzstraße  35,Berlin,Berlin,10405,,11.0,,Unknown,Unknown,Unknown,Unknown
+104148,Wilhelmine-Gemberg-Weg,52.509711,13.423446000000013,Wilhelmine-Gemberg-Weg 3,Berlin,Berlin,10179,,11.0,,Unknown,Unknown,Unknown,Unknown
+189390,Alte Jakobstraße,52.50508758166896,13.399708937414857,Alte Jakobstraße,Berlin,Berlin,10969,,11.0,,Unknown,Unknown,Unknown,Unknown
+38424,Schumannstr. 6,52.523719,13.380581,Schumannstr. 6,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+38464,Anklamer Str. 8,52.534398,13.395824,Anklamer Str. 8,Berlin,,10115,,11.0,,Unknown,Unknown,Unknown,Unknown
+84801,Anklamer Straße 12,52.534703690900756,13.397081720237773,Anklamer Straße 12,Berlin,Berlin,10115,,11.0,,Unknown,Unknown,Unknown,Unknown
+57093,Büschingstraße,52.52569,13.42868999999996,Büschingstraße 1,,Berlin,10249,,11.0,,Unknown,Unknown,Unknown,Unknown
+57090,Büschingstraße,52.52569,13.42869,Büschingstraße 1,,Berlin,10249,,11.0,,Unknown,Unknown,Unknown,Unknown
+77306,Swinemünder Straße,52.5355038,13.402984100000026,Swinemünder Straße 126,Berlin,Berlin,10435,,11.0,,Unknown,Unknown,Unknown,Unknown
+64024,Unter den Linden 77,52.5160186,13.3802426,Unter den Linden 77,Berlin,,10117,,22.0,,Unknown,Unknown,Unknown,Unknown
+45144,Bundesverband Solare Mobilität e.V.,52.5124801231397,13.3824776980182,Wilhelmstraße 92,Berlin,,10117,,22.0,,Unknown,Unknown,Unknown,Unknown
+178595,Griebenowstraße 5,52.535712,13.405008,Griebenowstraße 5,Berlin,,10435,,22.0,,Unknown,Unknown,Unknown,Unknown
+38473,Griebenowstraße 5,52.535712,13.405008,Griebenowstraße 5,Berlin,,10435,,11.0,,Unknown,Unknown,Unknown,Unknown
+68664,Ubitricity Ladepunkt am Bundesverband Solare Mobilität,52.51222941050119,13.382537492065474,An der Kolonnade 2,Berlin,Berlin,10117,,3.7,,Unknown,Unknown,Unknown,Unknown
+60595,Stallschreiberstraße,52.5044288,13.40964889999998,Stallschreiberstraße 55,Berlin,Berlin,10969,,11.0,,Unknown,Unknown,Unknown,Unknown
+45145,Lautlos durch Deutschland GmbH,52.5121641156063,13.38228,An der Kolonnade 2,Berlin,,10117,,22.0,,Unknown,Unknown,Unknown,Unknown
+91710,Schnell-Ladesäule,52.53664,13.406640000000039,Schwedter Straße 29,Berlin,Berlin,10435,,50.0,,Unknown,Unknown,Unknown,Unknown
+95288,Hotel i31,52.53097180664689,13.384280359524507,Invalidenstraße  31,Berlin,Berlin,10115,,11.0,,Unknown,Unknown,Unknown,Unknown
+186940,Leuschnerdamm 1,52.505621,13.419379,Leuschnerdamm 1,Berlin,,10999,,11.0,,Unknown,Unknown,Unknown,Unknown
+70102,Andreasstraße,52.51705,13.432329999999979,Andreasstraße 47,,Berlin,10243,,11.0,,Unknown,Unknown,Unknown,Unknown
+38370,Holzmarktstraße 36-42,52.511184,13.429185,Holzmarktstraße 36-42,Friedrichshain,,10243,,5.0,,Unknown,Unknown,Unknown,Unknown
+38368,Holzmarktstraße 37,52.5110664367676,13.4292907714844,Holzmarktstraße 37,Berlin,,10243,,11.0,,Unknown,Unknown,Unknown,Unknown
+60345,Immanuelkirchstraße,52.53164022463378,13.426218714294462,Immanuelkirchstraße 14,Berlin,Berlin,10405,,11.0,,Unknown,Unknown,Unknown,Unknown
+186947,Josef-Buchholz-Straße 12,52.516181,13.376935,Josef-Buchholz-Straße 12,Großschönau,,88634,,22.0,,Unknown,Unknown,Unknown,Unknown
+96356,Hotel Ibis Berlin Ostbahnhof,52.5099445,13.42956909999998,An der Schillingbrücke 2,Berlin,Berlin,10243,,22.0,,Unknown,Unknown,Unknown,Unknown
+38456,Caroline-Michaelis-Straße 5,52.5330221,13.3844877,Caroline-Michaelis-Straße 5,Mitte,,10115,,5.0,,Unknown,Unknown,Unknown,Unknown
+185403,Platz vor dem Neuen Tor ,52.528677,13.378846,Platz vor dem Neuen Tor ,Berlin,,10117,,22.0,,Unknown,Unknown,Unknown,Unknown
+177862,Friedrichsberger Str. 24,52.521066,13.434841,Friedrichsberger Str. 24,Berlin,,10243,,11.0,,Unknown,Unknown,Unknown,Unknown
+54740,Friedrichsberger Str. 24,52.521066,13.434841,Friedrichsberger Str. 24,Berlin,,10243,,11.0,,Unknown,Unknown,Unknown,Unknown
+67790,Voßstraße,52.51085187787503,13.379071665606727,Voßstraße 24,Berlin,Berlin,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+54453,Vertretung des Landes Niedersachsen beim Bund,52.5122297,13.3777476,In den Ministergärten 10,Berlin,Berlin,10117,,50.0,,Unknown,Unknown,Unknown,Unknown
+180720,Stralauer Platz 29-31,52.5100962163979,13.4304688714991,Stralauer Platz 29-31,Berlin,,10243,,22.0,,Unknown,Unknown,Unknown,Unknown
+38443,Luisenstrasse,52.528994,13.378528,Luisenstrasse,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+184354,Wörther Straße 19,52.535955,13.420515,Wörther Straße 19,Berlin,,10405,,11.0,,Unknown,Unknown,Unknown,Unknown
+75686,Hussitenstraße,52.53634,13.39041999999995,Hussitenstraße 76,Berlin,Berlin,13355,,11.0,,Unknown,Unknown,Unknown,Unknown
+185039,Voßstr. 24,52.510907,13.378211,Voßstr. 24,Berlin,,10117,,11.0,,Unknown,Unknown,Unknown,Unknown
+67789,BMVI,52.52955129999999,13.37846490000004,Invalidenstraße 44,Berlin,Berlin,10115,,50.0,,Unknown,Unknown,Unknown,Unknown
+184293,Engeldamm 30 10179,52.506232,13.426218,Engeldamm 30 10179,Berlin,,10179,,11.0,,Unknown,Unknown,Unknown,Unknown

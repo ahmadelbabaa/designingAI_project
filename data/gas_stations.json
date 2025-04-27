@@ -1,0 +1,952 @@
+[
+  {
+    "station_id": "GS-0022",
+    "name": "Gas Station 22",
+    "latitude": 37.53411611331266,
+    "longitude": -121.95504841946634,
+    "features": {
+      "traffic_volume": 85.9,
+      "nearby_attractions": 89.9,
+      "ev_ownership": 82.8,
+      "income_level": 63.0,
+      "charging_network": 56.9,
+      "competitive_density": 65.5,
+      "grid_capacity": 82.2,
+      "parking_availability": 80.0
+    },
+    "viability_score": 77.8,
+    "estimated_roi": 16.0,
+    "recommendation": "High Priority"
+  },
+  {
+    "station_id": "GS-0028",
+    "name": "Gas Station 28",
+    "latitude": 37.88952209440586,
+    "longitude": -122.69288596016385,
+    "features": {
+      "traffic_volume": 76.8,
+      "nearby_attractions": 94.3,
+      "ev_ownership": 61.6,
+      "income_level": 85.6,
+      "charging_network": 75.1,
+      "competitive_density": 79.6,
+      "grid_capacity": 51.8,
+      "parking_availability": 83.1
+    },
+    "viability_score": 74.3,
+    "estimated_roi": 20.5,
+    "recommendation": "High Priority"
+  },
+  {
+    "station_id": "GS-0019",
+    "name": "Gas Station 19",
+    "latitude": 37.97932696639108,
+    "longitude": -121.96812469896614,
+    "features": {
+      "traffic_volume": 63.7,
+      "nearby_attractions": 90.1,
+      "ev_ownership": 69.4,
+      "income_level": 92.7,
+      "charging_network": 68.4,
+      "competitive_density": 83.4,
+      "grid_capacity": 78.6,
+      "parking_availability": 31.6
+    },
+    "viability_score": 72.7,
+    "estimated_roi": 15.8,
+    "recommendation": "High Priority"
+  },
+  {
+    "station_id": "GS-0035",
+    "name": "Gas Station 35",
+    "latitude": 37.46811318332286,
+    "longitude": -121.93106111076847,
+    "features": {
+      "traffic_volume": 72.3,
+      "nearby_attractions": 86.9,
+      "ev_ownership": 86.7,
+      "income_level": 90.4,
+      "charging_network": 82.3,
+      "competitive_density": 39.2,
+      "grid_capacity": 35.8,
+      "parking_availability": 30.8
+    },
+    "viability_score": 70.4,
+    "estimated_roi": 16.7,
+    "recommendation": "High Priority"
+  },
+  {
+    "station_id": "GS-0042",
+    "name": "Gas Station 42",
+    "latitude": 38.233717054257276,
+    "longitude": -122.27753982827151,
+    "features": {
+      "traffic_volume": 60.5,
+      "nearby_attractions": 83.3,
+      "ev_ownership": 94.7,
+      "income_level": 67.8,
+      "charging_network": 64.5,
+      "competitive_density": 49.8,
+      "grid_capacity": 73.0,
+      "parking_availability": 44.3
+    },
+    "viability_score": 70.1,
+    "estimated_roi": 20.1,
+    "recommendation": "High Priority"
+  },
+  {
+    "station_id": "GS-0017",
+    "name": "Gas Station 17",
+    "latitude": 37.94340381917728,
+    "longitude": -122.11628754094222,
+    "features": {
+      "traffic_volume": 48.5,
+      "nearby_attractions": 49.9,
+      "ev_ownership": 94.2,
+      "income_level": 51.1,
+      "charging_network": 86.2,
+      "competitive_density": 91.8,
+      "grid_capacity": 94.0,
+      "parking_availability": 31.4
+    },
+    "viability_score": 69.8,
+    "estimated_roi": 16.5,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0050",
+    "name": "Gas Station 50",
+    "latitude": 37.44576150836486,
+    "longitude": -122.11110827791649,
+    "features": {
+      "traffic_volume": 77.3,
+      "nearby_attractions": 78.5,
+      "ev_ownership": 55.5,
+      "income_level": 69.2,
+      "charging_network": 64.3,
+      "competitive_density": 59.3,
+      "grid_capacity": 87.3,
+      "parking_availability": 69.6
+    },
+    "viability_score": 69.8,
+    "estimated_roi": 16.6,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0029",
+    "name": "Gas Station 29",
+    "latitude": 37.30587567169652,
+    "longitude": -122.25286853390386,
+    "features": {
+      "traffic_volume": 92.3,
+      "nearby_attractions": 60.6,
+      "ev_ownership": 54.8,
+      "income_level": 61.6,
+      "charging_network": 74.8,
+      "competitive_density": 37.3,
+      "grid_capacity": 77.3,
+      "parking_availability": 39.8
+    },
+    "viability_score": 67.2,
+    "estimated_roi": 14.0,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0024",
+    "name": "Gas Station 24",
+    "latitude": 38.2591378401295,
+    "longitude": -122.45668902305351,
+    "features": {
+      "traffic_volume": 65.9,
+      "nearby_attractions": 92.2,
+      "ev_ownership": 88.2,
+      "income_level": 68.4,
+      "charging_network": 34.7,
+      "competitive_density": 65.2,
+      "grid_capacity": 47.7,
+      "parking_availability": 40.6
+    },
+    "viability_score": 67.0,
+    "estimated_roi": 14.0,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0049",
+    "name": "Gas Station 49",
+    "latitude": 38.182025549884074,
+    "longitude": -121.93795274661736,
+    "features": {
+      "traffic_volume": 42.0,
+      "nearby_attractions": 76.5,
+      "ev_ownership": 79.0,
+      "income_level": 84.1,
+      "charging_network": 91.5,
+      "competitive_density": 63.4,
+      "grid_capacity": 63.2,
+      "parking_availability": 57.2
+    },
+    "viability_score": 67.0,
+    "estimated_roi": 18.5,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0009",
+    "name": "Gas Station 9",
+    "latitude": 37.991753659978464,
+    "longitude": -122.87532069932439,
+    "features": {
+      "traffic_volume": 76.3,
+      "nearby_attractions": 91.5,
+      "ev_ownership": 60.1,
+      "income_level": 51.9,
+      "charging_network": 73.8,
+      "competitive_density": 71.1,
+      "grid_capacity": 40.2,
+      "parking_availability": 57.1
+    },
+    "viability_score": 66.8,
+    "estimated_roi": 18.2,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0043",
+    "name": "Gas Station 43",
+    "latitude": 37.61679908306321,
+    "longitude": -122.58477524771756,
+    "features": {
+      "traffic_volume": 37.4,
+      "nearby_attractions": 75.6,
+      "ev_ownership": 72.5,
+      "income_level": 73.6,
+      "charging_network": 62.1,
+      "competitive_density": 87.0,
+      "grid_capacity": 88.4,
+      "parking_availability": 84.4
+    },
+    "viability_score": 66.7,
+    "estimated_roi": 17.5,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0041",
+    "name": "Gas Station 41",
+    "latitude": 37.89508957077198,
+    "longitude": -122.68604803219522,
+    "features": {
+      "traffic_volume": 41.7,
+      "nearby_attractions": 92.9,
+      "ev_ownership": 92.5,
+      "income_level": 78.4,
+      "charging_network": 46.4,
+      "competitive_density": 73.0,
+      "grid_capacity": 52.5,
+      "parking_availability": 62.0
+    },
+    "viability_score": 66.3,
+    "estimated_roi": 17.4,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0015",
+    "name": "Gas Station 15",
+    "latitude": 37.873428439234445,
+    "longitude": -122.90977668990567,
+    "features": {
+      "traffic_volume": 40.6,
+      "nearby_attractions": 39.9,
+      "ev_ownership": 94.0,
+      "income_level": 71.5,
+      "charging_network": 66.8,
+      "competitive_density": 84.9,
+      "grid_capacity": 90.2,
+      "parking_availability": 34.5
+    },
+    "viability_score": 66.0,
+    "estimated_roi": 17.5,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0013",
+    "name": "Gas Station 13",
+    "latitude": 37.33630897953719,
+    "longitude": -121.98513382616825,
+    "features": {
+      "traffic_volume": 32.4,
+      "nearby_attractions": 75.1,
+      "ev_ownership": 80.3,
+      "income_level": 88.6,
+      "charging_network": 73.2,
+      "competitive_density": 50.0,
+      "grid_capacity": 76.1,
+      "parking_availability": 92.5
+    },
+    "viability_score": 65.1,
+    "estimated_roi": 15.2,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0040",
+    "name": "Gas Station 40",
+    "latitude": 37.90465393554647,
+    "longitude": -122.52839264049577,
+    "features": {
+      "traffic_volume": 72.7,
+      "nearby_attractions": 70.0,
+      "ev_ownership": 37.8,
+      "income_level": 82.4,
+      "charging_network": 85.1,
+      "competitive_density": 68.7,
+      "grid_capacity": 62.1,
+      "parking_availability": 50.4
+    },
+    "viability_score": 65.1,
+    "estimated_roi": 13.8,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0048",
+    "name": "Gas Station 48",
+    "latitude": 37.276096106044086,
+    "longitude": -122.17645912126682,
+    "features": {
+      "traffic_volume": 74.7,
+      "nearby_attractions": 85.9,
+      "ev_ownership": 41.7,
+      "income_level": 59.3,
+      "charging_network": 92.4,
+      "competitive_density": 92.2,
+      "grid_capacity": 30.5,
+      "parking_availability": 38.6
+    },
+    "viability_score": 65.0,
+    "estimated_roi": 15.7,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0016",
+    "name": "Gas Station 16",
+    "latitude": 38.273826202004486,
+    "longitude": -122.58053733778465,
+    "features": {
+      "traffic_volume": 79.6,
+      "nearby_attractions": 66.3,
+      "ev_ownership": 43.5,
+      "income_level": 63.3,
+      "charging_network": 54.3,
+      "competitive_density": 81.7,
+      "grid_capacity": 69.9,
+      "parking_availability": 53.4
+    },
+    "viability_score": 64.8,
+    "estimated_roi": 16.7,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0010",
+    "name": "Gas Station 10",
+    "latitude": 37.9804037552538,
+    "longitude": -122.90764516382275,
+    "features": {
+      "traffic_volume": 54.6,
+      "nearby_attractions": 94.4,
+      "ev_ownership": 65.1,
+      "income_level": 62.3,
+      "charging_network": 35.7,
+      "competitive_density": 66.8,
+      "grid_capacity": 80.1,
+      "parking_availability": 75.6
+    },
+    "viability_score": 64.4,
+    "estimated_roi": 19.2,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0046",
+    "name": "Gas Station 46",
+    "latitude": 37.7609368778517,
+    "longitude": -122.1365432766848,
+    "features": {
+      "traffic_volume": 66.6,
+      "nearby_attractions": 86.0,
+      "ev_ownership": 42.4,
+      "income_level": 59.0,
+      "charging_network": 58.0,
+      "competitive_density": 83.0,
+      "grid_capacity": 71.2,
+      "parking_availability": 66.2
+    },
+    "viability_score": 64.2,
+    "estimated_roi": 16.3,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0003",
+    "name": "Gas Station 3",
+    "latitude": 37.955986505425614,
+    "longitude": -122.13653730693517,
+    "features": {
+      "traffic_volume": 54.0,
+      "nearby_attractions": 33.8,
+      "ev_ownership": 90.8,
+      "income_level": 75.3,
+      "charging_network": 43.5,
+      "competitive_density": 65.3,
+      "grid_capacity": 60.2,
+      "parking_availability": 91.6
+    },
+    "viability_score": 64.1,
+    "estimated_roi": 19.0,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0014",
+    "name": "Gas Station 14",
+    "latitude": 37.668138938781325,
+    "longitude": -121.92152020169182,
+    "features": {
+      "traffic_volume": 52.8,
+      "nearby_attractions": 38.4,
+      "ev_ownership": 77.9,
+      "income_level": 83.0,
+      "charging_network": 64.1,
+      "competitive_density": 48.0,
+      "grid_capacity": 69.6,
+      "parking_availability": 93.8
+    },
+    "viability_score": 63.8,
+    "estimated_roi": 12.8,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0006",
+    "name": "Gas Station 6",
+    "latitude": 37.89975645845638,
+    "longitude": -122.81027456183544,
+    "features": {
+      "traffic_volume": 35.7,
+      "nearby_attractions": 92.5,
+      "ev_ownership": 56.5,
+      "income_level": 89.8,
+      "charging_network": 88.8,
+      "competitive_density": 82.6,
+      "grid_capacity": 52.9,
+      "parking_availability": 49.4
+    },
+    "viability_score": 63.4,
+    "estimated_roi": 18.8,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0025",
+    "name": "Gas Station 25",
+    "latitude": 38.21197936498823,
+    "longitude": -122.47916437592048,
+    "features": {
+      "traffic_volume": 49.6,
+      "nearby_attractions": 76.0,
+      "ev_ownership": 54.7,
+      "income_level": 78.7,
+      "charging_network": 49.1,
+      "competitive_density": 79.6,
+      "grid_capacity": 81.0,
+      "parking_availability": 66.9
+    },
+    "viability_score": 63.1,
+    "estimated_roi": 14.6,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0030",
+    "name": "Gas Station 30",
+    "latitude": 37.6111303490249,
+    "longitude": -122.8214835545776,
+    "features": {
+      "traffic_volume": 50.9,
+      "nearby_attractions": 49.7,
+      "ev_ownership": 91.1,
+      "income_level": 54.0,
+      "charging_network": 88.0,
+      "competitive_density": 54.5,
+      "grid_capacity": 56.3,
+      "parking_availability": 37.3
+    },
+    "viability_score": 63.1,
+    "estimated_roi": 15.9,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0034",
+    "name": "Gas Station 34",
+    "latitude": 37.84542331913014,
+    "longitude": -122.42764726510268,
+    "features": {
+      "traffic_volume": 66.5,
+      "nearby_attractions": 83.7,
+      "ev_ownership": 67.6,
+      "income_level": 59.1,
+      "charging_network": 57.2,
+      "competitive_density": 53.6,
+      "grid_capacity": 41.6,
+      "parking_availability": 43.2
+    },
+    "viability_score": 61.8,
+    "estimated_roi": 14.2,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0036",
+    "name": "Gas Station 36",
+    "latitude": 38.052250794261546,
+    "longitude": -122.26390507510536,
+    "features": {
+      "traffic_volume": 60.1,
+      "nearby_attractions": 34.8,
+      "ev_ownership": 89.4,
+      "income_level": 43.1,
+      "charging_network": 52.2,
+      "competitive_density": 50.5,
+      "grid_capacity": 62.5,
+      "parking_availability": 84.9
+    },
+    "viability_score": 61.5,
+    "estimated_roi": 16.2,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0023",
+    "name": "Gas Station 23",
+    "latitude": 37.915188148619045,
+    "longitude": -122.89907417697373,
+    "features": {
+      "traffic_volume": 47.6,
+      "nearby_attractions": 32.0,
+      "ev_ownership": 64.6,
+      "income_level": 76.9,
+      "charging_network": 89.9,
+      "competitive_density": 51.0,
+      "grid_capacity": 92.9,
+      "parking_availability": 42.4
+    },
+    "viability_score": 61.2,
+    "estimated_roi": 18.0,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0037",
+    "name": "Gas Station 37",
+    "latitude": 37.314343831187074,
+    "longitude": -121.98611863900543,
+    "features": {
+      "traffic_volume": 74.6,
+      "nearby_attractions": 41.2,
+      "ev_ownership": 85.2,
+      "income_level": 66.8,
+      "charging_network": 38.1,
+      "competitive_density": 34.8,
+      "grid_capacity": 51.9,
+      "parking_availability": 42.4
+    },
+    "viability_score": 61.1,
+    "estimated_roi": 12.5,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0012",
+    "name": "Gas Station 12",
+    "latitude": 37.78818265532443,
+    "longitude": -122.38569223012554,
+    "features": {
+      "traffic_volume": 58.9,
+      "nearby_attractions": 75.0,
+      "ev_ownership": 77.6,
+      "income_level": 60.1,
+      "charging_network": 57.6,
+      "competitive_density": 42.2,
+      "grid_capacity": 49.7,
+      "parking_availability": 46.3
+    },
+    "viability_score": 61.0,
+    "estimated_roi": 17.2,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0021",
+    "name": "Gas Station 21",
+    "latitude": 37.35480817605132,
+    "longitude": -122.64747173687887,
+    "features": {
+      "traffic_volume": 43.3,
+      "nearby_attractions": 54.6,
+      "ev_ownership": 93.0,
+      "income_level": 61.4,
+      "charging_network": 32.2,
+      "competitive_density": 32.5,
+      "grid_capacity": 88.4,
+      "parking_availability": 93.6
+    },
+    "viability_score": 61.0,
+    "estimated_roi": 15.2,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0026",
+    "name": "Gas Station 26",
+    "latitude": 37.553374123990714,
+    "longitude": -122.34953480510427,
+    "features": {
+      "traffic_volume": 61.2,
+      "nearby_attractions": 84.1,
+      "ev_ownership": 36.1,
+      "income_level": 87.2,
+      "charging_network": 64.6,
+      "competitive_density": 50.5,
+      "grid_capacity": 53.5,
+      "parking_availability": 86.3
+    },
+    "viability_score": 60.8,
+    "estimated_roi": 14.2,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0031",
+    "name": "Gas Station 31",
+    "latitude": 37.78831386036633,
+    "longitude": -122.45135995370863,
+    "features": {
+      "traffic_volume": 50.1,
+      "nearby_attractions": 84.3,
+      "ev_ownership": 33.1,
+      "income_level": 60.0,
+      "charging_network": 70.6,
+      "competitive_density": 79.9,
+      "grid_capacity": 82.7,
+      "parking_availability": 78.5
+    },
+    "viability_score": 60.8,
+    "estimated_roi": 12.2,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0027",
+    "name": "Gas Station 27",
+    "latitude": 37.275635062419475,
+    "longitude": -122.13704516192702,
+    "features": {
+      "traffic_volume": 54.0,
+      "nearby_attractions": 60.1,
+      "ev_ownership": 70.4,
+      "income_level": 79.4,
+      "charging_network": 61.1,
+      "competitive_density": 60.6,
+      "grid_capacity": 30.8,
+      "parking_availability": 69.0
+    },
+    "viability_score": 60.2,
+    "estimated_roi": 13.8,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0047",
+    "name": "Gas Station 47",
+    "latitude": 37.41993960193281,
+    "longitude": -122.278791347808,
+    "features": {
+      "traffic_volume": 40.0,
+      "nearby_attractions": 70.4,
+      "ev_ownership": 65.3,
+      "income_level": 66.1,
+      "charging_network": 62.6,
+      "competitive_density": 66.0,
+      "grid_capacity": 61.4,
+      "parking_availability": 82.5
+    },
+    "viability_score": 59.8,
+    "estimated_roi": 15.9,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0038",
+    "name": "Gas Station 38",
+    "latitude": 38.0434327671995,
+    "longitude": -122.46950479392704,
+    "features": {
+      "traffic_volume": 35.9,
+      "nearby_attractions": 60.4,
+      "ev_ownership": 80.4,
+      "income_level": 48.3,
+      "charging_network": 44.4,
+      "competitive_density": 84.2,
+      "grid_capacity": 86.3,
+      "parking_availability": 43.9
+    },
+    "viability_score": 59.6,
+    "estimated_roi": 16.5,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0044",
+    "name": "Gas Station 44",
+    "latitude": 37.342980176706845,
+    "longitude": -122.19007917940219,
+    "features": {
+      "traffic_volume": 87.7,
+      "nearby_attractions": 46.6,
+      "ev_ownership": 38.4,
+      "income_level": 34.8,
+      "charging_network": 31.8,
+      "competitive_density": 78.2,
+      "grid_capacity": 69.0,
+      "parking_availability": 69.4
+    },
+    "viability_score": 59.1,
+    "estimated_roi": 14.5,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0039",
+    "name": "Gas Station 39",
+    "latitude": 38.20518917833939,
+    "longitude": -121.97488922943519,
+    "features": {
+      "traffic_volume": 37.8,
+      "nearby_attractions": 36.7,
+      "ev_ownership": 94.4,
+      "income_level": 94.5,
+      "charging_network": 84.9,
+      "competitive_density": 34.8,
+      "grid_capacity": 39.5,
+      "parking_availability": 31.0
+    },
+    "viability_score": 58.9,
+    "estimated_roi": 16.1,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0004",
+    "name": "Gas Station 4",
+    "latitude": 38.17038079120291,
+    "longitude": -122.23581088117027,
+    "features": {
+      "traffic_volume": 41.5,
+      "nearby_attractions": 77.8,
+      "ev_ownership": 44.0,
+      "income_level": 46.7,
+      "charging_network": 92.6,
+      "competitive_density": 60.6,
+      "grid_capacity": 67.0,
+      "parking_availability": 77.8
+    },
+    "viability_score": 57.5,
+    "estimated_roi": 12.7,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0033",
+    "name": "Gas Station 33",
+    "latitude": 37.75610097086988,
+    "longitude": -122.02078255819903,
+    "features": {
+      "traffic_volume": 91.0,
+      "nearby_attractions": 49.8,
+      "ev_ownership": 32.6,
+      "income_level": 62.6,
+      "charging_network": 45.5,
+      "competitive_density": 40.6,
+      "grid_capacity": 33.7,
+      "parking_availability": 70.9
+    },
+    "viability_score": 56.0,
+    "estimated_roi": 12.2,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0005",
+    "name": "Gas Station 5",
+    "latitude": 37.85101117718286,
+    "longitude": -122.30501447088555,
+    "features": {
+      "traffic_volume": 43.0,
+      "nearby_attractions": 61.6,
+      "ev_ownership": 88.5,
+      "income_level": 40.8,
+      "charging_network": 56.2,
+      "competitive_density": 64.3,
+      "grid_capacity": 30.1,
+      "parking_availability": 30.2
+    },
+    "viability_score": 55.3,
+    "estimated_roi": 14.2,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0011",
+    "name": "Gas Station 11",
+    "latitude": 37.50741066665969,
+    "longitude": -121.99470361074943,
+    "features": {
+      "traffic_volume": 39.9,
+      "nearby_attractions": 64.7,
+      "ev_ownership": 51.3,
+      "income_level": 66.4,
+      "charging_network": 53.5,
+      "competitive_density": 80.6,
+      "grid_capacity": 37.7,
+      "parking_availability": 85.5
+    },
+    "viability_score": 54.8,
+    "estimated_roi": 11.2,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0008",
+    "name": "Gas Station 8",
+    "latitude": 38.00805904869096,
+    "longitude": -122.08657643489491,
+    "features": {
+      "traffic_volume": 61.6,
+      "nearby_attractions": 30.7,
+      "ev_ownership": 38.0,
+      "income_level": 48.8,
+      "charging_network": 57.4,
+      "competitive_density": 47.0,
+      "grid_capacity": 90.1,
+      "parking_availability": 75.1
+    },
+    "viability_score": 54.2,
+    "estimated_roi": 14.7,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0020",
+    "name": "Gas Station 20",
+    "latitude": 37.62261616536437,
+    "longitude": -122.76783219272762,
+    "features": {
+      "traffic_volume": 42.7,
+      "nearby_attractions": 79.2,
+      "ev_ownership": 47.2,
+      "income_level": 41.7,
+      "charging_network": 77.0,
+      "competitive_density": 33.4,
+      "grid_capacity": 82.7,
+      "parking_availability": 37.9
+    },
+    "viability_score": 53.4,
+    "estimated_roi": 15.7,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0001",
+    "name": "Gas Station 1",
+    "latitude": 37.681340066884744,
+    "longitude": -122.68707529091591,
+    "features": {
+      "traffic_volume": 52.8,
+      "nearby_attractions": 34.2,
+      "ev_ownership": 71.5,
+      "income_level": 80.6,
+      "charging_network": 36.5,
+      "competitive_density": 38.8,
+      "grid_capacity": 41.6,
+      "parking_availability": 41.0
+    },
+    "viability_score": 52.7,
+    "estimated_roi": 12.5,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0018",
+    "name": "Gas Station 18",
+    "latitude": 37.41992116171136,
+    "longitude": -121.95199839436003,
+    "features": {
+      "traffic_volume": 40.1,
+      "nearby_attractions": 46.9,
+      "ev_ownership": 64.0,
+      "income_level": 41.7,
+      "charging_network": 63.9,
+      "competitive_density": 50.5,
+      "grid_capacity": 72.8,
+      "parking_availability": 37.1
+    },
+    "viability_score": 52.3,
+    "estimated_roi": 13.3,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0032",
+    "name": "Gas Station 32",
+    "latitude": 38.03214867588117,
+    "longitude": -122.49503966643597,
+    "features": {
+      "traffic_volume": 44.4,
+      "nearby_attractions": 79.5,
+      "ev_ownership": 36.7,
+      "income_level": 32.2,
+      "charging_network": 45.3,
+      "competitive_density": 49.7,
+      "grid_capacity": 81.3,
+      "parking_availability": 86.1
+    },
+    "viability_score": 51.5,
+    "estimated_roi": 13.4,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0007",
+    "name": "Gas Station 7",
+    "latitude": 37.781142966207526,
+    "longitude": -121.92676896532339,
+    "features": {
+      "traffic_volume": 44.4,
+      "nearby_attractions": 40.1,
+      "ev_ownership": 40.9,
+      "income_level": 47.0,
+      "charging_network": 67.2,
+      "competitive_density": 80.4,
+      "grid_capacity": 40.1,
+      "parking_availability": 82.6
+    },
+    "viability_score": 50.9,
+    "estimated_roi": 14.6,
+    "recommendation": "Potential"
+  },
+  {
+    "station_id": "GS-0002",
+    "name": "Gas Station 2",
+    "latitude": 37.28474366010588,
+    "longitude": -122.01574080051785,
+    "features": {
+      "traffic_volume": 37.4,
+      "nearby_attractions": 39.2,
+      "ev_ownership": 35.8,
+      "income_level": 68.0,
+      "charging_network": 41.6,
+      "competitive_density": 93.6,
+      "grid_capacity": 42.5,
+      "parking_availability": 80.6
+    },
+    "viability_score": 49.0,
+    "estimated_roi": 10.4,
+    "recommendation": "Low Viability"
+  },
+  {
+    "station_id": "GS-0045",
+    "name": "Gas Station 45",
+    "latitude": 37.513932987150575,
+    "longitude": -122.84165808246127,
+    "features": {
+      "traffic_volume": 33.9,
+      "nearby_attractions": 45.4,
+      "ev_ownership": 41.8,
+      "income_level": 42.0,
+      "charging_network": 42.5,
+      "competitive_density": 31.7,
+      "grid_capacity": 36.3,
+      "parking_availability": 95.0
+    },
+    "viability_score": 41.4,
+    "estimated_roi": 10.0,
+    "recommendation": "Low Viability"
+  }
+]

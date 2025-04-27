@@ -1,0 +1,101 @@
+id,name,latitude,longitude,address,city,state,postcode,country,power_kw,connector_types,access_type,operator,network,status
+253415,BMM-CP-000504,51.507351,-0.127758,Rainsford Road,Chelmsford,,CM1 2XB,,7.0,,Unknown,Unknown,Unknown,Unknown
+4396,Masterpark Trafalgar Square Car Park,51.507291,-0.128896,Spring Garden,London,,SW1A 2BN,,0.0,,Unknown,Unknown,Unknown,Unknown
+52877,Q-Park Trafalgar Car Park,51.507099,-0.130117,Spring Gardens,London,,SW1A 2TS,,7.0,,Unknown,Unknown,Unknown,Unknown
+146490,Coutts Bank,51.50890313863235,-0.12553378823179173,440 Strand,London,,WC2R 0QS,,7.0,,Unknown,Unknown,Unknown,Unknown
+4399,Q-Park Leicester Square Car Park,51.509162,-0.13065,Whitcomb Street,London,,WC2H 7DT,,4.0,,Unknown,Unknown,Unknown,Unknown
+170689,Westminster-Whitehall Place,51.506477,-0.12377,Whitehall Place,Westminster,London,SW1A 2BD,,7.0,,Unknown,Unknown,Unknown,Unknown
+104898,Saint Martins Lane Hotel,51.510475,-0.126729,Saint Martins Lane Hotel,45 Saint Martin's Lane,London,WC2N 4HX,,50.0,,Unknown,Unknown,Unknown,Unknown
+253530,Junc. Bedfordbury,51.510492,-0.125554,Junc. Bedfordbury,London,,WC2N 4DQ,,5.0,,Unknown,Unknown,Unknown,Unknown
+99712,Stirling Square,51.506042,-0.133653,5 - 7 Carlton Gardens,London,,SW1Y 5AD,,7.0,,Unknown,Unknown,Unknown,Unknown
+107862,St James Square,51.507729,-0.13457,St James Square,London,,SW1Y 4PD,,7.0,,Unknown,Unknown,Unknown,Unknown
+129386,St James's Square,51.50773,-0.13457,St James's Square,,,SW1Y 4PD,,7.0,,Unknown,Unknown,Unknown,Unknown
+4413,Masterpark Chinatown Car Park,51.512046,-0.129753,Newport Place,London,,WC2H 7PU,,0.0,,Unknown,Unknown,Unknown,Unknown
+253591,5 Upper St Martin's Lane,51.512373,-0.12711,5 Upper St Martin's Lane,London,,WC2H 9NY,,3.7,,Unknown,Unknown,Unknown,Unknown
+128396,Q-Park Chinatown,51.512299,-0.129615,Q-Park Chinatown,20 Newport Place,London,WC2H 7PR,,50.0,,Unknown,Unknown,Unknown,Unknown
+46743,Southampton Street,51.5109927464186,-0.122040510177612,Southampton Street,London,,WC2E 7HE,,4.0,,Unknown,Unknown,Unknown,Unknown
+253607,Q-Park Chinatown,51.512699,-0.130012,20 Newport Place,London,,WC2H 7PR,,3.0,,Unknown,Unknown,Unknown,Unknown
+285956,33 King Charles Street,51.501845,-0.127892,33 King Charles Street,London,,SW1A 2AH,,5.0,,Unknown,Unknown,Unknown,Unknown
+253610,Q-Park Chinatown,51.512798,-0.130113,20 Newport Place,London,,WC2H 7PR,,22.0,,Unknown,Unknown,Unknown,Unknown
+4409,NCP Brewer Street - Chargepost 1,51.511865,-0.134884,2 Lexington Street,London,,W1F 0LA,,0.0,,Unknown,Unknown,Unknown,Unknown
+253549,Shell Recharge/Ubitricity,51.511428,-0.135708,null,London,,W1F 9UN,,5.0,,Unknown,Unknown,Unknown,Unknown
+253565,Exeter Street,51.511902,-0.119569,City of London,London,,WC2E 7DU,,3.0,,Unknown,Unknown,Unknown,Unknown
+5832,Belvedere Road Car Park,51.5052551,-0.1168898,Belvedere Road,Lambeth,London,SE1 8XU,,0.0,,Unknown,Unknown,Unknown,Unknown
+253213,Shell Recharge/Ubitricity,51.501,-0.13328,null,London,,SW1H 9AB,,5.0,,Unknown,Unknown,Unknown,Unknown
+19466,Exeter Street,51.51229585,-0.119148037008377,Opposite 17 Exeter Street,London,,WC2E 7DU,,7.0,,Unknown,Unknown,Unknown,Unknown
+132780,Golden Square,51.511818,-0.137617,33 Golden Square,London,,W1F 9JT,,22.0,,Unknown,Unknown,Unknown,Unknown
+187712,23 Queen Anne's Gate,51.500544,-0.133597,23 Queen Anne's Gate,London,,SW1H 9BU,,3.7,,Unknown,Unknown,Unknown,Unknown
+67840,Trenchard House,51.513535,-0.135519,19-25 Broadwick Street,London,,W1F 0DF,,7.0,,Unknown,Unknown,Unknown,Unknown
+5510,NCP Car Park Drury Lane,51.51422,-0.12136,Parker Street,,London,WC2b 5NT,,0.0,,Unknown,Unknown,Unknown,Unknown
+253707,Opp.,51.514955,-0.132093,Opp.,London,,W1D 3QR,,5.0,,Unknown,Unknown,Unknown,Unknown
+253685,Shell Recharge/Ubitricity,51.514418,-0.134767,null,London,,W1F 8WG,,5.0,,Unknown,Unknown,Unknown,Unknown
+127806,Carlisle Street,51.515133,-0.132938,Carlisle Street,Westminster,London,W1D 3BX,,7.0,,Unknown,Unknown,Unknown,Unknown
+4420,Broadwick Road Carpark,51.513645,-0.137168,Dufours Place,London,,W1F 7SJ,,0.0,,Unknown,Unknown,Unknown,Unknown
+52879,Q-Park Burlington Street,51.510632,-0.14051870000003,3-9 Old Burlington Street,London,,W1S 3AF,,7.0,,Unknown,Unknown,Unknown,Unknown
+101372,Concert Hall Approach,51.50463,-0.11455,Concert Hall Approach,South Bank,London,SE1 8XU,,7.0,,Unknown,Unknown,Unknown,Unknown
+53024,Q-Park Soho,51.514198,-0.136689,Poland Street,London,,W1F 7NQ,,50.0,,Unknown,Unknown,Unknown,Unknown
+16030,Park Plaza Westminster Bridge Hotel ,51.5014098,-0.117240600000059,200 Westminster Bridge Rd,,London,SE1 7UT,,7.0,,Unknown,Unknown,Unknown,Unknown
+253751,Opp.,51.516,-0.13187,Opp.,London,,W1D 3QH,,5.0,,Unknown,Unknown,Unknown,Unknown
+253772,Almacantar,51.516312,-0.129476,103 New Oxford Street,London,,WC1A 1DD,,22.0,,Unknown,Unknown,Unknown,Unknown
+173461,20 Great Queen Street,51.515614,-0.120802,20 Great Queen Street,London,,WC2B 5AZ,,3.7,,Unknown,Unknown,Unknown,Unknown
+4400,Albemarle Street,51.5096839873231,-0.142478942871094,Albemarle Street,London,,W1S 4BS,,7.0,,Unknown,Unknown,Unknown,Unknown
+252974,Q-Park Westminster,51.4977,-0.126443,Great College Street,London,,SW1P 3RX,,22.0,,Unknown,Unknown,Unknown,Unknown
+57086,Sardinia Street,51.5151901467396,-0.118159841802967,Sardinia Street,London,England,WC2B 6TE,,7.0,,Unknown,Unknown,Unknown,Unknown
+52878,Q-Park Westminster,51.4975281,-0.127408500000001,Great College Street,London,,SW1P 3RX,,7.0,,Unknown,Unknown,Unknown,Unknown
+4376,Masterpark Abingdon Car Park,51.497528,-0.127409,Great College Street,London,,SW1P 3RX,,0.0,,Unknown,Unknown,Unknown,Unknown
+4390,76 Upper Ground,51.5068393098305,-0.111933946609497,Waterloo,London,,SE1 9PP,,22.0,,Unknown,Unknown,Unknown,Unknown
+19465,Temple Place,51.5116935,-0.113055249442683,Temple Place,London,,WC2R 2PG,,7.0,,Unknown,Unknown,Unknown,Unknown
+253491,Shell Recharge/Ubitricity,51.50908,-0.143872,null,London,,W1J 8NR,,5.0,,Unknown,Unknown,Unknown,Unknown
+253042,22 Caxton Street,51.498522,-0.13584,22 Caxton Street,London,,SW1H 0QU,,3.7,,Unknown,Unknown,Unknown,Unknown
+136293,Adeline Pl 15,51.517603,-0.129837,Adeline Pl 15,London,,WC1B 3AJ,,3.7,,Unknown,Unknown,Unknown,Unknown
+253548,Temple Place site 2,51.511407,-0.112471,Temple Place site 2,Westminster,,WC2R 2PG,,7.0,,Unknown,Unknown,Unknown,Unknown
+253603,Opp.,51.512568,-0.142311,Opp.,London,,W1S 2AT,,5.0,,Unknown,Unknown,Unknown,Unknown
+136295,Adeline Pl 12,51.517782,-0.130023,Adeline Pl 12,London,,WC1B 3AJ,,3.7,,Unknown,Unknown,Unknown,Unknown
+252927,27 Great Peter Street,51.496896,-0.127436,27 Great Peter Street,London,,SW1P 3LN,,3.7,,Unknown,Unknown,Unknown,Unknown
+43412,"Lincolns Inn Fields, Westminster",51.5152860135492,-0.116643905639648,Lincolns Inn Fields,London,,WC2A 3PE,,7.0,,Unknown,Unknown,Unknown,Unknown
+252924,Great Peter St 31,51.496887,-0.127973,Great Peter St 31,London,,SW1P 3NQ,,3.7,,Unknown,Unknown,Unknown,Unknown
+252926,Great Peter St 41,51.496895,-0.128714,Great Peter St 41,London,,SW1P 3LT,,3.7,,Unknown,Unknown,Unknown,Unknown
+126177,Westminster-Lincoln's Inn Fields,51.515375,-0.116745,Lincoln's Inn Fields,Westminster,London,WC2A 3PE,,7.0,,Unknown,Unknown,Unknown,Unknown
+268058,Stephens Street,51.517475,-0.133047,Stephens Street,Camden Town,,W1T 1AL,,22.0,,Unknown,Unknown,Unknown,Unknown
+252921,Great Peter St 16,51.496866,-0.129591,Great Peter St 16,London,,SW1P 2BX,,3.7,,Unknown,Unknown,Unknown,Unknown
+118286,"Cornwall Road, Lambeth",51.50542,-0.11099,Cornwall Road,Lambeth,Greater London,SE1 9PU,,7.0,,Unknown,Unknown,Unknown,Unknown
+205270,Adeline Place,51.51798,-0.130288,Adeline Place,London,England,WC1B 3AH,,22.0,,Unknown,Unknown,Unknown,Unknown
+53025,Berkeley Square,51.509495,-0.144767,Berkeley Square,London,,W1J 6EG,,7.0,,Unknown,Unknown,Unknown,Unknown
+173459,24 Little Russell Street,51.518054,-0.12494,24 Little Russell Street,London,,WC1A 2HS,,3.7,,Unknown,Unknown,Unknown,Unknown
+125894,Berkeley Square,51.509472,-0.14487,Berkeley Square,Westminster,,W1J 6ES,,7.0,,Unknown,Unknown,Unknown,Unknown
+5835,Holborn NCP Car Park,51.5181387,-0.1255737,Museum Street,Camden,London,WC1A 1JP,,3.0,,Unknown,Unknown,Unknown,Unknown
+45049,5 Spenser Street,51.497912,-0.136349,5 Spenser Street,London,,SW1E 6AA,,3.0,,Unknown,Unknown,Unknown,Unknown
+60268,Society of Motor Traders,51.496653,-0.13111,73 Great Peter Street,London,,SW1P 2BN,,7.0,,Unknown,Unknown,Unknown,Unknown
+253851,2 Bury Place,51.518144,-0.12398,2 Bury Place,London,,WC1A 2JU,,3.7,,Unknown,Unknown,Unknown,Unknown
+173531,14 St George Street,51.512844,-0.143349,14 St George Street,London,,W1S 1FH,,3.7,,Unknown,Unknown,Unknown,Unknown
+252909,Great Peter Street,51.496731,-0.132808,Great Peter Street,London,,SW1P 2JX,,3.7,,Unknown,Unknown,Unknown,Unknown
+173460,17 Southampton Place,51.517947,-0.121831,17 Southampton Place,London,,WC1A 2DB,,3.7,,Unknown,Unknown,Unknown,Unknown
+52972,Berners Street,51.517235,-0.136815,16-18 Berners Street,London,,W1T 3LN,,7.0,,Unknown,Unknown,Unknown,Unknown
+92443,Islamic Relief UK,51.500361,-0.113099,16 Lower Marsh,London,,SE1 7RJ,,7.0,,Unknown,Unknown,Unknown,Unknown
+264631,Shell Recharge/Ubitricity,51.496,-0.13085,null,London,,SW1P 2BQ,,5.0,,Unknown,Unknown,Unknown,Unknown
+253462,Shell Recharge/Ubitricity,51.508257,-0.146484,null,London,,W1J 5DJ,,5.0,,Unknown,Unknown,Unknown,Unknown
+214237,Opp.,51.514586,-0.142564,Opp.,London,,W1B 2LY,,5.0,,Unknown,Unknown,Unknown,Unknown
+253550,Opp.,51.511441,-0.145558,Opp.,London,,W1K 3QU,,5.0,,Unknown,Unknown,Unknown,Unknown
+52918,NCP Carrington Street,51.506001,-0.146775,Mayfair,London,,W1J 7AF,,3.0,,Unknown,Unknown,Unknown,Unknown
+268054,Grosvenor Street,51.512165,-0.145341,18 Grosvenor Street,City of Westminster,,W1K 4PZ,,22.0,,Unknown,Unknown,Unknown,Unknown
+4443,Bloomsbury Square Car Park,51.5190133,-0.12224600000001828,Bloomsbury Square,London,,WC1A 2RJ,,0.0,,Unknown,Unknown,Unknown,Unknown
+253070,14 Stafford Place,51.498965,-0.141783,14 Stafford Place,London,,SW1E 6NP,,3.7,,Unknown,Unknown,Unknown,Unknown
+52817,NCP Berners Street,51.518002,-0.137539,45-47 Berners Street,London,,W1T 3NE,,4.0,,Unknown,Unknown,Unknown,Unknown
+4427,Lincolns Inn,51.51643,-0.114483,Lincolns Inn Fields,London,,WC2A 3TL,,0.0,,Unknown,Unknown,Unknown,Unknown
+253567,Shell Recharge/Ubitricity,51.511983,-0.146098,null,London,,W1K 4PS,,5.0,,Unknown,Unknown,Unknown,Unknown
+4405,NCP Grosvenor Hill,51.510944,-0.146848,21 Grosvenor Hill,London,,W1K 3QQ,,3.0,,Unknown,Unknown,Unknown,Unknown
+4404,NCP Grosvenor Hill,51.510944,-0.146848,21 Grosvenor Hill,London,,W1K 3QQ,,0.0,,Unknown,Unknown,Unknown,Unknown
+252872,opp.,51.495919,-0.135237,opp.,London,,SW1P 1AB,,5.0,,Unknown,Unknown,Unknown,Unknown
+95361,Palace Street,51.497297,-0.139462,Palace Street,London,,SW1E 5JL,,7.0,,Unknown,Unknown,Unknown,Unknown
+252877,Shell Recharge/Ubitricity,51.496,-0.13586,null,London,,SW1P 1AB,,5.0,,Unknown,Unknown,Unknown,Unknown
+85098,Zipcar Horseferry Road,51.4948439,-0.12867,Horseferry Road,London,,SW1P 3RE,,7.0,,Unknown,Unknown,Unknown,Unknown
+253825,Newmans Row,51.5175,-0.115606,Newmans Row,Camden,,WC2A 3PD,,7.0,,Unknown,Unknown,Unknown,Unknown
+56960,Horseferry Road,51.494767503224,-0.130060857177789,Horseferry Road,London,England,SW1P 4DR,,7.0,,Unknown,Unknown,Unknown,Unknown
+147933,Department for Transport,51.494678,-0.129862,33 Horseferry Road,London,England,SW1P 4DR,,50.0,,Unknown,Unknown,Unknown,Unknown
+4456,Charlotte Street,51.519293,-0.135446,40 Charlotte Street,London,,W1T 2NH,,7.0,,Unknown,Unknown,Unknown,Unknown
+252820,"Regency Place, Belgravia",51.494868,-0.132312,"Regency Place, Belgravia, Westminster, SW1P 2DZ",Westminster,,SW1P 2DZ,,50.0,,Unknown,Unknown,Unknown,Unknown
+136167,7 Francis Street,51.495977,-0.137269,7 Francis Street,Victoria Station,,SW1P 1QP,,7.0,,Unknown,Unknown,Unknown,Unknown
+57552,"Store Street, London WC1",51.5201029380956,-0.131020545959473,8 Store Street,London,,W1B 1AD,,7.0,,Unknown,Unknown,Unknown,Unknown
+167016,Carlisle Lane Parking/Charging,51.497106,-0.115396,"195 Carlisle Lane, Lambeth",London,England,SE17LH,,50.0,,Unknown,Unknown,Unknown,Unknown
+252803,2 Dean Ryle Street,51.494536,-0.126872,2 Dean Ryle Street,London,,SW1P 4DA,,3.7,,Unknown,Unknown,Unknown,Unknown
+252801,Shell Recharge/Ubitricity,51.494531,-0.126872,null,London,,SW1P 4DA,,5.0,,Unknown,Unknown,Unknown,Unknown
