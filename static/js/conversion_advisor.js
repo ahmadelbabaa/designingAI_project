@@ -428,6 +428,50 @@ Recommendation: ${station.recommendation || 'N/A'}
             currentRecommendation += `- ${readableKey}: ${value}\n`;
         }
     }
+    
+    // Update forecast charts with station data
+    if (window.updateForecastCharts) {
+        window.updateForecastCharts(station);
+        
+        // Update forecast statistics based on station data
+        updateForecastStatistics(station);
+    }
+}
+
+// Function to update forecast statistics based on station data
+function updateForecastStatistics(station) {
+    if (!station) return;
+    
+    // Calculate forecast values based on station properties
+    const viabilityFactor = station.viability_score / 100 || 0.5;
+    const dailyCustomersFactor = Math.min(station.daily_customers / 500, 2) || 1;
+    
+    // Update demand stats
+    const currentDemand = Math.round(5 * dailyCustomersFactor);
+    const futureDemand = Math.round(40 * viabilityFactor * dailyCustomersFactor);
+    const demandGrowth = Math.round(52 * viabilityFactor);
+    
+    document.getElementById('current-demand').textContent = currentDemand;
+    document.getElementById('future-demand').textContent = futureDemand;
+    document.getElementById('demand-growth').textContent = demandGrowth + '%';
+    
+    // Update ROI stats
+    const initialRoi = (8.2 * viabilityFactor).toFixed(1);
+    const futureRoi = (22.6 * viabilityFactor).toFixed(1);
+    const paybackPeriod = (3.5 / viabilityFactor).toFixed(1);
+    
+    document.getElementById('initial-roi').textContent = initialRoi + '%';
+    document.getElementById('future-roi').textContent = futureRoi + '%';
+    document.getElementById('payback-period').textContent = paybackPeriod;
+    
+    // Update adoption stats
+    const currentAdoption = (7.8 * viabilityFactor).toFixed(1);
+    const futureAdoption = (32.5 * viabilityFactor).toFixed(1);
+    const adoptionCagr = (33.1 * viabilityFactor).toFixed(1);
+    
+    document.getElementById('current-adoption').textContent = currentAdoption + '%';
+    document.getElementById('future-adoption').textContent = futureAdoption + '%';
+    document.getElementById('adoption-cagr').textContent = adoptionCagr + '%';
 }
 
 // Generate recommendation for the selected station

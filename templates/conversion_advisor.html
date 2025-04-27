@@ -70,13 +70,23 @@
             margin: 20px auto;
             padding: 0 20px;
             display: flex;
-            flex-wrap: wrap;
             gap: 20px;
         }
         
-        .map-container {
+        .main-content {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .sidebar {
             flex: 1;
             min-width: 300px;
+        }
+        
+        .map-container {
+            width: 100%;
             height: 500px;
             border-radius: 8px;
             overflow: hidden;
@@ -144,8 +154,6 @@
         }
         
         .selection-panel {
-            flex: 1;
-            min-width: 300px;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -163,6 +171,24 @@
             margin-top: 0;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 10px;
+        }
+        
+        .chat-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            max-height: 800px;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: 500px;
+            overflow-y: auto;
+            padding: 15px;
+            margin-bottom: 15px;
         }
         
         .station-selector {
@@ -219,15 +245,6 @@
         #station-details ul {
             margin-top: 5px;
             padding-left: 20px;
-        }
-        
-        .form-card {
-            background-color: var(--card-color);
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-top: 20px;
-            width: 100%;
         }
         
         .form-group {
@@ -303,8 +320,8 @@
         }
         
         .recommendation-results {
-            display: none;
             margin-top: 20px;
+            display: none;
         }
         
         .loader {
@@ -335,23 +352,6 @@
             padding: 10px 15px;
             margin-bottom: 20px;
             border-radius: 4px;
-        }
-        
-        .chat-container {
-            width: 100%;
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .chat-messages {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            height: 300px;
-            overflow-y: auto;
-            padding: 15px;
         }
         
         .message {
@@ -396,11 +396,133 @@
             cursor: pointer;
         }
         
-        @media (max-width: 768px) {
+        /* Forecast section styles */
+        .forecast-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        
+        .forecast-card {
+            margin-top: 20px;
+        }
+        
+        .forecast-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+        
+        .tab-button {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--secondary-color);
+            position: relative;
+        }
+        
+        .tab-button.active {
+            color: var(--primary-color);
+        }
+        
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .forecast-tab {
+            display: none;
+        }
+        
+        .forecast-tab.active {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .chart-container {
+            flex: 2;
+            min-width: 500px;
+            height: 300px;
+            position: relative;
+        }
+        
+        .forecast-info {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .optimal-timing {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .optimal-timing h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+        
+        .optimal-timing p {
+            margin: 5px 0;
+        }
+        
+        .forecast-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .stat-item {
+            flex: 1;
+            min-width: 100px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-item h4 {
+            margin-top: 0;
+            color: var(--secondary-color);
+            font-size: 14px;
+        }
+        
+        .stat-item p {
+            margin: 5px 0 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 992px) {
             .container {
                 flex-direction: column;
             }
             
+            .forecast-tab.active {
+                flex-direction: column;
+            }
+            
+            .chart-container {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
             .map-container {
                 height: 300px;
             }
@@ -420,98 +542,100 @@
     </div>
 
     <div class="container">
-        <div class="map-container">
-            <div id="station-map"></div>
-            <div id="map-error"></div>
-            <div class="map-loading">
-                <div class="spinner"></div>
-                <p>Loading map...</p>
+        <div class="main-content">
+            <div class="map-container">
+                <div id="station-map"></div>
+                <div id="map-error"></div>
+                <div class="map-loading">
+                    <div class="spinner"></div>
+                    <p>Loading map...</p>
+                </div>
+                <div class="map-legend">
+                    <h4 style="margin-top: 0; margin-bottom: 8px;">Viability Score</h4>
+                    <div class="legend-item">
+                        <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" width="15" height="24">
+                        <span>High (70+)</span>
+                    </div>
+                    <div class="legend-item">
+                        <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png" width="15" height="24">
+                        <span>Medium (50-69)</span>
+                    </div>
+                    <div class="legend-item">
+                        <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png" width="15" height="24">
+                        <span>Low (&lt;50)</span>
+                    </div>
+                </div>
             </div>
-            <div class="map-legend">
-                <h4 style="margin-top: 0; margin-bottom: 8px;">Viability Score</h4>
-                <div class="legend-item">
-                    <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" width="15" height="24">
-                    <span>High (70+)</span>
-                </div>
-                <div class="legend-item">
-                    <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png" width="15" height="24">
-                    <span>Medium (50-69)</span>
-                </div>
-                <div class="legend-item">
-                    <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png" width="15" height="24">
-                    <span>Low (&lt;50)</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="selection-panel">
-            <div class="card">
-                <h2>Select a Gas Station</h2>
-                <p>Choose a station from the map or select from the list below.</p>
-                
-                <div class="station-selector">
-                    <select id="station-select">
-                        {% for station in stations %}
-                            <option value="{{ station.station_id }}">{{ station.name }} ({{ station.station_id }})</option>
-                        {% endfor %}
-                    </select>
+            
+            <div class="selection-panel">
+                <div class="card">
+                    <h2>Select a Gas Station</h2>
+                    <p>Choose a station from the map or select from the list below.</p>
                     
-                    <button id="generate-recommendation" class="action-button">
-                        Generate Recommendation
-                    </button>
+                    <div class="station-selector">
+                        <select id="station-select">
+                            {% for station in stations %}
+                                <option value="{{ station.station_id }}">{{ station.name }} ({{ station.station_id }})</option>
+                            {% endfor %}
+                        </select>
+                        
+                        <button id="generate-recommendation" class="action-button">
+                            Generate Recommendation
+                        </button>
+                    </div>
+                    
+                    <div id="station-details"></div>
                 </div>
                 
-                <div id="station-details"></div>
+                <div class="card">
+                    <h2>Custom Analysis</h2>
+                    <p>Analyze a specific gas station or area from our database:</p>
+                    
+                    <div class="form-group">
+                        <label for="stationType">Area Type</label>
+                        <select id="stationType" name="stationType">
+                            <option value="Urban">Urban Area</option>
+                            <option value="Suburban">Suburban Area</option>
+                            <option value="Highway">Highway Location</option>
+                            <option value="Rural">Rural Area</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <select id="location" name="location">
+                            <option value="San Francisco, CA">San Francisco, CA</option>
+                            <option value="Oakland, CA">Oakland, CA</option>
+                            <option value="Berkeley, CA">Berkeley, CA</option>
+                            <option value="Palo Alto, CA">Palo Alto, CA</option>
+                            <option value="San Jose, CA">San Jose, CA</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dailyTraffic">Average Daily Traffic (vehicles)</label>
+                        <input type="range" id="dailyTraffic" name="dailyTraffic" min="200" max="1000" value="500" oninput="updateTrafficValue(this.value)">
+                        <span id="trafficValue">500</span> vehicles
+                    </div>
+                    
+                    <button onclick="runCustomAnalysis()" class="action-button">Run Custom Analysis</button>
+                </div>
             </div>
             
-            <div class="card">
-                <h2>Custom Analysis</h2>
-                <p>Analyze a specific gas station or area from our database:</p>
-                
-                <div class="form-group">
-                    <label for="stationType">Area Type</label>
-                    <select id="stationType" name="stationType">
-                        <option value="Urban">Urban Area</option>
-                        <option value="Suburban">Suburban Area</option>
-                        <option value="Highway">Highway Location</option>
-                        <option value="Rural">Rural Area</option>
-                    </select>
+            <div id="recommendation-results" class="recommendation-results">
+                <div id="recommendation-loader" class="loader">
+                    <div class="spinner"></div>
+                    <p>Generating recommendation...</p>
                 </div>
                 
-                <div class="form-group">
-                    <label for="location">Location</label>
-                    <select id="location" name="location">
-                        <option value="San Francisco, CA">San Francisco, CA</option>
-                        <option value="Oakland, CA">Oakland, CA</option>
-                        <option value="Berkeley, CA">Berkeley, CA</option>
-                        <option value="Palo Alto, CA">Palo Alto, CA</option>
-                        <option value="San Jose, CA">San Jose, CA</option>
-                    </select>
-                </div>
+                <iframe id="recommendation-frame" class="recommendation-frame" style="display: none;"></iframe>
                 
-                <div class="form-group">
-                    <label for="dailyTraffic">Average Daily Traffic (vehicles)</label>
-                    <input type="range" id="dailyTraffic" name="dailyTraffic" min="200" max="1000" value="500" oninput="updateTrafficValue(this.value)">
-                    <span id="trafficValue">500</span> vehicles
-                </div>
-                
-                <button onclick="runCustomAnalysis()" class="action-button">Run Custom Analysis</button>
+                <div id="recommendation-text" class="recommendation-text" style="display: none;"></div>
             </div>
         </div>
         
-        <div id="recommendation-results" class="recommendation-results">
-            <div id="recommendation-loader" class="loader">
-                <div class="spinner"></div>
-                <p>Generating recommendation...</p>
-            </div>
-            
-            <iframe id="recommendation-frame" class="recommendation-frame" style="display: none;"></iframe>
-            
-            <div id="recommendation-text" class="recommendation-text" style="display: none;"></div>
-        </div>
-        
-        <div class="chat-container">
-            <div class="card">
+        <div class="sidebar">
+            <div class="card chat-card">
                 <h2>Chat with AI Advisor</h2>
                 <p>Ask questions about this gas station's potential for EV charging conversion.</p>
                 
@@ -530,9 +654,106 @@
             </div>
         </div>
     </div>
+    
+    <div class="forecast-container">
+        <div class="card forecast-card">
+            <h2>5-Year Forecast</h2>
+            <p>Projected trends and optimal conversion timing for the selected station</p>
+            
+            <div class="forecast-tabs">
+                <button class="tab-button active" onclick="showForecastTab('demand')">EV Charging Demand</button>
+                <button class="tab-button" onclick="showForecastTab('roi')">Return on Investment</button>
+                <button class="tab-button" onclick="showForecastTab('adoption')">EV Adoption Growth</button>
+            </div>
+            
+            <div class="forecast-content">
+                <div id="forecast-demand" class="forecast-tab active">
+                    <div class="chart-container">
+                        <canvas id="demand-chart"></canvas>
+                    </div>
+                    <div class="forecast-info">
+                        <div class="optimal-timing">
+                            <h3>Optimal Entry Point</h3>
+                            <p><i class="fas fa-flag"></i> <span id="optimal-demand-date">Q2 2024</span></p>
+                            <p>Expected daily sessions: <span id="optimal-demand-value">25</span></p>
+                        </div>
+                        <div class="forecast-stats">
+                            <div class="stat-item">
+                                <h4>Current Demand</h4>
+                                <p><span id="current-demand">5</span> sessions/day</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>5-Year Forecast</h4>
+                                <p><span id="future-demand">40</span> sessions/day</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>Growth Rate</h4>
+                                <p><span id="demand-growth">52%</span> annually</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="forecast-roi" class="forecast-tab">
+                    <div class="chart-container">
+                        <canvas id="roi-chart"></canvas>
+                    </div>
+                    <div class="forecast-info">
+                        <div class="optimal-timing">
+                            <h3>Optimal Entry Point</h3>
+                            <p><i class="fas fa-flag"></i> <span id="optimal-roi-date">Q3 2024</span></p>
+                            <p>Expected ROI: <span id="optimal-roi-value">15.4%</span></p>
+                        </div>
+                        <div class="forecast-stats">
+                            <div class="stat-item">
+                                <h4>Initial ROI</h4>
+                                <p><span id="initial-roi">8.2%</span></p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>5-Year ROI</h4>
+                                <p><span id="future-roi">22.6%</span></p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>Payback Period</h4>
+                                <p><span id="payback-period">3.5</span> years</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="forecast-adoption" class="forecast-tab">
+                    <div class="chart-container">
+                        <canvas id="adoption-chart"></canvas>
+                    </div>
+                    <div class="forecast-info">
+                        <div class="optimal-timing">
+                            <h3>Optimal Entry Point</h3>
+                            <p><i class="fas fa-flag"></i> <span id="optimal-adoption-date">Q1 2025</span></p>
+                            <p>Expected adoption rate: <span id="optimal-adoption-value">18.5%</span></p>
+                        </div>
+                        <div class="forecast-stats">
+                            <div class="stat-item">
+                                <h4>Current Adoption</h4>
+                                <p><span id="current-adoption">7.8%</span> of vehicles</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>5-Year Adoption</h4>
+                                <p><span id="future-adoption">32.5%</span> of vehicles</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>CAGR</h4>
+                                <p><span id="adoption-cagr">33.1%</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts - Leaflet JS must be loaded before our custom script -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Check if Leaflet loaded correctly
         window.addEventListener('load', function() {
@@ -747,6 +968,260 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Chat will be initialized by the selectStation function in conversion_advisor.js
             // which is called when the first station is loaded
+        });
+
+        // Function to switch between forecast tabs
+        function showForecastTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.forecast-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById('forecast-' + tabName).classList.add('active');
+            
+            // Update buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Find the button that was clicked
+            event.target.classList.add('active');
+        }
+        
+        // Initialize charts when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize demand chart
+            const demandCtx = document.getElementById('demand-chart').getContext('2d');
+            const demandChart = new Chart(demandCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024', 'Q1 2025', 'Q2 2025', 'Q3 2025', 'Q4 2025', 'Q1 2026', 'Q2 2026', 'Q3 2026', 'Q4 2026', 'Q1 2027', 'Q2 2027', 'Q3 2027', 'Q4 2027', 'Q1 2028', 'Q2 2028', 'Q3 2028', 'Q4 2028'],
+                    datasets: [{
+                        label: 'Daily Charging Sessions',
+                        data: [5, 8, 12, 15, 18, 22, 25, 28, 30, 32, 34, 35, 36, 37, 38, 39, 39, 40, 40, 40],
+                        borderColor: '#00a67d',
+                        backgroundColor: 'rgba(0, 166, 125, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#FFFFFF',
+                        pointBorderColor: '#00a67d',
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        tooltip: {
+                            enabled: true,
+                            mode: 'index',
+                            intersect: false
+                        },
+                        annotation: {
+                            annotations: {
+                                point1: {
+                                    type: 'point',
+                                    xValue: 'Q2 2024',
+                                    yValue: 8,
+                                    backgroundColor: '#f39c12',
+                                    radius: 8
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Daily Sessions'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Quarter'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Initialize ROI chart
+            const roiCtx = document.getElementById('roi-chart').getContext('2d');
+            const roiChart = new Chart(roiCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024', 'Q1 2025', 'Q2 2025', 'Q3 2025', 'Q4 2025', 'Q1 2026', 'Q2 2026', 'Q3 2026', 'Q4 2026', 'Q1 2027', 'Q2 2027', 'Q3 2027', 'Q4 2027', 'Q1 2028', 'Q2 2028', 'Q3 2028', 'Q4 2028'],
+                    datasets: [{
+                        label: 'ROI (%)',
+                        data: [8.2, 10.5, 12.8, 14.7, 15.8, 16.9, 17.8, 18.6, 19.2, 19.8, 20.3, 20.7, 21.0, 21.3, 21.6, 21.9, 22.1, 22.4, 22.5, 22.6],
+                        borderColor: '#3498db',
+                        backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#FFFFFF',
+                        pointBorderColor: '#3498db',
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        tooltip: {
+                            enabled: true,
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.raw + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'ROI (%)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Quarter'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Initialize adoption chart
+            const adoptionCtx = document.getElementById('adoption-chart').getContext('2d');
+            const adoptionChart = new Chart(adoptionCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024', 'Q1 2025', 'Q2 2025', 'Q3 2025', 'Q4 2025', 'Q1 2026', 'Q2 2026', 'Q3 2026', 'Q4 2026', 'Q1 2027', 'Q2 2027', 'Q3 2027', 'Q4 2027', 'Q1 2028', 'Q2 2028', 'Q3 2028', 'Q4 2028'],
+                    datasets: [{
+                        label: 'EV Adoption Rate (%)',
+                        data: [7.8, 9.2, 11.0, 12.9, 15.1, 17.5, 19.9, 21.6, 23.0, 24.1, 25.0, 25.8, 26.9, 28.2, 29.6, 30.3, 31.1, 31.7, 32.1, 32.5],
+                        borderColor: '#9b59b6',
+                        backgroundColor: 'rgba(155, 89, 182, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#FFFFFF',
+                        pointBorderColor: '#9b59b6',
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        tooltip: {
+                            enabled: true,
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.raw + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Adoption Rate (%)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Quarter'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Function to update charts based on selected station
+            window.updateForecastCharts = function(station) {
+                // In a real implementation, this would fetch actual forecast data for the station
+                // For now, we just update the optimal entry point marker based on the station viability
+                
+                let optimalQuarter, optimalDemand, optimalROI, optimalAdoption;
+                
+                if (station && station.viability_score) {
+                    // Determine optimal timing based on viability score
+                    if (station.viability_score >= 70) {
+                        // High viability - suggest early entry
+                        optimalQuarter = 'Q2 2024';
+                        optimalDemand = 8;
+                        optimalROI = 10.5;
+                        optimalAdoption = 9.2;
+                        
+                        // Update DOM elements
+                        document.getElementById('optimal-demand-date').textContent = optimalQuarter;
+                        document.getElementById('optimal-demand-value').textContent = optimalDemand;
+                        document.getElementById('optimal-roi-date').textContent = optimalQuarter;
+                        document.getElementById('optimal-roi-value').textContent = optimalROI + '%';
+                        document.getElementById('optimal-adoption-date').textContent = optimalQuarter;
+                        document.getElementById('optimal-adoption-value').textContent = optimalAdoption + '%';
+                    } else if (station.viability_score >= 50) {
+                        // Medium viability - suggest mid-term entry
+                        optimalQuarter = 'Q3 2024';
+                        optimalDemand = 12;
+                        optimalROI = 12.8;
+                        optimalAdoption = 11.0;
+                        
+                        // Update DOM elements
+                        document.getElementById('optimal-demand-date').textContent = optimalQuarter;
+                        document.getElementById('optimal-demand-value').textContent = optimalDemand;
+                        document.getElementById('optimal-roi-date').textContent = optimalQuarter;
+                        document.getElementById('optimal-roi-value').textContent = optimalROI + '%';
+                        document.getElementById('optimal-adoption-date').textContent = optimalQuarter;
+                        document.getElementById('optimal-adoption-value').textContent = optimalAdoption + '%';
+                    } else {
+                        // Low viability - suggest later entry
+                        optimalQuarter = 'Q1 2025';
+                        optimalDemand = 18;
+                        optimalROI = 15.8;
+                        optimalAdoption = 15.1;
+                        
+                        // Update DOM elements
+                        document.getElementById('optimal-demand-date').textContent = optimalQuarter;
+                        document.getElementById('optimal-demand-value').textContent = optimalDemand;
+                        document.getElementById('optimal-roi-date').textContent = optimalQuarter;
+                        document.getElementById('optimal-roi-value').textContent = optimalROI + '%';
+                        document.getElementById('optimal-adoption-date').textContent = optimalQuarter;
+                        document.getElementById('optimal-adoption-value').textContent = optimalAdoption + '%';
+                    }
+                }
+            };
         });
     </script>
 </body>
