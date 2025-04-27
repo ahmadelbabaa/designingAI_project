@@ -9,4 +9,6 @@ geopandas==0.10.2
 shapely==1.8.1
 PyYAML==6.0
 kaggle==1.5.12
-tqdm>=4.62.0 
+tqdm>=4.62.0
+python-dotenv>=0.20.0
+flask>=2.0.0 

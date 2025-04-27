@@ -5,6 +5,10 @@ This dashboard provides analysis for gas station conversion to high-power chargi
 with integrated forecasting visualizations.
 """
 
+# Force matplotlib to use non-interactive backend to prevent GUI thread issues
+import matplotlib
+matplotlib.use('Agg')
+
 import os
 import json
 import random
@@ -19,10 +23,13 @@ import shutil
 from flask import Flask, render_template, request, jsonify
 from conversion_advisor import generate_conversion_recommendation, create_dashboard_html, load_gas_stations
 
-# Create Flask app
+# Create Flask app with modified static settings
 app = Flask(__name__, 
-            static_folder='output',
+            static_url_path='',  # Empty static URL path
             template_folder='templates')
+
+# Set base URL for static assets served by the separate server
+app.config['STATIC_URL'] = 'http://localhost:8000'
 
 # Create necessary folders if they don't exist
 for folder in ['data', 'config', 'output', 'output/forecasts', 'output/conversion_advisor', 'templates']:
@@ -784,8 +791,9 @@ def generate_recommendation_api():
     result = generate_conversion_recommendation(station_id)
     dashboard_path = create_dashboard_html(result)
     
-    # Get relative URL for dashboard
-    dashboard_url = dashboard_path.replace('output/', '')
+    # Just return the filename part for the dashboard
+    # The client-side JavaScript will prepend http://localhost:8000/
+    dashboard_url = os.path.basename(dashboard_path)
     
     return jsonify({
         'success': True,
@@ -794,6 +802,9 @@ def generate_recommendation_api():
 
 def main():
     """Main function to run the dashboard"""
+    # Ensure the output directory exists
+    os.makedirs('output', exist_ok=True)
+    
     # Generate synthetic gas stations
     stations = generate_gas_stations(num_stations=50)
     
@@ -801,18 +812,24 @@ def main():
     stats = calculate_dashboard_stats(stations)
     
     # Create interactive map
-    create_map(stations)
+    create_map(stations, save_file="output/station_map.html")
+    print("Created station map at output/station_map.html")
     
     # Create EV adoption heatmap
-    create_heatmap(stations)
+    create_heatmap(stations, save_file="output/ev_adoption_heatmap.html")
+    print("Created EV adoption heatmap at output/ev_adoption_heatmap.html")
     
     # Generate forecasts for top stations
     forecast_results = generate_forecasts(stations, top_n=5)
+    print(f"Generated forecasts for {len(forecast_results)} stations")
     
     # Create dashboard HTML
-    create_dashboard_html(stations, stats, forecast_results)
+    dashboard_path = create_dashboard_html(stations, stats, forecast_results)
+    print(f"Dashboard generated at {dashboard_path}")
     
-    print(f"Dashboard generated at output/enhanced_dashboard.html")
+    print("\nStarting Flask app on port 5000...")
+    print("Make sure the static file server is running on port 8000 with the 'output' directory")
+    print("Visit http://localhost:5000/ to access the dashboard")
     
     # Start the Flask app
     app.run(debug=True, port=5000)

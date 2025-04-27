@@ -4,6 +4,10 @@ Gas Station Conversion Advisor
 Leverages existing models and GPT-4 to generate personalized conversion recommendations
 """
 
+# Force matplotlib to use non-interactive backend to prevent GUI thread issues
+import matplotlib
+matplotlib.use('Agg')
+
 import os
 import json
 import pandas as pd
@@ -12,9 +16,9 @@ import matplotlib.pyplot as plt
 import requests
 from time_series_forecasting import generate_usage_data, forecast_station_usage
 from hpc_pricing_rl import HPCPricingEnv, evaluate_pricing_model
+from openai_config import OPENAI_API_KEY, OPENAI_API_TYPE, OPENAI_API_BASE, OPENAI_API_VERSION, OPENAI_DEPLOYMENT_NAME
 
 # Constants
-API_KEY = os.environ.get("OPENAI_API_KEY", "")  # Get from environment or configure manually
 GAS_STATIONS_FILE = "data/gas_stations.csv"
 DEFAULT_NUM_SCENARIOS = 3
 OUTPUT_DIR = "output/conversion_advisor"
@@ -154,37 +158,44 @@ def calculate_roi_metrics(scenarios, investment_tiers):
     
     return roi_results
 
-def query_gpt4(prompt, api_key=API_KEY, max_tokens=1000):
-    """Call GPT-4 API to generate recommendations"""
+def query_gpt4(prompt, max_tokens=1000):
+    """Call Azure OpenAI API to generate recommendations"""
     # If no API key, return a placeholder response
-    if not api_key:
+    if not OPENAI_API_KEY:
         print("Warning: No OpenAI API key provided. Using placeholder recommendation.")
         return generate_placeholder_recommendation()
     
     headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "api-key": OPENAI_API_KEY,
     }
     
     payload = {
-        "model": "gpt-4",
         "messages": [{"role": "user", "content": prompt}],
-        "max_tokens": max_tokens
+        "max_tokens": max_tokens,
+        "temperature": 0.7
     }
     
     try:
+        endpoint = f"{OPENAI_API_BASE}openai/deployments/{OPENAI_DEPLOYMENT_NAME}/chat/completions?api-version={OPENAI_API_VERSION}"
         response = requests.post(
-            "https://api.openai.com/v1/chat/completions",
+            endpoint,
             headers=headers,
             json=payload
         )
+        
+        if response.status_code != 200:
+            print(f"Error calling Azure OpenAI API: {response.status_code}")
+            print(f"Response: {response.text}")
+            return generate_placeholder_recommendation()
+            
         return response.json()["choices"][0]["message"]["content"]
     except Exception as e:
-        print(f"Error calling GPT-4 API: {e}")
+        print(f"Error calling Azure OpenAI API: {e}")
         return generate_placeholder_recommendation()
 
 def generate_placeholder_recommendation():
-    """Generate a placeholder recommendation when GPT-4 API is not available"""
+    """Generate a placeholder recommendation when OpenAI API is not available"""
     return """
 # Gas Station Conversion Recommendation
 
@@ -345,7 +356,8 @@ def create_dashboard_html(recommendation_result):
     # Create HTML components
     scenario_plots_html = ""
     for name, data in scenarios.items():
-        plot_path = data['plot_path'].replace('output/', '')
+        # Use full URL with localhost:8000 for plot paths
+        plot_path = data['plot_path'].replace('output/', 'http://localhost:8000/')
         scenario_plots_html += f"""
         <div class="scenario-card">
             <h3>{name.capitalize()} Scenario</h3>
