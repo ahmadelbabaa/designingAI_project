@@ -257,4 +257,303 @@ When implementing a new component or extending an existing one:
    - API documentation in `docs/api/`
    - User documentation in `docs/user/`
 
+## 9. Integrating New Visualization Dashboard with Existing Dashboard (Port 8080)
+
+**Purpose:** Detailed guide for integrating your newly developed EV Charging Pattern Analysis dashboard with the existing enhanced dashboard running on port 8080.
+
+### Pre-Integration Checklist
+
+1. **Confirm Dashboard Status:** 
+   - Ensure the current dashboard is running on port 8080
+   - Verify you can access it at `http://localhost:8080`
+   - Take note of existing routes and components
+
+2. **Identify Integration Touch Points:**
+   - Main Flask app: `enhanced_dashboard.py`
+   - Main dashboard template: `templates/dashboard.html`
+   - Component registry: `config/dashboard_components.json`
+   - Static assets directory: `static/`
+
+### Step-by-Step Integration Process
+
+#### 1. Add Your Component to the Flask Application
+
+Locate the route definitions in `enhanced_dashboard.py` and add your new route:
+
+```python
+# Add this import at the top of the file
+from ev_charging_analysis import run_analysis
+
+# Add your new route
+@app.route('/charging-patterns')
+def charging_patterns():
+    # You may need to pass data to your template
+    return render_template('charging_patterns.html')
+
+# Add API endpoint for data
+@app.route('/api/v1/charging-patterns/summary', methods=['GET'])
+def charging_patterns_api():
+    try:
+        # Run analysis or load from cache
+        results = run_analysis()
+        return jsonify(results)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+```
+
+#### 2. Add Your Component to the Dashboard Registry
+
+Open `config/dashboard_components.json` and add your component:
+
+```json
+{
+  "components": [
+    // ... existing components
+    {
+      "id": "charging_patterns",
+      "name": "EV Charging Patterns",
+      "route": "/charging-patterns",
+      "icon": "chart-line",
+      "permission": "analyst",
+      "category": "analytics",
+      "description": "Analysis of EV charging patterns and behaviors"
+    }
+  ]
+}
+```
+
+#### 3. Add a Card to the Main Dashboard
+
+Locate the appropriate section in `templates/dashboard.html` to add your component card:
+
+```html
+<!-- Look for this section or similar -->
+<div class="dashboard-cards-container">
+    <!-- Existing cards -->
+    
+    <!-- Add your new card -->
+    <div class="dashboard-card">
+        <div class="card-header">
+            <i class="fas fa-chart-line"></i>
+            <h3>EV Charging Patterns</h3>
+        </div>
+        <div class="card-body">
+            <p>Analyze charging behavior patterns, peak times, and user segments.</p>
+        </div>
+        <div class="card-footer">
+            <a href="{{ url_for('charging_patterns') }}" class="btn btn-primary">View Analysis</a>
+        </div>
+    </div>
+</div>
+```
+
+#### 4. Integrate with Shared Data Layer
+
+If your component needs to share data with other components:
+
+1. Register your dataset with the shared data manager in `utils/shared_data_manager.py`:
+
+```python
+# Import at the top of ev_charging_analysis.py
+from utils.shared_data_manager import register_dataset, publish_data_update
+
+# Add this in your run_analysis function
+def run_analysis():
+    # ... analysis code
+    
+    # Share data with other components
+    register_dataset('ev_charging_patterns', processed_data, schema='charging_patterns')
+    publish_data_update('ev_charging_patterns', results)
+    
+    return results
+```
+
+2. Subscribe to relevant data from other components:
+
+```python
+# Import at the top of ev_charging_analysis.py
+from utils.shared_data_manager import subscribe_to_dataset
+
+# Add this in your initialization
+subscribe_to_dataset('station_data', on_station_data_update)
+
+def on_station_data_update(data):
+    # Handle updates to station data
+    pass
+```
+
+#### 5. Integrate with the Navigation System
+
+Your component should appear automatically in the navigation if you've properly registered it in the components.json file. The navigation is generated dynamically from this registry.
+
+#### 6. Add Client-Side Integration Code
+
+Create `static/js/charging_patterns.js` with:
+
+```javascript
+// EV Charging Patterns Component
+const ChargingPatterns = {
+    init: function() {
+        console.log("Initializing EV Charging Patterns");
+        this.loadData();
+        this.setupEventListeners();
+        
+        // Register with global dashboard controller
+        if (window.DashboardController) {
+            DashboardController.registerComponent('charging_patterns', this);
+        }
+        
+        // Subscribe to dashboard events
+        if (window.EventBus) {
+            EventBus.subscribe('dashboard:theme:changed', this.applyTheme.bind(this));
+            EventBus.subscribe('dashboard:filters:changed', this.applyFilters.bind(this));
+        }
+    },
+    
+    loadData: function() {
+        fetch('/api/v1/charging-patterns/summary')
+            .then(response => response.json())
+            .then(data => {
+                this.renderVisualizations(data);
+            })
+            .catch(error => {
+                console.error("Error loading charging patterns data:", error);
+            });
+    },
+    
+    renderVisualizations: function(data) {
+        // Implement visualization rendering with Plotly/D3.js
+        // Following the dashboard's established patterns
+    },
+    
+    setupEventListeners: function() {
+        // Setup UI interactions
+    },
+    
+    applyTheme: function(theme) {
+        // Update visualizations for the current theme
+    },
+    
+    applyFilters: function(filters) {
+        // Update visualizations based on global filters
+    }
+};
+
+// Initialize component when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    ChargingPatterns.init();
+});
+```
+
+#### 7. Ensure CSS Integration
+
+Add your component-specific styles to `static/css/dashboard_styles.css`:
+
+```css
+/* EV Charging Patterns Styles */
+.charging-patterns-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.charging-patterns-card {
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    background-color: var(--card-bg);
+    overflow: hidden;
+}
+
+/* Follow the existing dashboard CSS variables for consistency */
+```
+
+#### 8. Test the Integration
+
+1. Start the Flask application:
+```bash
+python enhanced_dashboard.py
+```
+
+2. Access the dashboard at `http://localhost:8080`
+
+3. Verify your component appears in:
+   - The main dashboard card display
+   - The navigation menu
+   - The component registry (accessible via API)
+
+4. Test your component's functionality:
+   - Click through to your detailed view
+   - Verify all visualizations appear properly
+   - Test any interactive elements
+   - Check that your component responds to global dashboard events (theme changes, filters)
+
+#### 9. Integration with GPT-4o Insights (If Applicable)
+
+If your component should provide data for AI insights:
+
+1. Register insights context providers in `gpt4o_integration.py`:
+
+```python
+from utils.ai.context_providers import register_context_provider
+
+# Add this to your initialization
+register_context_provider('charging_patterns', get_charging_patterns_context)
+
+def get_charging_patterns_context():
+    """Provide context about charging patterns for GPT-4o analysis"""
+    # Load latest analysis results
+    results = get_latest_analysis_results()
+    
+    # Format in a way suitable for AI context
+    return {
+        'summary': summarize_charging_patterns(results),
+        'key_metrics': extract_key_metrics(results),
+        'patterns': extract_patterns(results)
+    }
+```
+
+2. Add component-specific prompts in `config/system_prompts/charging_patterns.txt`
+
+#### 10. Troubleshooting Common Integration Issues
+
+1. **Component Not Appearing in Dashboard:**
+   - Check component registration in `config/dashboard_components.json`
+   - Verify Flask route is correctly defined
+   - Check browser console for JavaScript errors
+
+2. **Visualizations Not Rendering:**
+   - Verify data is being returned by API endpoint
+   - Check visualization library dependencies
+   - Ensure DOM element IDs match between HTML and JS
+
+3. **Style Inconsistencies:**
+   - Use dashboard CSS variables instead of hardcoded values
+   - Check template structure matches other components
+   - Verify responsive breakpoints work correctly
+
+4. **Data Sharing Issues:**
+   - Check data formats match expected schema
+   - Verify event subscriptions are properly set up
+   - Test data flow with logging statements
+
+### Final Integration Validation
+
+1. **Cross-Component Functionality:**
+   - Your visualizations should use consistent filtering with other components
+   - Navigation between components should maintain state
+   - Data updates in one component should reflect in others if related
+
+2. **Performance Check:**
+   - Monitor API response times
+   - Check memory usage for large datasets
+   - Verify browser performance with multiple visualizations
+
+3. **UI/UX Consistency:**
+   - Verify your component follows the same design language
+   - Check accessibility features (contrast, keyboard navigation)
+   - Test responsive behavior on different screen sizes
+
+This comprehensive integration approach ensures your EV Charging Pattern Analysis component becomes a seamless part of the existing dashboard running on port 8080, maintaining consistency in data flow, visualization styles, and user experience while adding powerful new analytical capabilities to the system.
+
 This comprehensive integration approach ensures each component works independently but also functions as part of the larger system, with standardized data exchange, consistent visualization approaches, and unified user experience. 
