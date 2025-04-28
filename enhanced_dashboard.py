@@ -62,6 +62,20 @@ VIABILITY_WEIGHTS = {
     "parking_availability": 0.05
 }
 
+# Add land-based region definitions after the VIABILITY_WEIGHTS constant
+BAY_AREA_LAND_REGIONS = [
+    # San Francisco Peninsula
+    {"name": "SF Peninsula", "min_lat": 37.708, "max_lat": 37.810, "min_lon": -122.513, "max_lon": -122.358},
+    # South Bay (San Jose, Santa Clara, etc.)
+    {"name": "South Bay", "min_lat": 37.233, "max_lat": 37.469, "min_lon": -122.089, "max_lon": -121.793},
+    # East Bay (Oakland, Berkeley, etc.)
+    {"name": "East Bay", "min_lat": 37.729, "max_lat": 37.905, "min_lon": -122.342, "max_lon": -122.118},
+    # North Bay (Marin County)
+    {"name": "North Bay", "min_lat": 37.828, "max_lat": 38.062, "min_lon": -122.562, "max_lon": -122.458},
+    # Peninsula South (San Mateo, Redwood City)
+    {"name": "Peninsula South", "min_lat": 37.449, "max_lat": 37.584, "min_lon": -122.271, "max_lon": -122.036}
+]
+
 # Add code near the beginning of the file to ensure static directory exists
 def ensure_static_dir():
     """Ensure static directory exists"""
@@ -87,11 +101,25 @@ def generate_gas_stations(num_stations=50, save_data=True):
     for i in range(1, num_stations + 1):
         # Generate basic station info
         station_id = f"GS-{i:04d}"
-        lat = 37.7749 + random.uniform(-0.5, 0.5)  # Around San Francisco
-        lon = -122.4194 + random.uniform(-0.5, 0.5)
+        
+        # Choose a random land region and generate coordinates within it
+        region = random.choice(BAY_AREA_LAND_REGIONS)
+        lat = random.uniform(region["min_lat"], region["max_lat"])
+        lon = random.uniform(region["min_lon"], region["max_lon"])
         
         # Generate features with random values (0-100)
         features = {feature: round(random.uniform(30, 95), 1) for feature in LOCATION_FEATURES}
+        
+        # Adjust features based on region (optional)
+        if region["name"] == "SF Peninsula":
+            # Downtown SF has higher traffic, income and EV ownership
+            features["traffic_volume"] = min(95, features["traffic_volume"] * 1.2)
+            features["income_level"] = min(95, features["income_level"] * 1.15)
+            features["ev_ownership"] = min(95, features["ev_ownership"] * 1.25)
+        elif region["name"] == "South Bay":
+            # Silicon Valley has higher tech adoption and income
+            features["ev_ownership"] = min(95, features["ev_ownership"] * 1.3)
+            features["income_level"] = min(95, features["income_level"] * 1.2)
         
         # Calculate viability score (weighted average of features)
         viability_score = sum(features[k] * VIABILITY_WEIGHTS[k] for k in VIABILITY_WEIGHTS)
