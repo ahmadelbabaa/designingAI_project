@@ -25,9 +25,9 @@ from flask import Flask, render_template, request, jsonify
 from conversion_advisor import generate_conversion_recommendation, create_dashboard_html, load_gas_stations
 from ev_charging_analysis import run_analysis
 
-# Create Flask app with modified static settings
+# Create Flask app with standard static folder configuration
 app = Flask(__name__, 
-            static_folder='output',  # Serve files directly from output directory
+            static_folder='static',  # Use the standard static folder
             template_folder='templates')
 
 # Create necessary folders if they don't exist
@@ -61,6 +61,15 @@ VIABILITY_WEIGHTS = {
     "grid_capacity": 0.10,
     "parking_availability": 0.05
 }
+
+# Add code near the beginning of the file to ensure static directory exists
+def ensure_static_dir():
+    """Ensure static directory exists"""
+    os.makedirs('static', exist_ok=True)
+    os.makedirs('static/forecasts', exist_ok=True)
+    os.makedirs('static/images', exist_ok=True)
+    os.makedirs('static/css', exist_ok=True)
+    os.makedirs('static/js', exist_ok=True)
 
 def generate_gas_stations(num_stations=50, save_data=True):
     """
@@ -145,7 +154,7 @@ def generate_gas_stations(num_stations=50, save_data=True):
     
     return stations
 
-def create_map(stations, save_file="output/station_map.html"):
+def create_map(stations, save_file="static/station_map.html"):
     """
     Create a folium map with station markers
     
@@ -205,7 +214,7 @@ def create_map(stations, save_file="output/station_map.html"):
     
     return m
 
-def create_heatmap(stations, save_file="output/ev_adoption_heatmap.html"):
+def create_heatmap(stations, save_file="static/ev_adoption_heatmap.html"):
     """
     Create a heatmap showing EV ownership density
     
@@ -343,7 +352,7 @@ def generate_forecasts(stations, top_n=5, historical_days=180, forecast_days=90)
     
     return forecast_results
 
-def create_comparative_performance_chart(stations, forecast_results, save_file="output/forecasts/comparative_chart.png"):
+def create_comparative_performance_chart(stations, forecast_results, save_file="static/forecasts/comparative_chart.png"):
     """
     Create chart comparing forecasted performance of top stations
     
@@ -400,7 +409,7 @@ def create_comparative_performance_chart(stations, forecast_results, save_file="
     
     return save_file
 
-def create_dashboard_html(stations, stats, forecast_results, save_file="output/enhanced_dashboard.html"):
+def create_dashboard_html(stations, stats, forecast_results, save_file="static/enhanced_dashboard.html"):
     """
     Create HTML dashboard with enhanced forecasting visualizations
     
@@ -415,7 +424,7 @@ def create_dashboard_html(stations, stats, forecast_results, save_file="output/e
     """
     # Create comparative performance chart
     comparative_chart_path = create_comparative_performance_chart(stations, forecast_results)
-    relative_chart_path = comparative_chart_path.replace("output/", "") if comparative_chart_path else ""
+    relative_chart_path = comparative_chart_path.replace("static/", "") if comparative_chart_path else ""
     
     # Get forecast visualizations
     forecast_html = tsf.create_forecast_visualization_html(forecast_results)
@@ -1164,12 +1173,12 @@ def main():
     stats = calculate_dashboard_stats(stations)
     
     # Create interactive map
-    create_map(stations, save_file="output/station_map.html")
-    print("Created station map at output/station_map.html")
+    create_map(stations, save_file="static/station_map.html")
+    print("Created station map at static/station_map.html")
     
     # Create EV adoption heatmap
-    create_heatmap(stations, save_file="output/ev_adoption_heatmap.html")
-    print("Created EV adoption heatmap at output/ev_adoption_heatmap.html")
+    create_heatmap(stations, save_file="static/ev_adoption_heatmap.html")
+    print("Created EV adoption heatmap at static/ev_adoption_heatmap.html")
     
     # Generate forecasts for top stations
     forecast_results = generate_forecasts(stations, top_n=5)
@@ -1179,12 +1188,14 @@ def main():
     dashboard_path = create_dashboard_html(stations, stats, forecast_results)
     print(f"Dashboard generated at {dashboard_path}")
     
-    print("\nStarting Flask app on port 8080...")
-    print("Make sure the static file server is running on port 8000 with the 'output' directory")
-    print("Visit http://localhost:8080/ to access the dashboard")
+    print("\nStarting Flask app on port 8081...")
+    print("Dashboard is self-contained, no additional server needed.")
+    print("Visit http://localhost:8081/ to access the dashboard")
     
     # Start the Flask app
-    app.run(debug=True, port=8080)
+    app.run(debug=True, port=8081)
 
 if __name__ == "__main__":
-    main() 
+    # At the beginning of the main function or where processing starts, add:
+    ensure_static_dir()
+    main()
